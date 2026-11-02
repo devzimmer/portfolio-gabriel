@@ -1,0 +1,22 @@
+{
+  "Metadata": {
+    "title": "Gabriel Zimmer — AI-Native Full Stack Developer",
+    "description": "Portfólio de Gabriel Zimmer, AI-Native Full Stack Developer. Software de ponta a ponta, da arquitetura e produto à infraestrutura, com IA como parte do processo."
+  },
+  "Nav": {
+    "about": "Sobre",
+    "projects": "Projetos",
+    "experience": "Experiência",
+    "contact": "Contato"
+  },
+  "Hero": {
+    "role": "AI-Native Full Stack Developer",
+    "tagline": "Software, construído de ponta a ponta.",
+    "description": "Atuo em arquitetura, produto e infraestrutura — usando IA como parte do processo de engenharia, não como atalho.",
+    "availability": "Aberto a oportunidades remotas",
+    "location": "Brasil · Remoto"
+  },
+  "LocaleSwitcher": {
+    "label": "Alterar idioma"
+  }
+}

@@ -12,6 +12,7 @@ Framer Motion e Lucide, com deploy em Cloudflare Workers.
 | CSS           | [Tailwind CSS 4](https://tailwindcss.com/)                       |
 | Animações     | [Framer Motion](https://motion.dev/)                             |
 | Ícones        | [Lucide](https://lucide.dev/)                                    |
+| i18n          | [next-intl](https://next-intl.dev/)                              |
 | Deploy        | [Cloudflare Workers](https://developers.cloudflare.com/workers/) |
 | CDN / DNS     | [Cloudflare](https://www.cloudflare.com/)                        |
 
@@ -49,16 +50,43 @@ O site fica disponível em <http://localhost:3000>.
 ## Estrutura
 
 ```text
+messages/
+  en.json             # Traduções em inglês (padrão)
+  pt.json             # Traduções em português
+  es.json             # Traduções em espanhol
 src/
   app/
-    layout.tsx        # Layout raiz e metadados
-    page.tsx          # Página inicial
+    [locale]/
+      layout.tsx      # Layout raiz por idioma, metadados e hreflang
+      page.tsx        # Página inicial
     globals.css       # Tailwind
+    robots.ts         # robots.txt
+    sitemap.ts        # sitemap com alternates por idioma
+  components/
+    layout/
+      locale-switcher.tsx
+  i18n/
+    routing.ts        # Locales, prefixo e cookie
+    request.ts        # Mensagens e timezone por requisição
+    navigation.ts     # Link/redirect com locale
+  lib/
+    seo.ts            # Helpers de metadata e hreflang
+    site.ts           # Dados do site e links
+  proxy.ts            # Negociação de idioma (Next 16 Proxy)
 wrangler.jsonc        # Configuração do Worker (Cloudflare)
 open-next.config.ts   # Configuração do adapter OpenNext
 ```
 
 O front-end será construído incrementalmente a partir desta base.
+
+## Internacionalização
+
+- Idiomas: `en` (padrão), `pt` e `es`, sempre com prefixo (`/en`, `/pt`, `/es`).
+- A raiz `/` negocia o idioma por `Accept-Language` e cookie, com fallback para inglês.
+- A preferência fica no cookie `NEXT_LOCALE` por um ano.
+- O seletor preserva o pathname atual ao trocar de idioma.
+- Metadados, canonical, `hreflang`, `sitemap.xml` e `robots.txt` são localizados.
+- Nenhuma geolocalização por IP é utilizada.
 
 ## Deploy na Cloudflare
 
@@ -104,3 +132,6 @@ Variables and Secrets** (ou via `wrangler secret put`).
 - O cache de assets estáticos é definido em `public/_headers`.
 - `npm run preview` valida o build completo no runtime da Cloudflare antes do
   deploy.
+- O Proxy do Next.js 16 roda no runtime Node.js. O OpenNext o suporta em modo
+  experimental; a negociação de idioma foi validada com `npm run preview` no
+  runtime real do Worker.
