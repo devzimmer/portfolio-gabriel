@@ -70,6 +70,7 @@ src/
     request.ts        # Mensagens e timezone por requisição
     navigation.ts     # Link/redirect com locale
   lib/
+    motion.ts         # Tokens de easing e duração
     seo.ts            # Helpers de metadata e hreflang
     site.ts           # Dados do site e links
   proxy.ts            # Negociação de idioma (Next 16 Proxy)
@@ -87,6 +88,18 @@ O front-end será construído incrementalmente a partir desta base.
 - O seletor preserva o pathname atual ao trocar de idioma.
 - Metadados, canonical, `hreflang`, `sitemap.xml` e `robots.txt` são localizados.
 - Nenhuma geolocalização por IP é utilizada.
+
+## Design System
+
+- **Cores:** `ink` (#171717), `graphite` (#242424), `paper` (#F2F2F0), `fog`
+  (#F5F5F5), `mute` (#A0A0A0) e `line` (branco a 12%).
+- **Tipografia:** Geist para display/UI, Geist Mono para detalhes técnicos e
+  Instrument Serif para o acento editorial em itálico.
+- **Escala fluida:** tokens `display`, `headline`, `title`, `body-lg`, `body`,
+  `small`, `serif` e `eyebrow`, com `clamp()`.
+- **Ritmo:** `gutter` e `section` como tokens de espaçamento responsivo.
+- **Movimento:** easing `cubic-bezier(0.22, 1, 0.36, 1)` e durações em
+  `src/lib/motion.ts`, com respeito a `prefers-reduced-motion`.
 
 ## Deploy na Cloudflare
 
