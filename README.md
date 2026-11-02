@@ -51,23 +51,14 @@ O site fica disponível em <http://localhost:3000>.
 ```text
 src/
   app/
-    layout.tsx        # Layout raiz, fontes e metadados
+    layout.tsx        # Layout raiz e metadados
     page.tsx          # Página inicial
-    globals.css       # Tailwind + tokens de estilo
-  components/
-    hero.tsx          # Seção de abertura (Framer Motion)
-    site-header.tsx   # Cabeçalho fixo
-    site-footer.tsx   # Rodapé
-    tech-stack.tsx    # Grade com a stack do projeto
-    icons.tsx         # Ícones de marca (GitHub/LinkedIn)
-  lib/
-    site.ts           # Nome, links e textos do site
+    globals.css       # Tailwind
 wrangler.jsonc        # Configuração do Worker (Cloudflare)
 open-next.config.ts   # Configuração do adapter OpenNext
 ```
 
-Os dados pessoais, links e textos principais ficam centralizados em
-`src/lib/site.ts` — atualize ali antes de publicar.
+O front-end será construído incrementalmente a partir desta base.
 
 ## Deploy na Cloudflare
 
