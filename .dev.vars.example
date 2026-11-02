@@ -1,0 +1,3 @@
+# Variáveis de ambiente para desenvolvimento local (wrangler / OpenNext).
+# Copie para `.dev.vars` e preencha os valores.
+NEXTJS_ENV=development

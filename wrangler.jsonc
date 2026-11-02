@@ -1,0 +1,34 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portfolio-gabriel",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-11-02",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      // Self-reference service binding used by the OpenNext cache handler.
+      // The service name must match the worker name above.
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "portfolio-gabriel"
+    }
+  ],
+  "r2_buckets": [
+    {
+      // Incremental cache for ISR / revalidation.
+      // Create it with: npx wrangler r2 bucket create portfolio-gabriel-opennext-cache
+      "binding": "NEXT_INC_CACHE_R2_BUCKET",
+      "bucket_name": "portfolio-gabriel-opennext-cache"
+    }
+  ],
+  "images": {
+    // Cloudflare Images binding used by next/image optimization.
+    "binding": "IMAGES"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

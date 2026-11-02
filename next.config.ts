@@ -15,3 +15,8 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+// Makes Cloudflare bindings (R2, Images, etc.) available in `next dev`.
+import("@opennextjs/cloudflare").then((m) =>
+  m.initOpenNextCloudflareForDev(),
+);
