@@ -64,7 +64,9 @@ src/
     sitemap.ts        # sitemap com alternates por idioma
   components/
     layout/
-      locale-switcher.tsx
+      site-header.tsx     # Header fixo, monograma e navegação
+      mobile-menu.tsx     # Overlay mobile com focus trap
+      locale-switcher.tsx # Seletor EN / PT / ES
   i18n/
     routing.ts        # Locales, prefixo e cookie
     request.ts        # Mensagens e timezone por requisição
@@ -100,6 +102,16 @@ O front-end será construído incrementalmente a partir desta base.
 - **Ritmo:** `gutter` e `section` como tokens de espaçamento responsivo.
 - **Movimento:** easing `cubic-bezier(0.22, 1, 0.36, 1)` e durações em
   `src/lib/motion.ts`, com respeito a `prefers-reduced-motion`.
+
+## Header e navegação
+
+- Header fixo (`sticky`) com monograma, navegação e seletor de idioma.
+- No mobile, a navegação abre em um overlay em tela cheia, renderizado via
+  portal no `<body>` para não ser limitado pelo `backdrop-filter` do header.
+- O overlay bloqueia o scroll da página, prende o foco, fecha com `Esc` e
+  devolve o foco ao botão que o abriu.
+- Os links de navegação apontam para `#about`, `#projects`, `#experience` e
+  `#contact`; as seções são construídas nas próximas etapas.
 
 ## Deploy na Cloudflare
 
