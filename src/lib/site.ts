@@ -1,5 +1,7 @@
 export const siteConfig = {
   name: "Gabriel Zimmer",
+  firstName: "Gabriel",
+  lastName: "Zimmer",
   role: "AI-Native Full Stack Developer",
   // TODO: substituir pelo domínio final assim que estiver configurado na Cloudflare.
   url:

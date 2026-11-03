@@ -23,7 +23,7 @@ export async function SiteHeader() {
       <div className="mx-auto flex h-16 w-full max-w-[90rem] items-center justify-between gap-6 px-gutter md:h-18">
         <Link
           href="/"
-          aria-label={`${siteConfig.name} — ${t("home")}`}
+          aria-label={`GZ — ${siteConfig.name}, ${t("home")}`}
           className="group flex items-center gap-2.5"
         >
           <span className="text-[0.9375rem] font-medium tracking-[0.16em] text-fog">

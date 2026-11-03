@@ -67,14 +67,19 @@ src/
       site-header.tsx     # Header fixo, monograma e navegação
       mobile-menu.tsx     # Overlay mobile com focus trap
       locale-switcher.tsx # Seletor EN / PT / ES
+    sections/
+      hero.tsx            # Hero editorial com retrato
   i18n/
     routing.ts        # Locales, prefixo e cookie
     request.ts        # Mensagens e timezone por requisição
     navigation.ts     # Link/redirect com locale
   lib/
     motion.ts         # Tokens de easing e duração
+    portrait.ts       # Retrato otimizado e blur placeholder
     seo.ts            # Helpers de metadata e hreflang
     site.ts           # Dados do site e links
+  assets/
+    portrait-gabriel-zimmer.webp # Retrato otimizado (170 KB)
   proxy.ts            # Negociação de idioma (Next 16 Proxy)
 wrangler.jsonc        # Configuração do Worker (Cloudflare)
 open-next.config.ts   # Configuração do adapter OpenNext
@@ -112,6 +117,20 @@ O front-end será construído incrementalmente a partir desta base.
   devolve o foco ao botão que o abriu.
 - Os links de navegação apontam para `#about`, `#projects`, `#experience` e
   `#contact`; as seções são construídas nas próximas etapas.
+
+## Hero
+
+- Composição editorial em duas colunas: painel escuro com nome, tagline e
+  disponibilidade à esquerda; retrato em preto e branco à direita.
+- Nome em caixa alta em duas linhas, com o token fluido `text-hero`
+  (`clamp(3.5rem, 9.2vw, 11rem)`).
+- Abaixo de `lg` o hero empilha o texto e a imagem, mantendo o retrato em
+  proporção vertical.
+- A foto original (2,2 MB) foi convertida para WebP de 170 KB em
+  `src/assets/portrait-gabriel-zimmer.webp`; o `next/image` gera as variantes
+  responsivas pelo binding `IMAGES` da Cloudflare, com `priority`, `sizes` e
+  blur placeholder.
+- A fonte tem 1021 px de largura; a imagem nunca é ampliada acima disso.
 
 ## Deploy na Cloudflare
 

@@ -26,7 +26,7 @@ export function LocaleSwitcher() {
             href={pathname}
             locale={item}
             hrefLang={item}
-            aria-label={localeNames[item]}
+            aria-label={`${item.toUpperCase()} — ${localeNames[item]}`}
             aria-current={isActive ? "true" : undefined}
             className={
               isActive
