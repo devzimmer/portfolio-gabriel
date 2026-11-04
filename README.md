@@ -21,7 +21,7 @@ O adapter usado para rodar Next.js na Cloudflare é o
 
 ## Requisitos
 
-- Node.js 20+ (recomendado 22+)
+- Node.js 22+ (versão fixada em `.nvmrc`)
 - npm
 - Conta na Cloudflare (para deploy)
 
@@ -42,6 +42,8 @@ O site fica disponível em <http://localhost:3000>.
 | `npm run build`    | Build de produção do Next.js                           |
 | `npm run start`    | Sobe o build do Next.js localmente                     |
 | `npm run lint`     | Roda o ESLint                                          |
+| `npm run typecheck` | Gera os tipos de rota e roda o TypeScript             |
+| `npm run check`    | Lint + typecheck                                       |
 | `npm run preview`  | Build do OpenNext + preview local no runtime do Worker |
 | `npm run deploy`   | Build do OpenNext + deploy na Cloudflare               |
 | `npm run upload`   | Build do OpenNext + upload de uma nova versão           |
@@ -241,6 +243,10 @@ Variables and Secrets** (ou via `wrangler secret put`).
 - `wrangler.jsonc` já configura os bindings de assets, cache R2 e otimização de
   imagens (`IMAGES`).
 - O cache de assets estáticos é definido em `public/_headers`.
+- Headers de segurança (HSTS, nosniff, frame, referrer, permissions) ficam em
+  `next.config.ts`. A CSP será definida antes do lançamento.
+- O CI (`.github/workflows/ci.yml`) roda lint, typecheck, build e audit em cada
+  push e pull request.
 - `npm run preview` valida o build completo no runtime da Cloudflare antes do
   deploy.
 - O Proxy do Next.js 16 roda no runtime Node.js. O OpenNext o suporta em modo
