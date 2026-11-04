@@ -69,6 +69,7 @@ src/
       locale-switcher.tsx # Seletor EN / PT / ES
     sections/
       hero.tsx            # Hero editorial com retrato
+      about.tsx           # Seção Sobre com posicionamento e foco
   i18n/
     routing.ts        # Locales, prefixo e cookie
     request.ts        # Mensagens e timezone por requisição
@@ -99,7 +100,8 @@ O front-end será construído incrementalmente a partir desta base.
 ## Design System
 
 - **Cores:** `ink` (#171717), `graphite` (#242424), `paper` (#F2F2F0), `fog`
-  (#F5F5F5), `mute` (#A0A0A0) e `line` (branco a 12%).
+  (#F5F5F5), `mute` (#A0A0A0), `ash` (#5F5F5F) para texto secundário sobre
+  superfícies claras, `line` (branco a 12%) e `line-ink` (tinta a 14%).
 - **Tipografia:** Geist para display/UI, Geist Mono para detalhes técnicos e
   Instrument Serif para o acento editorial em itálico.
 - **Escala fluida:** tokens `display`, `headline`, `title`, `body-lg`, `body`,
@@ -116,7 +118,7 @@ O front-end será construído incrementalmente a partir desta base.
 - O overlay bloqueia o scroll da página, prende o foco, fecha com `Esc` e
   devolve o foco ao botão que o abriu.
 - Os links de navegação apontam para `#about`, `#projects`, `#experience` e
-  `#contact`; as seções são construídas nas próximas etapas.
+  `#contact`; About já existe, as demais seções vêm nas próximas etapas.
 
 ## Hero
 
@@ -131,6 +133,24 @@ O front-end será construído incrementalmente a partir desta base.
   responsivas pelo binding `IMAGES` da Cloudflare, com `priority`, `sizes` e
   blur placeholder.
 - A fonte tem 1021 px de largura; a imagem nunca é ampliada acima disso.
+
+## About
+
+- Seção clara (`paper`) logo após o hero escuro, criando o contraste editorial
+  entre as duas primeiras dobras.
+- Cabeçalho com numeração (`01 — About`) e metadado à direita, separados por
+  um hairline.
+- Grid de 12 colunas: headline em `text-headline` ocupando 7 colunas, com
+  acento em Instrument Serif itálico via `t.rich`; bio em duas colunas de texto
+  com divisor vertical em `lg`.
+- Quatro frentes de atuação (`Architecture`, `Product`, `Infrastructure`,
+  `AI in the process`) em uma grade de hairlines, numeradas de `01` a `04`.
+- O texto é posicionamento profissional, sem empresas, datas ou resultados
+  inventados; deve ser substituído pela bio real quando ela for fornecida.
+- Superfícies claras usam `data-surface="paper"` para inverter as cores de
+  foco e seleção, mantendo o contraste e a acessibilidade.
+- `scroll-mt-24` garante que o link `#about` não fique escondido sob o header
+  fixo.
 
 ## Deploy na Cloudflare
 

@@ -26,6 +26,33 @@
     "meta": "Portafolio — 2026",
     "portraitAlt": "Retrato en blanco y negro de Gabriel Zimmer"
   },
+  "About": {
+    "label": "01 — Sobre mí",
+    "meta": "Perfil",
+    "headline": "Construyo software de punta a punta — desde la primera decisión de arquitectura hasta el <em>último deploy</em>.",
+    "bio": {
+      "one": "Mi trabajo está entre la ingeniería y el producto: diseñar sistemas, dar forma a interfaces y mantener la infraestructura honesta. Me importa el software que sigue siendo legible años después de salir a producción — límites claros, superficies pequeñas, decisiones que se pueden explicar.",
+      "two": "Uso la IA como parte del proceso de ingeniería: para explorar opciones más rápido, probar supuestos y elevar la calidad de lo que se entrega — nunca para saltarme el razonamiento."
+    },
+    "focus": {
+      "architecture": {
+        "title": "Arquitectura",
+        "description": "Diseño de sistemas, límites de dominio y los trade-offs que mantienen el código comprensible."
+      },
+      "product": {
+        "title": "Producto",
+        "description": "Interfaces y flujos construidos cerca del problema, con atención a lo que el usuario realmente necesita."
+      },
+      "infrastructure": {
+        "title": "Infraestructura",
+        "description": "Deploy, rendimiento y observabilidad, para que el software se sostenga fuera del editor."
+      },
+      "ai": {
+        "title": "IA en el proceso",
+        "description": "Modelos y agentes usados con criterio en el desarrollo, la revisión y la operación."
+      }
+    }
+  },
   "LocaleSwitcher": {
     "label": "Cambiar idioma"
   }

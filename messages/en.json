@@ -26,6 +26,33 @@
     "meta": "Portfolio — 2026",
     "portraitAlt": "Black and white portrait of Gabriel Zimmer"
   },
+  "About": {
+    "label": "01 — About",
+    "meta": "Profile",
+    "headline": "I build software end to end — from the first architecture decision to the <em>last deploy</em>.",
+    "bio": {
+      "one": "My work sits between engineering and product: designing systems, shaping interfaces and keeping infrastructure honest. I care about software that stays legible years after it ships — clear boundaries, small surfaces, decisions that can be explained.",
+      "two": "I use AI as part of the engineering process: to explore options faster, test assumptions and raise the quality of what goes out — never to skip the thinking."
+    },
+    "focus": {
+      "architecture": {
+        "title": "Architecture",
+        "description": "System design, domain boundaries and the trade-offs that keep a codebase understandable."
+      },
+      "product": {
+        "title": "Product",
+        "description": "Interfaces and flows built close to the problem, with attention to what the user actually needs."
+      },
+      "infrastructure": {
+        "title": "Infrastructure",
+        "description": "Deployments, performance and observability, so the software holds up outside the editor."
+      },
+      "ai": {
+        "title": "AI in the process",
+        "description": "Models and agents used deliberately across development, review and operations."
+      }
+    }
+  },
   "LocaleSwitcher": {
     "label": "Change language"
   }
