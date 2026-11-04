@@ -1,10 +1,10 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { type Locale, useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 
-const localeNames: Record<string, string> = {
+const localeNames: Record<Locale, string> = {
   en: "English",
   pt: "Português",
   es: "Español",
