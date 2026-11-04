@@ -73,6 +73,36 @@
       }
     }
   },
+  "Experience": {
+    "label": "03 — Experiência",
+    "meta": "Trajetória",
+    "intro": "Papéis, escopo e o que cada um <em>mudou</em>.",
+    "cta": "Solicitar CV completo",
+    "placeholder": "A preencher",
+    "items": {
+      "one": {
+        "period": "20XX — 20XX",
+        "role": "Cargo Um",
+        "company": "Empresa Um",
+        "location": "Remoto",
+        "description": "Placeholder — substitua pelo cargo, o escopo e o resultado."
+      },
+      "two": {
+        "period": "20XX — 20XX",
+        "role": "Cargo Dois",
+        "company": "Empresa Dois",
+        "location": "Remoto",
+        "description": "Placeholder — substitua pelo time, as responsabilidades e o que foi entregue."
+      },
+      "three": {
+        "period": "20XX — 20XX",
+        "role": "Cargo Três",
+        "company": "Empresa Três",
+        "location": "Remoto",
+        "description": "Placeholder — substitua pelo contexto, a stack e o resultado."
+      }
+    }
+  },
   "LocaleSwitcher": {
     "label": "Alterar idioma"
   }

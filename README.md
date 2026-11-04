@@ -71,11 +71,13 @@ src/
       hero.tsx            # Hero editorial com retrato
       about.tsx           # Seção Sobre com posicionamento e foco
       projects.tsx        # Índice editorial de projetos
+      experience.tsx      # Trajetória em linha do tempo
   i18n/
     routing.ts        # Locales, prefixo e cookie
     request.ts        # Mensagens e timezone por requisição
     navigation.ts     # Link/redirect com locale
   lib/
+    experience.ts     # Dados da trajetória (slots a preencher)
     motion.ts         # Tokens de easing e duração
     portrait.ts       # Retrato otimizado e blur placeholder
     projects.ts       # Dados dos projetos (slots a preencher)
@@ -120,8 +122,8 @@ O front-end será construído incrementalmente a partir desta base.
 - O overlay bloqueia o scroll da página, prende o foco, fecha com `Esc` e
   devolve o foco ao botão que o abriu.
 - Os links de navegação apontam para `#about`, `#projects`, `#experience` e
-  `#contact`; About e Projects já existem, as demais seções vêm nas próximas
-  etapas.
+  `#contact`; About, Projects e Experience já existem, falta a seção de
+  contato.
 
 ## Hero
 
@@ -169,6 +171,18 @@ O front-end será construído incrementalmente a partir desta base.
   sem empresas, clientes ou resultados inventados. Substituir os textos em
   `messages/*.json` e os dados em `src/lib/projects.ts` quando os projetos
   reais forem definidos.
+
+## Experience
+
+- Seção clara (`paper`) após Projects, mantendo a alternância escuro / claro
+  entre as seções.
+- Coluna esquerda com uma frase de posicionamento em `text-title` (acento em
+  Instrument Serif) e um link `mailto:` para solicitar o CV completo.
+- Coluna direita em linha do tempo: trilho vertical, marcadores quadrados,
+  período em Geist Mono, cargo, empresa · localização e descrição.
+- **Estado atual:** três slots de exemplo com o selo `Placeholder`, sem
+  empresas, cargos ou datas reais. Substituir os textos em `messages/*.json`
+  quando a trajetória real for fornecida.
 
 ## Deploy na Cloudflare
 

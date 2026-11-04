@@ -73,6 +73,36 @@
       }
     }
   },
+  "Experience": {
+    "label": "03 — Experience",
+    "meta": "Trajectory",
+    "intro": "Roles, scope and what each one <em>changed</em>.",
+    "cta": "Request full CV",
+    "placeholder": "Placeholder",
+    "items": {
+      "one": {
+        "period": "20XX — 20XX",
+        "role": "Role One",
+        "company": "Company One",
+        "location": "Remote",
+        "description": "Placeholder — replace with the role, the scope and the outcome."
+      },
+      "two": {
+        "period": "20XX — 20XX",
+        "role": "Role Two",
+        "company": "Company Two",
+        "location": "Remote",
+        "description": "Placeholder — replace with the team, the responsibilities and what shipped."
+      },
+      "three": {
+        "period": "20XX — 20XX",
+        "role": "Role Three",
+        "company": "Company Three",
+        "location": "Remote",
+        "description": "Placeholder — replace with the context, the stack and the result."
+      }
+    }
+  },
   "LocaleSwitcher": {
     "label": "Change language"
   }
