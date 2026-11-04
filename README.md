@@ -67,11 +67,13 @@ src/
       site-header.tsx     # Header fixo, monograma e navegação
       mobile-menu.tsx     # Overlay mobile com focus trap
       locale-switcher.tsx # Seletor EN / PT / ES
+      site-footer.tsx     # Rodapé com copyright e voltar ao topo
     sections/
       hero.tsx            # Hero editorial com retrato
       about.tsx           # Seção Sobre com posicionamento e foco
       projects.tsx        # Índice editorial de projetos
       experience.tsx      # Trajetória em linha do tempo
+      contact.tsx         # Contato com e-mail em destaque
   i18n/
     routing.ts        # Locales, prefixo e cookie
     request.ts        # Mensagens e timezone por requisição
@@ -109,7 +111,7 @@ O front-end será construído incrementalmente a partir desta base.
 - **Tipografia:** Geist para display/UI, Geist Mono para detalhes técnicos e
   Instrument Serif para o acento editorial em itálico.
 - **Escala fluida:** tokens `display`, `headline`, `title`, `body-lg`, `body`,
-  `small`, `serif` e `eyebrow`, com `clamp()`.
+  `small`, `serif`, `eyebrow` e `email`, com `clamp()`.
 - **Ritmo:** `gutter` e `section` como tokens de espaçamento responsivo.
 - **Movimento:** easing `cubic-bezier(0.22, 1, 0.36, 1)` e durações em
   `src/lib/motion.ts`, com respeito a `prefers-reduced-motion`.
@@ -122,8 +124,7 @@ O front-end será construído incrementalmente a partir desta base.
 - O overlay bloqueia o scroll da página, prende o foco, fecha com `Esc` e
   devolve o foco ao botão que o abriu.
 - Os links de navegação apontam para `#about`, `#projects`, `#experience` e
-  `#contact`; About, Projects e Experience já existem, falta a seção de
-  contato.
+  `#contact`, todas as seções já construídas.
 
 ## Hero
 
@@ -183,6 +184,20 @@ O front-end será construído incrementalmente a partir desta base.
 - **Estado atual:** três slots de exemplo com o selo `Placeholder`, sem
   empresas, cargos ou datas reais. Substituir os textos em `messages/*.json`
   quando a trajetória real for fornecida.
+
+## Contact e footer
+
+- Seção final volta ao fundo escuro (`ink`), fechando o ritmo alternado da
+  página.
+- Chamada em `text-headline`, com acento em Instrument Serif, e disponibilidade
+  + localização na coluna da direita.
+- E-mail real (`dev.gabrielzimmer@gmail.com`) em destaque, no token fluido
+  `text-email`, dentro de uma faixa delimitada por hairlines; o link abre o
+  cliente de e-mail.
+- LinkedIn e GitHub em links secundários, com `target="_blank"`,
+  `rel="noopener noreferrer"` e aviso de nova aba para leitores de tela.
+- Footer enxuto com copyright, localização e "Back to top". O `id="top"` fica
+  no `<body>` (e não no header fixo) para que a âncora realmente volte ao topo.
 
 ## Deploy na Cloudflare
 

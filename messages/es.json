@@ -103,6 +103,20 @@
       }
     }
   },
+  "Contact": {
+    "label": "04 — Contacto",
+    "meta": "Hablemos",
+    "headline": "¿Tienes un proyecto en mente? Construyamos algo <em>que dure</em>.",
+    "description": "Estoy abierto a puestos remotos y proyectos seleccionados. El correo es la forma más rápida de contactarme.",
+    "availability": "Abierto a oportunidades remotas",
+    "location": "Brasil · Remoto",
+    "newTab": "abre en una nueva pestaña"
+  },
+  "Footer": {
+    "rights": "© Gabriel Zimmer",
+    "location": "Brasil · Remoto",
+    "backToTop": "Volver arriba"
+  },
   "LocaleSwitcher": {
     "label": "Cambiar idioma"
   }

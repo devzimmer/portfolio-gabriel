@@ -17,6 +17,11 @@
   --text-hero--letter-spacing: -0.045em;
   --text-hero--font-weight: 500;
 
+  --text-email: clamp(1.25rem, 4.5vw, 3.5rem);
+  --text-email--line-height: 1.05;
+  --text-email--letter-spacing: -0.03em;
+  --text-email--font-weight: 500;
+
   --text-display: clamp(3.25rem, 8.5vw, 7.5rem);
   --text-display--line-height: 0.9;
   --text-display--letter-spacing: -0.035em;

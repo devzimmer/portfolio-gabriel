@@ -103,6 +103,20 @@
       }
     }
   },
+  "Contact": {
+    "label": "04 — Contact",
+    "meta": "Get in touch",
+    "headline": "Have a project in mind? Let’s build something <em>that lasts</em>.",
+    "description": "I’m open to remote roles and selected projects. Email is the fastest way to reach me.",
+    "availability": "Open to remote opportunities",
+    "location": "Brazil · Remote",
+    "newTab": "opens in a new tab"
+  },
+  "Footer": {
+    "rights": "© Gabriel Zimmer",
+    "location": "Brazil · Remote",
+    "backToTop": "Back to top"
+  },
   "LocaleSwitcher": {
     "label": "Change language"
   }
