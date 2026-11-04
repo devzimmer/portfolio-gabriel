@@ -70,6 +70,7 @@ src/
     sections/
       hero.tsx            # Hero editorial com retrato
       about.tsx           # Seção Sobre com posicionamento e foco
+      projects.tsx        # Índice editorial de projetos
   i18n/
     routing.ts        # Locales, prefixo e cookie
     request.ts        # Mensagens e timezone por requisição
@@ -77,6 +78,7 @@ src/
   lib/
     motion.ts         # Tokens de easing e duração
     portrait.ts       # Retrato otimizado e blur placeholder
+    projects.ts       # Dados dos projetos (slots a preencher)
     seo.ts            # Helpers de metadata e hreflang
     site.ts           # Dados do site e links
   assets/
@@ -118,7 +120,8 @@ O front-end será construído incrementalmente a partir desta base.
 - O overlay bloqueia o scroll da página, prende o foco, fecha com `Esc` e
   devolve o foco ao botão que o abriu.
 - Os links de navegação apontam para `#about`, `#projects`, `#experience` e
-  `#contact`; About já existe, as demais seções vêm nas próximas etapas.
+  `#contact`; About e Projects já existem, as demais seções vêm nas próximas
+  etapas.
 
 ## Hero
 
@@ -151,6 +154,21 @@ O front-end será construído incrementalmente a partir desta base.
   foco e seleção, mantendo o contraste e a acessibilidade.
 - `scroll-mt-24` garante que o link `#about` não fique escondido sob o header
   fixo.
+
+## Projects
+
+- Volta ao fundo escuro (`ink`) para alternar o ritmo entre as seções: hero
+  escuro, About claro e Projects escuro.
+- O título da seção é o próprio rótulo `02 — Projects`, no mesmo padrão
+  numérico das demais seções; a lista é o elemento principal.
+- Cada projeto ocupa uma linha com índice, título, resumo e metadados
+  (stack, ano e link) alinhados à direita em `lg`.
+- Os itens são definidos em `src/lib/projects.ts`; `stack`, `year` e `href` são
+  opcionais e só aparecem quando preenchidos.
+- **Estado atual:** três slots de exemplo, marcados com o selo `Placeholder`,
+  sem empresas, clientes ou resultados inventados. Substituir os textos em
+  `messages/*.json` e os dados em `src/lib/projects.ts` quando os projetos
+  reais forem definidos.
 
 ## Deploy na Cloudflare
 

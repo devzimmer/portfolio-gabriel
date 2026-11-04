@@ -53,6 +53,26 @@
       }
     }
   },
+  "Projects": {
+    "label": "02 — Projetos",
+    "meta": "Trabalhos selecionados",
+    "intro": "Uma seleção focada de trabalhos — o problema, as decisões e o que foi entregue.",
+    "placeholder": "A preencher",
+    "items": {
+      "one": {
+        "title": "Projeto Um",
+        "summary": "Placeholder — substitua por um caso real: o contexto, as restrições e as decisões que moldaram o trabalho."
+      },
+      "two": {
+        "title": "Projeto Dois",
+        "summary": "Placeholder — substitua por um caso real: a arquitetura, os trade-offs e o que foi entregue."
+      },
+      "three": {
+        "title": "Projeto Três",
+        "summary": "Placeholder — substitua por um caso real: a escala, o trabalho de confiabilidade e o resultado."
+      }
+    }
+  },
   "LocaleSwitcher": {
     "label": "Alterar idioma"
   }
