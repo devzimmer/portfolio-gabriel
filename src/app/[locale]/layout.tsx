@@ -6,6 +6,7 @@ import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { PersonJsonLd } from "@/components/seo/person-json-ld";
 import { getLanguageAlternates, openGraphLocale } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import "../globals.css";
@@ -40,6 +41,11 @@ export async function generateMetadata({
   params,
 }: LocaleLayoutProps): Promise<Metadata> {
   const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
   return {
@@ -58,7 +64,7 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "website",
-      locale: openGraphLocale[locale as keyof typeof openGraphLocale],
+      locale: openGraphLocale[locale],
       url: `/${locale}`,
       siteName: siteConfig.name,
       title: t("title"),
@@ -88,6 +94,7 @@ export default async function LocaleLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body id="top" className="flex min-h-full flex-col">
+        <PersonJsonLd locale={locale} />
         <NextIntlClientProvider>
           <SiteHeader />
           {children}
