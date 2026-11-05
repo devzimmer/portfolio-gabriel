@@ -21,7 +21,7 @@ export async function Experience() {
       </div>
       <h2
         id="experience-title"
-        className="mt-14 max-w-[20ch] text-[clamp(2.25rem,4.5vw,4rem)] leading-[1.02] font-medium tracking-[-0.03em]"
+        className="mt-14 max-w-[20ch] text-[clamp(1.875rem,3.4vw,3rem)] leading-[1.02] font-medium tracking-[-0.03em]"
       >
         {t("title")} <em className="font-serif font-normal">{t("titleEmphasis")}</em>
       </h2>
@@ -35,10 +35,10 @@ export async function Experience() {
               {entry.period}
             </span>
             <div className="min-w-0 flex-[999_1_26rem]">
-              <h3 className="text-[1.625rem] font-medium tracking-[-0.015em]">
+              <h3 className="text-[1.375rem] font-medium tracking-[-0.015em]">
                 {entry.title}
               </h3>
-              <p className="mt-3 max-w-[64ch] text-[1.0625rem] leading-relaxed text-mute">
+              <p className="mt-3 max-w-[64ch] text-base leading-relaxed text-mute">
                 {entry.description}
               </p>
             </div>

@@ -50,8 +50,8 @@ export async function generateMetadata({ params }: CasePageProps): Promise<Metad
   };
 }
 
-const lead = "text-[clamp(1.375rem,2vw,1.75rem)] leading-[1.4]";
-const body = "text-[1.0625rem] leading-relaxed text-mute";
+const lead = "text-[clamp(1.25rem,1.6vw,1.5rem)] leading-[1.4]";
+const body = "text-base leading-relaxed text-mute";
 
 export default async function CasePage({ params }: CasePageProps) {
   const { locale, slug, study } = await resolve(params);
@@ -61,7 +61,7 @@ export default async function CasePage({ params }: CasePageProps) {
   const position = cases.findIndex((c) => c.slug === slug) + 1;
 
   return (
-    <main className="pb-0">
+    <main className="mx-auto w-full max-w-[90rem]">
       <section className="flex flex-col gap-10 px-gutter pt-14 pb-16">
         <div className="flex flex-wrap justify-between gap-4 font-mono text-eyebrow uppercase tracking-[0.18em] text-mute">
           <Link href={{ pathname: "/", hash: "work" }} className="inline-flex min-h-11 items-center hover:text-fog">
@@ -72,10 +72,10 @@ export default async function CasePage({ params }: CasePageProps) {
           </span>
         </div>
         <div>
-          <h1 className="text-[clamp(3.5rem,8.4vw,8.5rem)] leading-[0.88] font-medium tracking-[-0.045em] uppercase">
+          <h1 className="text-[clamp(3rem,6.4vw,6rem)] leading-[0.88] font-medium tracking-[-0.045em] uppercase">
             {copy.title}
           </h1>
-          <p className="mt-6 max-w-[32ch] font-serif text-[clamp(1.625rem,2.8vw,2.5rem)] leading-[1.15] italic">
+          <p className="mt-6 max-w-[32ch] font-serif text-[clamp(1.375rem,2.2vw,2rem)] leading-[1.15] italic">
             {copy.lede}
           </p>
         </div>
@@ -86,7 +86,7 @@ export default async function CasePage({ params }: CasePageProps) {
           {copy.facts.map((fact) => (
             <div key={fact.label} className="py-6 pr-6">
               <dt className="font-mono text-eyebrow uppercase tracking-[0.18em] text-mute">{fact.label}</dt>
-              <dd className="mt-2.5 text-[1.0625rem] leading-normal">{fact.value}</dd>
+              <dd className="mt-2.5 text-base leading-normal">{fact.value}</dd>
             </div>
           ))}
         </dl>
@@ -115,7 +115,7 @@ export default async function CasePage({ params }: CasePageProps) {
               {item.kicker ? (
                 <p className="mb-3.5 font-mono text-eyebrow uppercase tracking-[0.18em] text-mute">{item.kicker}</p>
               ) : null}
-              <h3 className="text-[1.375rem] font-medium">
+              <h3 className="text-[1.25rem] font-medium">
                 {item.title}
                 {item.tag ? (
                   <span className="ml-2 font-mono text-eyebrow uppercase tracking-[0.16em] text-mute">{item.tag}</span>
@@ -139,7 +139,7 @@ export default async function CasePage({ params }: CasePageProps) {
                 {String.fromCharCode(65 + index)}
               </span>
               <div>
-                <h3 className="text-xl font-medium">{decision.title}</h3>
+                <h3 className="text-lg font-medium">{decision.title}</h3>
                 <p className={`mt-2.5 text-base ${body}`}>{decision.body}</p>
               </div>
             </li>
@@ -153,12 +153,12 @@ export default async function CasePage({ params }: CasePageProps) {
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(13.75rem,100%),1fr))] gap-8">
           {copy.ai.stats.map((stat) => (
             <div key={stat.figure}>
-              <p className="text-5xl font-medium tracking-[-0.03em]">{stat.figure}</p>
+              <p className="text-4xl font-medium tracking-[-0.03em]">{stat.figure}</p>
               <p className={`mt-2 text-base ${body}`}>{stat.caption}</p>
             </div>
           ))}
           {copy.ai.notes.map((note) => (
-            <p key={note} className="text-[1.0625rem] leading-relaxed">
+            <p key={note} className="text-base leading-relaxed">
               {note}
             </p>
           ))}

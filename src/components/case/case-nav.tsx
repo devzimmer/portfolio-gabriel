@@ -10,7 +10,7 @@ type CaseNavProps = {
 };
 
 const kicker = "font-mono text-eyebrow uppercase tracking-[0.18em] text-mute";
-const title = "text-[1.75rem] font-medium tracking-[-0.015em]";
+const title = "text-[1.5rem] font-medium tracking-[-0.015em]";
 
 export function CaseNav({ locale, previous, next, labels }: CaseNavProps) {
   return (

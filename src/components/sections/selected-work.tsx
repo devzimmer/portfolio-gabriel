@@ -10,7 +10,7 @@ export async function SelectedWork() {
     <section
       id="work"
       aria-labelledby="work-title"
-      className="mx-auto w-full max-w-[90rem] scroll-mt-18 px-gutter pt-28 pb-24"
+      className="scroll-mt-18 px-gutter pt-28 pb-24"
     >
       <SectionLabel
         id="work-title"
@@ -28,10 +28,10 @@ export async function SelectedWork() {
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div className="min-w-0 flex-[999_1_26rem]">
-                  <h3 className="text-[2rem] font-medium tracking-[-0.015em]">
+                  <h3 className="text-[1.75rem] font-medium tracking-[-0.015em]">
                     {copy.title}
                   </h3>
-                  <p className="mt-3 max-w-[56ch] text-[1.0625rem] leading-relaxed text-mute">
+                  <p className="mt-3 max-w-[56ch] text-base leading-relaxed text-mute">
                     {copy.card.summary}
                   </p>
                 </div>
@@ -40,9 +40,18 @@ export async function SelectedWork() {
                   <span>{copy.card.meta}</span>
                   <Link
                     href={`/work/${study.slug}`}
-                    className="mt-2 inline-flex min-h-11 items-center text-fog hover:text-white"
+                    className="group mt-4 inline-flex min-h-12 items-center justify-between gap-6 self-start border border-edge px-5 text-xs font-medium tracking-[0.2em] text-fog transition-colors duration-300 ease-editorial hover:border-fog hover:bg-fog hover:text-void"
                   >
-                    {t("read")}
+                    <span>
+                      {t("read")}
+                      <span className="sr-only"> {copy.title}</span>
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform duration-300 ease-editorial group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
                   </Link>
                 </div>
               </article>

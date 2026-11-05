@@ -18,7 +18,7 @@ export async function AtAGlance() {
           <p className="font-mono text-eyebrow uppercase tracking-[0.18em] text-mute">
             {t(`${cell}.title`)}
           </p>
-          <p className="mt-2.5 text-[1.0625rem] leading-normal">
+          <p className="mt-2.5 text-base leading-normal">
             {t(`${cell}.body`)}
           </p>
         </div>

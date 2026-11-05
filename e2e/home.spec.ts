@@ -32,7 +32,7 @@ test("selected work lists the three cases in order with working links", async ({
   const work = page.locator("#work");
   await expect(work.getByRole("heading", { level: 2 })).toHaveText("01 — Trabalhos selecionados");
   await expect(work.getByRole("heading", { level: 3 })).toHaveText(["EngPocket", "Duzi CRM", "Lumuviz"]);
-  const links = work.getByRole("link", { name: /Ler o case/ });
+  const links = work.getByRole("link", { name: /^Ler o case/ });
   await expect(links).toHaveCount(3);
   await expect(links.first()).toHaveAttribute("href", "/pt/work/engpocket");
   await expect(work).toContainText("150 assinaturas vendidas");
@@ -69,4 +69,16 @@ test("contact gives a recruiter a way in, without a phone number", async ({ page
   await expect(contact.getByRole("link", { name: /GitHub/ })).toHaveAttribute("target", "_blank");
   await expect(contact.getByRole("link", { name: /CV/ })).toHaveAttribute("href", "/cv.pdf");
   await expect(page.locator("body")).not.toContainText(/\+55|telefone/i);
+});
+
+test("each case has a visible, distinctly named read button", async ({ page }) => {
+  await page.goto("/pt");
+  const work = page.locator("#work");
+  for (const title of ["EngPocket", "Duzi CRM", "Lumuviz"]) {
+    const button = work.getByRole("link", { name: `Ler o case ${title}` });
+    await expect(button).toBeVisible();
+    const box = await button.boundingBox();
+    expect(box?.height).toBeGreaterThanOrEqual(48);
+    await expect(button).toHaveCSS("border-top-style", "solid");
+  }
 });

@@ -21,12 +21,12 @@ export async function Process() {
         <div className="flex flex-wrap items-end justify-between gap-8 px-gutter pt-2 pb-24">
           <h2
             id="process-title"
-            className="min-w-0 flex-[999_1_35rem] text-[clamp(2.25rem,4.5vw,4rem)] leading-[1.02] font-medium tracking-[-0.03em]"
+            className="min-w-0 flex-[999_1_35rem] text-[clamp(1.875rem,3.4vw,3rem)] leading-[1.02] font-medium tracking-[-0.03em]"
           >
             {t("title")}{" "}
             <em className="font-serif font-normal">{t("titleEmphasis")}</em>
           </h2>
-          <p className="flex-[1_1_20rem] text-[1.0625rem] leading-relaxed text-mute">
+          <p className="flex-[1_1_20rem] text-base leading-relaxed text-mute">
             {t("lede")}
           </p>
         </div>
@@ -43,7 +43,7 @@ export async function Process() {
               <span className="font-mono text-eyebrow tracking-[0.18em] text-ash">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-7 text-2xl font-medium">{t(`steps.${step}.title`)}</h3>
+              <h3 className="mt-7 text-xl font-medium">{t(`steps.${step}.title`)}</h3>
               <p className="mt-2.5 text-[0.9375rem] leading-[1.55] text-ash">
                 {t(`steps.${step}.body`)}
               </p>

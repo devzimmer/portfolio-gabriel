@@ -26,17 +26,17 @@ export async function Contact() {
         <div className="min-w-0 flex-[999_1_40rem]">
           <h2
             id="contact-title"
-            className="max-w-[18ch] text-[clamp(2.5rem,5.6vw,5.5rem)] leading-[0.98] font-medium tracking-[-0.04em]"
+            className="max-w-[18ch] text-[clamp(2.25rem,4.4vw,4.25rem)] leading-[0.98] font-medium tracking-[-0.04em]"
           >
             {t("title")} <em className="font-serif font-normal">{t("titleEmphasis")}</em>
           </h2>
           <a
             href={`mailto:${siteConfig.email}`}
-            className="mt-10 inline-flex min-h-12 items-center border-b border-fog/40 text-[clamp(1.375rem,2.6vw,2.25rem)] tracking-[-0.01em] transition-colors hover:border-fog"
+            className="mt-10 inline-flex min-h-12 items-center border-b border-fog/40 text-[clamp(1.25rem,2vw,1.75rem)] tracking-[-0.01em] transition-colors hover:border-fog"
           >
             {siteConfig.email}
           </a>
-          <p className="mt-5 text-[1.0625rem] leading-relaxed text-mute">{t("lede")}</p>
+          <p className="mt-5 text-base leading-relaxed text-mute">{t("lede")}</p>
         </div>
         <ul className="flex-[1_1_17.5rem] border-t border-line">
           {links.map((link) => (

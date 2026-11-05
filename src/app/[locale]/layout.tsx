@@ -6,9 +6,11 @@ import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { PersonJsonLd } from "@/components/seo/person-json-ld";
 import { getLanguageAlternates, openGraphLocale } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
+import "lenis/dist/lenis.css";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -91,11 +93,11 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body id="top" className="flex min-h-full flex-col">
         <PersonJsonLd locale={locale} />
+        <SmoothScroll />
         <NextIntlClientProvider>
           <SiteHeader />
           {children}

@@ -21,15 +21,15 @@ export async function Hero() {
         <div>
           <h1
             id="hero-title"
-            className="text-[clamp(3.5rem,8.4vw,8.5rem)] leading-[0.88] font-medium tracking-[-0.045em] uppercase"
+            className="text-[clamp(3rem,6.4vw,6rem)] leading-[0.88] font-medium tracking-[-0.045em] uppercase"
           >
             <span className="block">{siteConfig.firstName}</span>
             <span className="block">{siteConfig.lastName}</span>
           </h1>
-          <p className="mt-[1.125rem] text-[clamp(2.5rem,5.6vw,5.5rem)] leading-[0.92] tracking-[-0.04em] text-dim uppercase">
+          <p className="mt-[1.125rem] text-[clamp(2rem,4.2vw,4rem)] leading-[0.92] tracking-[-0.04em] text-dim uppercase">
             {t("secondary")}
           </p>
-          <p className="mt-7 font-serif text-[clamp(1.5rem,2.4vw,2.125rem)] italic">
+          <p className="mt-7 font-serif text-[clamp(1.25rem,1.8vw,1.625rem)] italic">
             {t("tagline")}
           </p>
         </div>

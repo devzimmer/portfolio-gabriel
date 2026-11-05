@@ -7,7 +7,7 @@ import { SelectedWork } from "@/components/sections/selected-work";
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="mx-auto w-full max-w-[90rem]">
       <Hero />
       <AtAGlance />
       <SelectedWork />
