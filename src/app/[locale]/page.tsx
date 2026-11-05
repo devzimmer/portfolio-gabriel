@@ -1,4 +1,4 @@
-import { About } from "@/components/sections/about";
+import { AtAGlance } from "@/components/sections/at-a-glance";
 import { Contact } from "@/components/sections/contact";
 import { Experience } from "@/components/sections/experience";
 import { Hero } from "@/components/sections/hero";
@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <main>
       <Hero />
-      <About />
+      <AtAGlance />
       <Projects />
       <Experience />
       <Contact />

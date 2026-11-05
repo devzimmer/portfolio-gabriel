@@ -18,41 +18,13 @@
     "label": "Menu"
   },
   "Hero": {
-    "role": "AI-Native Full Stack Developer",
-    "tagline": "Software, construído de ponta a ponta.",
-    "description": "Atuo em arquitetura, produto e infraestrutura — usando IA como parte do processo de engenharia, não como atalho.",
-    "availability": "Aberto a oportunidades remotas",
+    "eyebrow": "Product Engineer · Full Stack",
     "location": "Brasil · Remoto",
-    "cta": "Ver trabalhos selecionados",
-    "meta": "Portfólio — 2026",
+    "secondary": "AI-Native Developer",
+    "tagline": "Software, de ponta a ponta.",
+    "ctaWork": "Ver cases",
+    "ctaContact": "Fale comigo",
     "portraitAlt": "Retrato em preto e branco de Gabriel Zimmer"
-  },
-  "About": {
-    "label": "01 — Sobre",
-    "meta": "Perfil",
-    "headline": "Construo software de ponta a ponta — da primeira decisão de arquitetura ao <em>último deploy</em>.",
-    "bio": {
-      "one": "Meu trabalho fica entre engenharia e produto: desenhar sistemas, moldar interfaces e manter a infraestrutura honesta. Me importo com software que continua legível anos depois de entrar no ar — fronteiras claras, superfícies pequenas, decisões que podem ser explicadas.",
-      "two": "Uso IA como parte do processo de engenharia: para explorar opções mais rápido, testar hipóteses e elevar a qualidade do que é entregue — nunca para pular o raciocínio."
-    },
-    "focus": {
-      "architecture": {
-        "title": "Arquitetura",
-        "description": "Desenho de sistemas, fronteiras de domínio e os trade-offs que mantêm o código compreensível."
-      },
-      "product": {
-        "title": "Produto",
-        "description": "Interfaces e fluxos construídos perto do problema, com atenção ao que o usuário realmente precisa."
-      },
-      "infrastructure": {
-        "title": "Infraestrutura",
-        "description": "Deploy, performance e observabilidade, para o software se sustentar fora do editor."
-      },
-      "ai": {
-        "title": "IA no processo",
-        "description": "Modelos e agentes usados com critério no desenvolvimento, na revisão e na operação."
-      }
-    }
   },
   "Projects": {
     "label": "02 — Projetos",
@@ -119,5 +91,24 @@
   },
   "LocaleSwitcher": {
     "label": "Alterar idioma"
+  },
+  "Glance": {
+    "label": "Em resumo",
+    "focus": {
+      "title": "Foco",
+      "body": "Visão de produto, arquitetura, segurança"
+    },
+    "ai": {
+      "title": "Fluxo com IA",
+      "body": "Claude Code, specs e ADRs, harness de agentes, evals"
+    },
+    "stack": {
+      "title": "Stack",
+      "body": "TypeScript · Next.js · React · Supabase · Postgres · Deno"
+    },
+    "languages": {
+      "title": "Idiomas",
+      "body": "Português (nativo) · Inglês [B2] · Espanhol [B1]"
+    }
   }
 }

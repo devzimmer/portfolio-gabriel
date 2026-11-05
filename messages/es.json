@@ -18,41 +18,13 @@
     "label": "Menu"
   },
   "Hero": {
-    "role": "AI-Native Full Stack Developer",
-    "tagline": "Software, construido de punta a punta.",
-    "description": "Trabajo en arquitectura, producto e infraestructura — usando la IA como parte del proceso de ingeniería, no como un atajo.",
-    "availability": "Abierto a oportunidades remotas",
+    "eyebrow": "Product Engineer · Full Stack",
     "location": "Brasil · Remoto",
-    "cta": "Ver proyectos seleccionados",
-    "meta": "Portafolio — 2026",
-    "portraitAlt": "Retrato en blanco y negro de Gabriel Zimmer"
-  },
-  "About": {
-    "label": "01 — Sobre mí",
-    "meta": "Perfil",
-    "headline": "Construyo software de punta a punta — desde la primera decisión de arquitectura hasta el <em>último deploy</em>.",
-    "bio": {
-      "one": "Mi trabajo está entre la ingeniería y el producto: diseñar sistemas, dar forma a interfaces y mantener la infraestructura honesta. Me importa el software que sigue siendo legible años después de salir a producción — límites claros, superficies pequeñas, decisiones que se pueden explicar.",
-      "two": "Uso la IA como parte del proceso de ingeniería: para explorar opciones más rápido, probar supuestos y elevar la calidad de lo que se entrega — nunca para saltarme el razonamiento."
-    },
-    "focus": {
-      "architecture": {
-        "title": "Arquitectura",
-        "description": "Diseño de sistemas, límites de dominio y los trade-offs que mantienen el código comprensible."
-      },
-      "product": {
-        "title": "Producto",
-        "description": "Interfaces y flujos construidos cerca del problema, con atención a lo que el usuario realmente necesita."
-      },
-      "infrastructure": {
-        "title": "Infraestructura",
-        "description": "Deploy, rendimiento y observabilidad, para que el software se sostenga fuera del editor."
-      },
-      "ai": {
-        "title": "IA en el proceso",
-        "description": "Modelos y agentes usados con criterio en el desarrollo, la revisión y la operación."
-      }
-    }
+    "secondary": "AI-Native Developer",
+    "tagline": "Software, de ponta a ponta.",
+    "ctaWork": "Ver cases",
+    "ctaContact": "Fale comigo",
+    "portraitAlt": "Retrato em preto e branco de Gabriel Zimmer"
   },
   "Projects": {
     "label": "02 — Proyectos",
@@ -119,5 +91,24 @@
   },
   "LocaleSwitcher": {
     "label": "Cambiar idioma"
+  },
+  "Glance": {
+    "label": "Em resumo",
+    "focus": {
+      "title": "Foco",
+      "body": "Visão de produto, arquitetura, segurança"
+    },
+    "ai": {
+      "title": "Fluxo com IA",
+      "body": "Claude Code, specs e ADRs, harness de agentes, evals"
+    },
+    "stack": {
+      "title": "Stack",
+      "body": "TypeScript · Next.js · React · Supabase · Postgres · Deno"
+    },
+    "languages": {
+      "title": "Idiomas",
+      "body": "Português (nativo) · Inglês [B2] · Espanhol [B1]"
+    }
   }
 }
