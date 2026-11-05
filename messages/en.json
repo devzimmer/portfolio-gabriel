@@ -105,5 +105,23 @@
     "label": "Trabalhos selecionados",
     "meta": "{count} cases",
     "read": "Ler o case →"
+  },
+  "Case": {
+    "allWork": "← Todos os trabalhos",
+    "counter": "Case {n} / {total}",
+    "factsLabel": "Ficha do projeto",
+    "sections": {
+      "problem": "Problema",
+      "built": "O que construí",
+      "architecture": "Arquitetura",
+      "decisions": "Decisões-chave",
+      "ai": "Como a IA construiu",
+      "next": "Próximos passos"
+    },
+    "previous": "Case anterior",
+    "nextCase": "Próximo case",
+    "backTo": "Voltar para",
+    "allWorkShort": "Todos os trabalhos",
+    "navLabel": "Cases"
   }
 }
