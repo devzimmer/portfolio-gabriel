@@ -10,7 +10,8 @@ Framer Motion e Lucide, com deploy em Cloudflare Workers.
 | Linguagem     | [TypeScript](https://www.typescriptlang.org/)                    |
 | Framework     | [Next.js 16](https://nextjs.org/) (App Router)                   |
 | CSS           | [Tailwind CSS 4](https://tailwindcss.com/)                       |
-| Animações     | [Framer Motion](https://motion.dev/)                             |
+| Animações     | Canvas próprio (mãos em ASCII) e [Framer Motion](https://motion.dev/) no menu mobile |
+| Testes        | [Vitest](https://vitest.dev/) e [Playwright](https://playwright.dev/) |
 | Ícones        | [Lucide](https://lucide.dev/)                                    |
 | i18n          | [next-intl](https://next-intl.dev/)                              |
 | Deploy        | [Cloudflare Workers](https://developers.cloudflare.com/workers/) |
@@ -44,6 +45,8 @@ O site fica disponível em <http://localhost:3000>.
 | `npm run lint`     | Roda o ESLint                                          |
 | `npm run typecheck` | Gera os tipos de rota e roda o TypeScript             |
 | `npm run check`    | Lint + typecheck                                       |
+| `npm test`         | Testes unitários (Vitest)                              |
+| `npm run test:e2e` | Testes end-to-end (Playwright)                         |
 | `npm run preview`  | Build do OpenNext + preview local no runtime do Worker |
 | `npm run deploy`   | Build do OpenNext + deploy na Cloudflare               |
 | `npm run upload`   | Build do OpenNext + upload de uma nova versão           |
@@ -52,154 +55,57 @@ O site fica disponível em <http://localhost:3000>.
 ## Estrutura
 
 ```text
-messages/
-  en.json             # Traduções em inglês (padrão)
-  pt.json             # Traduções em português
-  es.json             # Traduções em espanhol
+messages/{en,pt,es}.json  # Textos curtos de UI (hoje todos em português; tradução pendente)
 src/
   app/
     [locale]/
-      layout.tsx      # Layout raiz por idioma, metadados e hreflang
-      page.tsx        # Página inicial
-    globals.css       # Tailwind
-    robots.ts         # robots.txt
-    sitemap.ts        # sitemap com alternates por idioma
+      layout.tsx              # Layout por idioma, metadados, hreflang e JSON-LD
+      page.tsx                # Home: hero, em resumo, trabalhos, processo, experiência, contato
+      work/[slug]/page.tsx    # Página de case (gerada estaticamente por slug)
+    sitemap.ts                # Home e cases em todos os idiomas
   components/
-    layout/
-      site-header.tsx     # Header fixo, monograma e navegação
-      mobile-menu.tsx     # Overlay mobile com focus trap
-      locale-switcher.tsx # Seletor EN / PT / ES
-      site-footer.tsx     # Rodapé com copyright e voltar ao topo
-    sections/
-      hero.tsx            # Hero editorial com retrato
-      about.tsx           # Seção Sobre com posicionamento e foco
-      projects.tsx        # Índice editorial de projetos
-      experience.tsx      # Trajetória em linha do tempo
-      contact.tsx         # Contato com e-mail em destaque
-  i18n/
-    routing.ts        # Locales, prefixo e cookie
-    request.ts        # Mensagens e timezone por requisição
-    navigation.ts     # Link/redirect com locale
+    ascii/                    # Mãos em ASCII: engine pura + componente <canvas>
+    case/                     # Blocos das páginas de case
+    layout/                   # Header, footer, menu mobile, seletor de idioma
+    sections/                 # Seções da home
+    ui/                       # SectionLabel e ButtonLink
+  content/
+    cases/                    # Conteúdo tipado de cada case (pt; en/es reaproveitam)
+    experience.ts             # Trajetória profissional
   lib/
-    experience.ts     # Dados da trajetória (slots a preencher)
-    motion.ts         # Tokens de easing e duração
-    portrait.ts       # Retrato otimizado e blur placeholder
-    projects.ts       # Dados dos projetos (slots a preencher)
-    seo.ts            # Helpers de metadata e hreflang
-    site.ts           # Dados do site e links
-  assets/
-    portrait-gabriel-zimmer.webp # Retrato otimizado (170 KB)
-  proxy.ts            # Negociação de idioma (Next 16 Proxy)
-wrangler.jsonc        # Configuração do Worker (Cloudflare)
-open-next.config.ts   # Configuração do adapter OpenNext
+    case-routes.ts            # Detecta slugs de case inexistentes (usado no proxy)
+    site.ts                   # Dados do site, links e caminho do CV
+  proxy.ts                    # Idioma (next-intl) e 404 de cases inexistentes
+docs/
+  design/                     # Referências do canvas aprovado
+  superpowers/                # Spec e plano do redesign
+e2e/                          # Testes end-to-end (Playwright)
 ```
 
-O front-end será construído incrementalmente a partir desta base.
+## Design
 
-## Internacionalização
+O design aprovado ("A — Editorial") está descrito em
+`docs/superpowers/specs/2026-11-05-portfolio-redesign-design.md`, com as
+referências visuais em `docs/design/`.
 
-- Idiomas: `en` (padrão), `pt` e `es`, sempre com prefixo (`/en`, `/pt`, `/es`).
-- A raiz `/` negocia o idioma por `Accept-Language` e cookie, com fallback para inglês.
-- A preferência fica no cookie `NEXT_LOCALE` por um ano.
-- O seletor preserva o pathname atual ao trocar de idioma.
-- Metadados, canonical, `hreflang`, `sitemap.xml` e `robots.txt` são localizados.
-- Nenhuma geolocalização por IP é utilizada.
+- **Cores:** fundo `void` (#0A0A0A), texto `fog` (#F2F2F0), secundário `mute`
+  (#A0A0A0) e `dim` (#8C8C8C); superfície clara `paper` com texto `ink` e `ash`.
+- **Tipografia:** Geist, Geist Mono e Instrument Serif itálico.
+- **Mãos em ASCII:** a seção Processo abre com duas mãos desenhadas em
+  caracteres (a humana em densidade, a da máquina em símbolos de código), que se
+  revelam ao entrar na tela e trocam uma faísca `-=>`. Respeita
+  `prefers-reduced-motion` com um quadro estático.
+- **Conteúdo:** as regras do que pode ou não ser dito sobre cada projeto estão
+  na spec e são conferidas por testes em `src/content/cases/cases.test.ts`.
 
-## Design System
+## Pendências antes de publicar
 
-- **Cores:** `ink` (#171717), `graphite` (#242424), `paper` (#F2F2F0), `fog`
-  (#F5F5F5), `mute` (#A0A0A0), `ash` (#5F5F5F) para texto secundário sobre
-  superfícies claras, `line` (branco a 12%) e `line-ink` (tinta a 14%).
-- **Tipografia:** Geist para display/UI, Geist Mono para detalhes técnicos e
-  Instrument Serif para o acento editorial em itálico.
-- **Escala fluida:** tokens `display`, `headline`, `title`, `body-lg`, `body`,
-  `small`, `serif`, `eyebrow` e `email`, com `clamp()`.
-- **Ritmo:** `gutter` e `section` como tokens de espaçamento responsivo.
-- **Movimento:** easing `cubic-bezier(0.22, 1, 0.36, 1)` e durações em
-  `src/lib/motion.ts`, com respeito a `prefers-reduced-motion`.
-
-## Header e navegação
-
-- Header fixo (`sticky`) com monograma, navegação e seletor de idioma.
-- No mobile, a navegação abre em um overlay em tela cheia, renderizado via
-  portal no `<body>` para não ser limitado pelo `backdrop-filter` do header.
-- O overlay bloqueia o scroll da página, prende o foco, fecha com `Esc` e
-  devolve o foco ao botão que o abriu.
-- Os links de navegação apontam para `#about`, `#projects`, `#experience` e
-  `#contact`, todas as seções já construídas.
-
-## Hero
-
-- Composição editorial em duas colunas: painel escuro com nome, tagline e
-  disponibilidade à esquerda; retrato em preto e branco à direita.
-- Nome em caixa alta em duas linhas, com o token fluido `text-hero`
-  (`clamp(3.5rem, 9.2vw, 11rem)`).
-- Abaixo de `lg` o hero empilha o texto e a imagem, mantendo o retrato em
-  proporção vertical.
-- A foto original (2,2 MB) foi convertida para WebP de 170 KB em
-  `src/assets/portrait-gabriel-zimmer.webp`; o `next/image` gera as variantes
-  responsivas pelo binding `IMAGES` da Cloudflare, com `priority`, `sizes` e
-  blur placeholder.
-- A fonte tem 1021 px de largura; a imagem nunca é ampliada acima disso.
-
-## About
-
-- Seção clara (`paper`) logo após o hero escuro, criando o contraste editorial
-  entre as duas primeiras dobras.
-- Cabeçalho com numeração (`01 — About`) e metadado à direita, separados por
-  um hairline.
-- Grid de 12 colunas: headline em `text-headline` ocupando 7 colunas, com
-  acento em Instrument Serif itálico via `t.rich`; bio em duas colunas de texto
-  com divisor vertical em `lg`.
-- Quatro frentes de atuação (`Architecture`, `Product`, `Infrastructure`,
-  `AI in the process`) em uma grade de hairlines, numeradas de `01` a `04`.
-- O texto é posicionamento profissional, sem empresas, datas ou resultados
-  inventados; deve ser substituído pela bio real quando ela for fornecida.
-- Superfícies claras usam `data-surface="paper"` para inverter as cores de
-  foco e seleção, mantendo o contraste e a acessibilidade.
-- `scroll-mt-24` garante que o link `#about` não fique escondido sob o header
-  fixo.
-
-## Projects
-
-- Volta ao fundo escuro (`ink`) para alternar o ritmo entre as seções: hero
-  escuro, About claro e Projects escuro.
-- O título da seção é o próprio rótulo `02 — Projects`, no mesmo padrão
-  numérico das demais seções; a lista é o elemento principal.
-- Cada projeto ocupa uma linha com índice, título, resumo e metadados
-  (stack, ano e link) alinhados à direita em `lg`.
-- Os itens são definidos em `src/lib/projects.ts`; `stack`, `year` e `href` são
-  opcionais e só aparecem quando preenchidos.
-- **Estado atual:** três slots de exemplo, marcados com o selo `Placeholder`,
-  sem empresas, clientes ou resultados inventados. Substituir os textos em
-  `messages/*.json` e os dados em `src/lib/projects.ts` quando os projetos
-  reais forem definidos.
-
-## Experience
-
-- Seção clara (`paper`) após Projects, mantendo a alternância escuro / claro
-  entre as seções.
-- Coluna esquerda com uma frase de posicionamento em `text-title` (acento em
-  Instrument Serif) e um link `mailto:` para solicitar o CV completo.
-- Coluna direita em linha do tempo: trilho vertical, marcadores quadrados,
-  período em Geist Mono, cargo, empresa · localização e descrição.
-- **Estado atual:** três slots de exemplo com o selo `Placeholder`, sem
-  empresas, cargos ou datas reais. Substituir os textos em `messages/*.json`
-  quando a trajetória real for fornecida.
-
-## Contact e footer
-
-- Seção final volta ao fundo escuro (`ink`), fechando o ritmo alternado da
-  página.
-- Chamada em `text-headline`, com acento em Instrument Serif, e disponibilidade
-  + localização na coluna da direita.
-- E-mail real (`dev.gabrielzimmer@gmail.com`) em destaque, no token fluido
-  `text-email`, dentro de uma faixa delimitada por hairlines; o link abre o
-  cliente de e-mail.
-- LinkedIn e GitHub em links secundários, com `target="_blank"`,
-  `rel="noopener noreferrer"` e aviso de nova aba para leitores de tela.
-- Footer enxuto com copyright, localização e "Back to top". O `id="top"` fica
-  no `<body>` (e não no header fixo) para que a âncora realmente volte ao topo.
+- Arte das mãos: a grade atual vem de uma imagem de referência e é
+  placeholder; substituir por fonte própria (afresco de domínio público ou foto).
+- Tradução de `en` e `es` (hoje reaproveitam o texto em português).
+- Experiência anterior a 2026 (linha placeholder) e CV em `public/cv.pdf`.
+- Screenshots dos projetos no lugar dos placeholders das páginas de case.
+- Imagem Open Graph, favicon e Content Security Policy.
 
 ## Deploy na Cloudflare
 
@@ -245,7 +151,7 @@ Variables and Secrets** (ou via `wrangler secret put`).
 - O cache de assets estáticos é definido em `public/_headers`.
 - Headers de segurança (HSTS, nosniff, frame, referrer, permissions) ficam em
   `next.config.ts`. A CSP será definida antes do lançamento.
-- O CI (`.github/workflows/ci.yml`) roda lint, typecheck, build e audit em cada
+- O CI (`.github/workflows/ci.yml`) roda lint, typecheck, testes unitários, build, testes e2e e audit em cada
   push e pull request.
 - `npm run preview` valida o build completo no runtime da Cloudflare antes do
   deploy.
