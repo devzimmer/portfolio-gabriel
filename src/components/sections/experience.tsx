@@ -48,7 +48,7 @@ export async function Experience() {
           </li>
         ))}
       </ol>
-      <ButtonLink href={siteConfig.cvPath} variant="outline" className="mt-10">
+      <ButtonLink href={siteConfig.cvPath} variant="outline" external className="mt-10">
         {t("cv")}
       </ButtonLink>
     </section>

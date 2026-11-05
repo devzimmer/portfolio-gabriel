@@ -53,6 +53,7 @@ test("experience shows the two roles and the placeholder row", async ({ page }) 
     "[Cargo anterior] · [Empresa]",
   ]);
   await expect(experience.getByRole("link", { name: "Baixar CV completo (PDF)" })).toHaveAttribute("href", "/cv.pdf");
+  await expect(experience.getByRole("link", { name: /Baixar CV completo/ })).toHaveAttribute("target", "_blank");
 });
 
 test("contact gives a recruiter a way in, without a phone number", async ({ page }) => {
@@ -68,6 +69,7 @@ test("contact gives a recruiter a way in, without a phone number", async ({ page
   );
   await expect(contact.getByRole("link", { name: /GitHub/ })).toHaveAttribute("target", "_blank");
   await expect(contact.getByRole("link", { name: /CV/ })).toHaveAttribute("href", "/cv.pdf");
+  await expect(contact.getByRole("link", { name: /CV/ })).toHaveAttribute("target", "_blank");
   await expect(page.locator("body")).not.toContainText(/\+55|telefone/i);
 });
 

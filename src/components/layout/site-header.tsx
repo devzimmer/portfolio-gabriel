@@ -39,6 +39,7 @@ export async function SiteHeader() {
         <div className="flex items-center gap-4">
           <ButtonLink
             href={siteConfig.cvPath}
+            external
             variant="outline"
             className="hidden min-h-11 text-[0.6875rem] tracking-[0.22em] md:inline-flex"
           >

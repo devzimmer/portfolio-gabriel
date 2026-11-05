@@ -9,7 +9,7 @@ export async function Contact() {
   const links = [
     { label: t("linkedin"), href: siteConfig.links.linkedin, mark: "↗", external: true },
     { label: t("github"), href: siteConfig.links.github, mark: "↗", external: true },
-    { label: t("cv"), href: siteConfig.cvPath, mark: "↓", external: false },
+    { label: t("cv"), href: siteConfig.cvPath, mark: "↓", external: true },
   ];
 
   return (
