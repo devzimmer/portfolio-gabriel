@@ -13,7 +13,7 @@ export const siteConfig = {
   // WhatsApp is offered to Brazilian recruiters only. Set the number (any
   // format, country code included) to show the button on the pt pages.
   whatsapp: {
-    number: null as string | null,
+    number: "+55 51 99773-0087" as string | null,
     locales: ["pt"] as const,
   },
   countryCode: "BR",
