@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Case study — EngPocket</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;background:#0a0a0a}
+a{color:#f2f2f0;text-decoration:none}a:hover{color:#ffffff}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #0a0a0a; color: #f2f2f0; font-family: Geist, system-ui, sans-serif">
+
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 24px clamp(20px, 4vw, 56px); border-bottom: 1px solid rgba(242,242,240,0.12)">
+    <a href="Main.dc.html" aria-label="Gabriel Zimmer, home" style="font-size: 15px; font-weight: 500; letter-spacing: 0.16em">GZ</a>
+    <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 32px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase">
+      <a href="Main.dc.html#work" style="color: #f2f2f0">Work</a>
+      <a href="Main.dc.html#process" style="color: #a0a0a0">Process</a>
+      <a href="Main.dc.html#experience" style="color: #a0a0a0">Experience</a>
+      <a href="Main.dc.html#contact" style="color: #a0a0a0">Contact</a>
+    </nav>
+    <a href="#cv" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid rgba(242,242,240,0.3); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase">Download CV (PDF)</a>
+  </header>
+
+  <section style="padding: 56px clamp(20px, 4vw, 56px) 64px; display: flex; flex-direction: column; gap: 40px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">
+      <a href="Main.dc.html#work" style="color: #a0a0a0">← All work</a>
+      <span>Case study 01 / 03</span>
+    </div>
+    <div>
+      <h1 style="margin: 0; font-weight: 500; font-size: clamp(56px, 8.4vw, 136px); line-height: 0.88; letter-spacing: -0.045em; text-transform: uppercase">EngPocket</h1>
+      <p style="margin: 24px 0 0; max-width: 30ch; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15">Site management for civil engineers, run from a WhatsApp chat.</p>
+    </div>
+    <dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border-top: 1px solid rgba(242,242,240,0.12); border-bottom: 1px solid rgba(242,242,240,0.12)">
+      <div style="padding: 24px 24px 24px 0">
+        <dt style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Role</dt>
+        <dd style="margin: 10px 0 0; font-size: 17px; line-height: 1.5">Co-founder, sole engineer</dd>
+      </div>
+      <div style="padding: 24px 24px 24px 0">
+        <dt style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Timeline</dt>
+        <dd style="margin: 10px 0 0; font-size: 17px; line-height: 1.5">January 2026 — now</dd>
+      </div>
+      <div style="padding: 24px 24px 24px 0">
+        <dt style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Traction</dt>
+        <dd style="margin: 10px 0 0; font-size: 17px; line-height: 1.5">150+ subscriptions sold</dd>
+      </div>
+      <div style="padding: 24px 24px 24px 0">
+        <dt style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Stack</dt>
+        <dd style="margin: 10px 0 0; font-size: 17px; line-height: 1.5">Next.js 16 · Supabase · Deno · OpenAI · WhatsApp Cloud API</dd>
+      </div>
+    </dl>
+  </section>
+
+  <figure style="margin: 0 clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: 12px">
+    <div style="height: 560px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(242,242,240,0.3); background: #141414; font-family: 'Geist Mono', monospace; font-size: 13px; color: #a0a0a0; text-align: center; padding: 24px">[Screen recording: a voice note in WhatsApp becomes a daily site log]</div>
+    <figcaption style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #a0a0a0">The product lives in WhatsApp; the web app organises what the agent records.</figcaption>
+  </figure>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">01 — Problem</h2>
+    <div style="flex: 999 1 560px; min-width: 0; max-width: 68ch">
+      <p style="margin: 0; font-size: clamp(22px, 2vw, 28px); line-height: 1.4">Civil engineers lose hours to repetitive paperwork: daily site logs, expense entries, building-code lookups, quantity takeoffs. They already live in WhatsApp, so that is where the product had to be.</p>
+      <p style="margin: 20px 0 0; font-size: 17px; line-height: 1.6; color: #a0a0a0">EngPocket lets them do that work by text, voice or photo, and keeps the records in a web app with projects, finances and monthly reports. I built it with a civil-engineer co-founder, who owns the domain and sales; I own the product and all of the technology.</p>
+    </div>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0">
+    <div style="display: flex; justify-content: space-between; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid rgba(242,242,240,0.12); font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">
+      <h2 style="margin: 0; font-size: 11px; font-weight: 500">02 — What I built</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: rgba(242,242,240,0.12); border-bottom: 1px solid rgba(242,242,240,0.12)">
+      <div style="background: #0a0a0a; padding: 32px 32px 32px 0">
+        <h3 style="margin: 0; font-size: 22px; font-weight: 500">A WhatsApp agent with 11 tools</h3>
+        <p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">Function calling over OpenAI, with speech-to-text and vision: it writes daily logs from voice notes, books expenses from receipt photos, checks building codes and diagnoses defects from pictures.</p>
+      </div>
+      <div style="background: #0a0a0a; padding: 32px">
+        <h3 style="margin: 0; font-size: 22px; font-weight: 500">A serverless backend</h3>
+        <p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">23 Supabase Edge Functions and pg_cron jobs replaced a self-hosted n8n server. Billing runs on webhooks from three checkout platforms.</p>
+      </div>
+      <div style="background: #0a0a0a; padding: 32px">
+        <h3 style="margin: 0; font-size: 22px; font-weight: 500">A multi-agent office <span style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #a0a0a0">In development</span></h3>
+        <p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">Six agents in sequence analyse a client’s files and draft reports. The model reads and writes; prices and calculations stay in code.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">03 — Architecture</h2>
+    <figure style="flex: 999 1 560px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 16px">
+      <div style="overflow-x: auto; border: 1px solid rgba(242,242,240,0.12); background: #111111; padding: 32px">
+        <pre role="img" aria-label="Messages flow from WhatsApp through a verified webhook into a Postgres queue; a 5-second cron groups each sender's burst after 7 seconds of silence and hands it to the agent, which calls its tools and OpenAI and replies on WhatsApp. The web app reads the same Postgres database under row-level security." style="margin: 0; font-family: 'Geist Mono', monospace; font-size: 14px; line-height: 1.6; color: #f2f2f0">  WhatsApp ──▶ Meta Cloud API ──▶ webhook ──▶ [ inbound queue ]
+                                 HMAC ✓ · 200         │
+                                          pg_cron 5s · 7s of silence
+                                                      ▼
+  reply ◀──── WhatsApp ◀──── bot-agent ──▶ 11 tools ──▶ OpenAI
+                                 │
+                                 ▼
+                         Postgres + RLS ◀──── Next.js app</pre>
+      </div>
+      <figcaption style="font-size: 16px; line-height: 1.6; color: #a0a0a0; max-width: 68ch">People send messages in bursts. The webhook only verifies and enqueues, so it answers Meta at once; a cron job groups each sender’s burst after 7 seconds of silence and hands it to the agent as one turn.</figcaption>
+    </figure>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">04 — Key decisions</h2>
+    <ol style="flex: 999 1 560px; min-width: 0; list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(242,242,240,0.12)">
+      <li style="display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid rgba(242,242,240,0.12)">
+        <span style="flex: 0 0 40px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: #a0a0a0">A</span>
+        <div>
+          <h3 style="margin: 0; font-size: 20px; font-weight: 500">Move every automation from n8n into versioned code</h3>
+          <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">Each function shipped in shadow mode first: it logged what it would do without writing. A flag switched it live, and one update rolled it back. Billing and the bot kept running throughout, and the dedicated server was switched off.</p>
+        </div>
+      </li>
+      <li style="display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid rgba(242,242,240,0.12)">
+        <span style="flex: 0 0 40px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: #a0a0a0">B</span>
+        <div>
+          <h3 style="margin: 0; font-size: 20px; font-weight: 500">Queue and debounce in Postgres</h3>
+          <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">Idempotent by message id, with stuck batches reclaimed. The trade-off is a reply that waits at least 7 seconds, in exchange for one coherent answer instead of five fragments.</p>
+        </div>
+      </li>
+      <li style="display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid rgba(242,242,240,0.12)">
+        <span style="flex: 0 0 40px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: #a0a0a0">C</span>
+        <div>
+          <h3 style="margin: 0; font-size: 20px; font-weight: 500">Keep the WhatsApp gateway behind one module</h3>
+          <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">Sending and receiving never leaked into the agent, its tools or billing. That boundary is what made the incident below a five-day fix instead of a rewrite.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="incident-title" style="margin: 112px clamp(20px, 4vw, 56px) 0; padding: 56px clamp(24px, 4vw, 56px); background: #f2f2f0; color: #171717; display: flex; flex-wrap: wrap; gap: 48px">
+    <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 12px">
+      <h2 id="incident-title" style="margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #5f5f5f">05 — The incident</h2>
+      <p style="margin: 0; font-weight: 500; font-size: clamp(56px, 6vw, 88px); line-height: 1; letter-spacing: -0.04em">5 days</p>
+      <p style="margin: 0; font-size: 15px; color: #5f5f5f">from ban to the official API in production</p>
+    </div>
+    <div style="flex: 999 1 560px; min-width: 0; max-width: 68ch">
+      <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.25">The bot ran on an unofficial WhatsApp gateway, and the number was banned.</p>
+      <p style="margin: 20px 0 0; font-size: 17px; line-height: 1.6; color: #5f5f5f">I wrote the migration plan the same day and shipped it in three phases: a signed webhook, sending through the Graph API, then approved templates for messages outside the 24-hour window. The agent, its tools, the queue and billing did not change. The lesson I carry into every project: choose the official API early, and keep external dependencies behind an interface.</p>
+    </div>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">06 — How AI built it</h2>
+    <div style="flex: 999 1 560px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px">
+      <div>
+        <p style="margin: 0; font-weight: 500; font-size: 48px; letter-spacing: -0.03em">156 / 206</p>
+        <p style="margin: 8px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">commits co-authored with Claude Code</p>
+      </div>
+      <div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6">Nine system documents written for agents and humans, updated in the same change as the code.</p>
+      </div>
+      <div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6">Phased plans before code, database work through MCP, and a staging branch that reaches production only on my call.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">07 — Next</h2>
+    <p style="flex: 999 1 560px; min-width: 0; max-width: 68ch; margin: 0; font-size: 17px; line-height: 1.6; color: #a0a0a0">Automated tests on billing and the agent’s tools, global security headers and rate limiting, then launching the multi-agent office and the budgeting module.</p>
+  </section>
+
+  <nav aria-label="Case studies" style="margin-top: 112px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; padding: 40px clamp(20px, 4vw, 56px); border-top: 1px solid rgba(242,242,240,0.12)">
+    <a href="Main.dc.html#work" style="display: inline-flex; align-items: center; min-height: 48px; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">← All work</a>
+    <a href="Case-DuziCRM.dc.html" style="display: inline-flex; flex-direction: column; align-items: flex-end; gap: 6px; min-height: 48px">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Next case</span>
+      <span style="font-size: 28px; font-weight: 500; letter-spacing: -0.015em">Duzi CRM →</span>
+    </a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4300}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

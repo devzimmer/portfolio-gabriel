@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Case study — Lumuviz</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;background:#0a0a0a}
+a{color:#f2f2f0;text-decoration:none}a:hover{color:#ffffff}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #0a0a0a; color: #f2f2f0; font-family: Geist, system-ui, sans-serif">
+
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 24px clamp(20px, 4vw, 56px); border-bottom: 1px solid rgba(242,242,240,0.12)">
+    <a href="Main.dc.html" aria-label="Gabriel Zimmer, home" style="font-size: 15px; font-weight: 500; letter-spacing: 0.16em">GZ</a>
+    <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 32px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase">
+      <a href="Main.dc.html#work" style="color: #f2f2f0">Work</a>
+      <a href="Main.dc.html#process" style="color: #a0a0a0">Process</a>
+      <a href="Main.dc.html#experience" style="color: #a0a0a0">Experience</a>
+      <a href="Main.dc.html#contact" style="color: #a0a0a0">Contact</a>
+    </nav>
+    <a href="#cv" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid rgba(242,242,240,0.3); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase">Download CV (PDF)</a>
+  </header>
+
+  <section style="padding: 56px clamp(20px, 4vw, 56px) 64px; display: flex; flex-direction: column; gap: 40px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">
+      <a href="Main.dc.html#work" style="color: #a0a0a0">← All work</a>
+      <span>Case study 03 / 03</span>
+    </div>
+    <div>
+      <h1 style="margin: 0; font-weight: 500; font-size: clamp(56px, 8.4vw, 136px); line-height: 0.88; letter-spacing: -0.045em; text-transform: uppercase">Lumuviz</h1>
+      <p style="margin: 24px 0 0; max-width: 32ch; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15">Model, render, present: tools for architects priced out of the big suites.</p>
+    </div>
+    <dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border-top: 1px solid rgba(242,242,240,0.12); border-bottom: 1px solid rgba(242,242,240,0.12)">
+      <div style="padding: 24px 24px 24px 0">
+        <dt style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Role</dt>
+        <dd style="margin: 10px 0 0; font-size: 17px; line-height: 1.5">Solo, product and engineering</dd>
+      </div>
+      <div style="padding: 24px 24px 24px 0">
+        <dt style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Timeline</dt>
+        <dd style="margin: 10px 0 0; font-size: 17px; line-height: 1.5">May — Nov 2026</dd>
+      </div>
+      <div style="padding: 24px 24px 24px 0">
+        <dt style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Status</dt>
+        <dd style="margin: 10px 0 0; font-size: 17px; line-height: 1.5">Pre-launch · 2026</dd>
+      </div>
+      <div style="padding: 24px 24px 24px 0">
+        <dt style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Stack</dt>
+        <dd style="margin: 10px 0 0; font-size: 17px; line-height: 1.5">TypeScript · three.js · Electron · Next.js · Supabase · OpenAI · Stripe</dd>
+      </div>
+    </dl>
+  </section>
+
+  <div style="margin: 0 clamp(20px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px">
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 12px">
+      <div style="height: 420px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(242,242,240,0.3); background: #141414; font-family: 'Geist Mono', monospace; font-size: 13px; color: #a0a0a0; text-align: center; padding: 24px">[GIF: push/pull with inferences in Lumuviz 3D]</div>
+      <figcaption style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #a0a0a0">Lumuviz 3D · the modeler</figcaption>
+    </figure>
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 12px">
+      <div style="height: 420px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(242,242,240,0.3); background: #141414; font-family: 'Geist Mono', monospace; font-size: 13px; color: #a0a0a0; text-align: center; padding: 24px">[Before / after: model view → AI render]</div>
+      <figcaption style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #a0a0a0">Lumuviz · the AI renderer</figcaption>
+    </figure>
+  </div>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">01 — Problem</h2>
+    <div style="flex: 999 1 560px; min-width: 0; max-width: 68ch">
+      <p style="margin: 0; font-size: clamp(22px, 2vw, 28px); line-height: 1.4">In Brazil, a SketchUp Pro subscription costs around R$ 2,400 a year, and a photoreal render takes expensive software and hours of light and material setup. Students and small studios are left out.</p>
+      <p style="margin: 20px 0 0; font-size: 17px; line-height: 1.6; color: #a0a0a0">Lumuviz is a product line for them: a 3D modeler sold once, in the workflow they already know, and an AI service that turns a view of the model into a render, controlled in an architect’s vocabulary.</p>
+    </div>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0">
+    <div style="display: flex; justify-content: space-between; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid rgba(242,242,240,0.12); font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">
+      <h2 style="margin: 0; font-size: 11px; font-weight: 500">02 — What I built</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: rgba(242,242,240,0.12); border-bottom: 1px solid rgba(242,242,240,0.12)">
+      <div style="background: #0a0a0a; padding: 32px 32px 32px 0">
+        <p style="margin: 0 0 14px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Lumuviz 3D</p>
+        <h3 style="margin: 0; font-size: 22px; font-weight: 500">A geometry engine from scratch</h3>
+        <p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">A boundary-representation model with auto-merging faces, push/pull, inferences and solid booleans, in plain TypeScript with no dependencies. Around 40 tools, including walls, openings and stairs.</p>
+      </div>
+      <div style="background: #0a0a0a; padding: 32px">
+        <p style="margin: 0 0 14px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Lumuviz 3D</p>
+        <h3 style="margin: 0; font-size: 22px; font-weight: 500">.skp in and out, without SketchUp</h3>
+        <p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">Opens and saves SketchUp files, keeping texture coordinates. Ships as a browser app and a Windows app with offline licensing and per-customer updates.</p>
+      </div>
+      <div style="background: #0a0a0a; padding: 32px">
+        <p style="margin: 0 0 14px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Lumuviz</p>
+        <h3 style="margin: 0; font-size: 22px; font-weight: 500">Render and edit by marking up</h3>
+        <p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">A screenshot becomes a photoreal render in 40–85 seconds. Users mark points and describe a change; edits chain into a version tree. Credits run on Stripe and a ledger in Postgres.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">03 — Architecture</h2>
+    <figure style="flex: 999 1 560px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 16px">
+      <div style="overflow-x: auto; border: 1px solid rgba(242,242,240,0.12); background: #111111; padding: 32px">
+        <pre role="img" aria-label="Offline-first activation: the license key's check digits are verified, then the app posts to an activate endpoint behind a Cloudflare proxy. An edge function checks that fewer than three machines are active and returns a license signed with Ed25519. Every launch verifies that signature offline; with internet, it renews silently." style="margin: 0; font-family: 'Geist Mono', monospace; font-size: 14px; line-height: 1.6; color: #f2f2f0">  [ license key ] ──▶ check digits ──▶ POST /v1/activate ──▶ Cloudflare proxy
+                                                                     │
+                                                              Edge Function
+                                                              machines ≤ 2 ?
+                                                                     │
+  license.json ◀──────────── Ed25519 signature ◀──────────────────────┘
+       │
+       └──▶ every launch: verified offline ✓      online: renews silently</pre>
+      </div>
+      <figcaption style="font-size: 16px; line-height: 1.6; color: #a0a0a0; max-width: 68ch">The modeler has to open without internet. Activation binds the key to a machine and is signed on the server; the app holds only the public key, so a fake server or an edited file fails the check. The proxy keeps a fixed address in every copy sold, so the backend can move without an app update.</figcaption>
+    </figure>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">04 — Key decisions</h2>
+    <ol style="flex: 999 1 560px; min-width: 0; list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(242,242,240,0.12)">
+      <li style="display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid rgba(242,242,240,0.12)">
+        <span style="flex: 0 0 40px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: #a0a0a0">A</span>
+        <div>
+          <h3 style="margin: 0; font-size: 20px; font-weight: 500">Replace the proprietary SDK with an open library</h3>
+          <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">The official SDK’s terms block reselling. I rebuilt the file bridge on OpenSKP (MIT) behind the same interface and validated it on a real model: 1,029 groups and 12,267 faces, counts identical to the SDK’s.</p>
+        </div>
+      </li>
+      <li style="display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid rgba(242,242,240,0.12)">
+        <span style="flex: 0 0 40px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: #a0a0a0">B</span>
+        <div>
+          <h3 style="margin: 0; font-size: 20px; font-weight: 500">Pick the image model by measured A/B</h3>
+          <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">Same screenshot, prompt and size across candidates, comparing tokens, cost and time. I chose the variant that best preserved materials and colour from the input, not the cheapest one.</p>
+        </div>
+      </li>
+      <li style="display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid rgba(242,242,240,0.12)">
+        <span style="flex: 0 0 40px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: #a0a0a0">C</span>
+        <div>
+          <h3 style="margin: 0; font-size: 20px; font-weight: 500">Chain edits instead of patching pixels</h3>
+          <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">Pixel recomposition kept untouched areas exact but left ghosts and seams. Chaining each edit on the previous model response cut drift over three edits from 25% to 10% of pixels away from the marks. The trade-off: preservation is no longer exact.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="bench-title" style="margin: 112px clamp(20px, 4vw, 56px) 0; padding: 56px clamp(24px, 4vw, 56px); background: #f2f2f0; color: #171717; display: flex; flex-wrap: wrap; gap: 48px">
+    <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 12px">
+      <h2 id="bench-title" style="margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #5f5f5f">05 — Measured, not guessed</h2>
+      <p style="margin: 0; font-weight: 500; font-size: clamp(56px, 6vw, 88px); line-height: 1; letter-spacing: -0.04em">−58–73%</p>
+      <p style="margin: 0; font-size: 15px; color: #5f5f5f">cost per render, in benchmark</p>
+    </div>
+    <div style="flex: 999 1 560px; min-width: 0; max-width: 68ch">
+      <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.25">Every change to the renderer ships with its numbers.</p>
+      <p style="margin: 20px 0 0; font-size: 17px; line-height: 1.6; color: #5f5f5f">The model switch also cut render time by 21–55%. When edits came back blurred, I measured sharpness, moved downscaling in-house with Lanczos and added a tuned unsharp mask, recovering about 98% of the original. Two bugs only showed up by looking at the image, not the metric.</p>
+    </div>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">06 — How AI built it</h2>
+    <div style="flex: 999 1 560px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px">
+      <div>
+        <p style="margin: 0; font-weight: 500; font-size: 48px; letter-spacing: -0.03em">159 / 175</p>
+        <p style="margin: 8px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">commits co-authored with Claude Code, across both products</p>
+      </div>
+      <div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6">Spec, plan, then execution by subagents. The spec marks each decision as mine or the agent’s, and each plan names the edge cases its reviewer must check.</p>
+      </div>
+      <div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6">Parallel sessions in separate worktrees, and an overnight autonomous run that reported what was done, what was tested, what was not, and what needed my call.</p>
+      </div>
+      <div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6">A database security advisor caught a function that let anyone mint credits without logging in. It was closed in a migration before launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">07 — Next</h2>
+    <p style="flex: 999 1 560px; min-width: 0; max-width: 68ch; margin: 0; font-size: 17px; line-height: 1.6; color: #a0a0a0">Launch both products in 2026, then bring the renderer inside the modeler: send a saved scene straight to AI render without leaving the app.</p>
+  </section>
+
+  <nav aria-label="Case studies" style="margin-top: 112px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; padding: 40px clamp(20px, 4vw, 56px); border-top: 1px solid rgba(242,242,240,0.12)">
+    <a href="Case-DuziCRM.dc.html" style="display: inline-flex; flex-direction: column; gap: 6px; min-height: 48px">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Previous case</span>
+      <span style="font-size: 28px; font-weight: 500; letter-spacing: -0.015em">← Duzi CRM</span>
+    </a>
+    <a href="Main.dc.html#work" style="display: inline-flex; flex-direction: column; align-items: flex-end; gap: 6px; min-height: 48px">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Back to</span>
+      <span style="font-size: 28px; font-weight: 500; letter-spacing: -0.015em">All work →</span>
+    </a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4500}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

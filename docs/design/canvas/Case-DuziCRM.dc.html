@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Case study — Duzi CRM</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;background:#0a0a0a}
+a{color:#f2f2f0;text-decoration:none}a:hover{color:#ffffff}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #0a0a0a; color: #f2f2f0; font-family: Geist, system-ui, sans-serif">
+
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 24px clamp(20px, 4vw, 56px); border-bottom: 1px solid rgba(242,242,240,0.12)">
+    <a href="Main.dc.html" aria-label="Gabriel Zimmer, home" style="font-size: 15px; font-weight: 500; letter-spacing: 0.16em">GZ</a>
+    <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 32px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase">
+      <a href="Main.dc.html#work" style="color: #f2f2f0">Work</a>
+      <a href="Main.dc.html#process" style="color: #a0a0a0">Process</a>
+      <a href="Main.dc.html#experience" style="color: #a0a0a0">Experience</a>
+      <a href="Main.dc.html#contact" style="color: #a0a0a0">Contact</a>
+    </nav>
+    <a href="#cv" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid rgba(242,242,240,0.3); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase">Download CV (PDF)</a>
+  </header>
+
+  <section style="padding: 56px clamp(20px, 4vw, 56px) 64px; display: flex; flex-direction: column; gap: 40px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">
+      <a href="Main.dc.html#work" style="color: #a0a0a0">← All work</a>
+      <span>Case study 02 / 03</span>
+    </div>
+    <div>
+      <h1 style="margin: 0; font-weight: 500; font-size: clamp(56px, 8.4vw, 136px); line-height: 0.88; letter-spacing: -0.045em; text-transform: uppercase">Duzi CRM</h1>
+      <p style="margin: 24px 0 0; max-width: 32ch; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(26px, 2.8vw, 40px); line-height: 1.15">A WhatsApp CRM where every company brings its own number, and never sees anyone else’s data.</p>
+    </div>
+    <dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border-top: 1px solid rgba(242,242,240,0.12); border-bottom: 1px solid rgba(242,242,240,0.12)">
+      <div style="padding: 24px 24px 24px 0">
+        <dt style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Role</dt>
+        <dd style="margin: 10px 0 0; font-size: 17px; line-height: 1.5">Solo, product to production</dd>
+      </div>
+      <div style="padding: 24px 24px 24px 0">
+        <dt style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Timeline</dt>
+        <dd style="margin: 10px 0 0; font-size: 17px; line-height: 1.5">Sep — Nov 2026 · 119 PRs</dd>
+      </div>
+      <div style="padding: 24px 24px 24px 0">
+        <dt style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Status</dt>
+        <dd style="margin: 10px 0 0; font-size: 17px; line-height: 1.5">Live · approved Meta Tech Provider</dd>
+      </div>
+      <div style="padding: 24px 24px 24px 0">
+        <dt style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Stack</dt>
+        <dd style="margin: 10px 0 0; font-size: 17px; line-height: 1.5">Supabase · Postgres · Deno · React 19 · Cloudflare</dd>
+      </div>
+    </dl>
+  </section>
+
+  <figure style="margin: 0 clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: 12px">
+    <div style="height: 560px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(242,242,240,0.3); background: #141414; font-family: 'Geist Mono', monospace; font-size: 13px; color: #a0a0a0; text-align: center; padding: 24px">[Screenshot: the shared inbox in Focus layout, from the demo account]</div>
+    <figcaption style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #a0a0a0">Several agents on one number, in real time, with the 24-hour window enforced on the server.</figcaption>
+  </figure>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">01 — Problem</h2>
+    <div style="flex: 999 1 560px; min-width: 0; max-width: 68ch">
+      <p style="margin: 0; font-size: clamp(22px, 2vw, 28px); line-height: 1.4">Small companies sell on WhatsApp, but the phone app cannot handle several agents, campaigns, a sales funnel or metrics. The official API can, if you run an approved Meta app, a token per client, webhooks and sending limits.</p>
+      <p style="margin: 20px 0 0; font-size: 17px; line-height: 1.6; color: #a0a0a0">Duzi CRM runs one Meta app approved as a Tech Provider. Each company connects its own business account and number through Embedded Signup, and keeps using WhatsApp Business on the phone at the same time.</p>
+    </div>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0">
+    <div style="display: flex; justify-content: space-between; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid rgba(242,242,240,0.12); font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">
+      <h2 style="margin: 0; font-size: 11px; font-weight: 500">02 — What I built</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: rgba(242,242,240,0.12); border-bottom: 1px solid rgba(242,242,240,0.12)">
+      <div style="background: #0a0a0a; padding: 32px 32px 32px 0">
+        <h3 style="margin: 0; font-size: 22px; font-weight: 500">Self-serve onboarding</h3>
+        <p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">Embedded Signup with coexistence: a company connects its number in a few clicks, and its token lands in the Vault, one per connection.</p>
+      </div>
+      <div style="background: #0a0a0a; padding: 32px">
+        <h3 style="margin: 0; font-size: 22px; font-weight: 500">The CRM around it</h3>
+        <p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">Shared inbox, contacts and lists, sales pipelines, WhatsApp and email campaigns, profit by UTM, forms and “when → if → do” automations.</p>
+      </div>
+      <div style="background: #0a0a0a; padding: 32px">
+        <h3 style="margin: 0; font-size: 22px; font-weight: 500">Gab, a read-only AI assistant</h3>
+        <p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">It answers with the asking user’s own permissions, cites its sources, filters links against prompt-injection exfiltration and is scored on a 30-case eval.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">03 — Architecture</h2>
+    <figure style="flex: 999 1 560px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 16px">
+      <div style="overflow-x: auto; border: 1px solid rgba(242,242,240,0.12); background: #111111; padding: 32px">
+        <pre role="img" aria-label="The browser loads a React app through a Cloudflare Worker. With the user's JWT it reads Postgres under row-level security scoped by organisation, or calls Deno edge functions. Those check membership in the database, then act through a dedicated Postgres role that can only run private server functions, which alone read each client's Meta token from the Vault." style="margin: 0; font-family: 'Geist Mono', monospace; font-size: 14px; line-height: 1.6; color: #f2f2f0">  browser ──▶ Cloudflare Worker ──▶ React app
+                                       │  user JWT
+                 ┌─────────────────────┴──────────────┐
+                 ▼                                    ▼
+      Postgres + RLS (org_id)              Edge Functions (Deno)
+                                                      │  membership ✓
+                                                      ▼
+                                 duzi_server ──▶ private.* ──▶ Vault
+                                                       one token per client</pre>
+      </div>
+      <figcaption style="font-size: 16px; line-height: 1.6; color: #a0a0a0; max-width: 68ch">Three gates stand before a Meta token: the user’s JWT, their membership checked in the database, and a dedicated Postgres role that can only run server functions. The platform’s default service role never touches the Vault.</figcaption>
+    </figure>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">04 — Key decisions</h2>
+    <ol style="flex: 999 1 560px; min-width: 0; list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(242,242,240,0.12)">
+      <li style="display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid rgba(242,242,240,0.12)">
+        <span style="flex: 0 0 40px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: #a0a0a0">A</span>
+        <div>
+          <h3 style="margin: 0; font-size: 20px; font-weight: 500">A dedicated database role for secrets</h3>
+          <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">A security review found that Supabase’s service role can read the whole Vault and cannot be revoked. I created a login role with no tables, queues or Vault access that can only execute server functions, enforced by a CI check on the database catalog.</p>
+        </div>
+      </li>
+      <li style="display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid rgba(242,242,240,0.12)">
+        <span style="flex: 0 0 40px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: #a0a0a0">B</span>
+        <div>
+          <h3 style="margin: 0; font-size: 20px; font-weight: 500">Store and enqueue before answering Meta</h3>
+          <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">Each webhook event is written and queued in the same transaction before the 200 goes back. Nothing lives only in memory; if the database fails, Meta retries. The cost is a slower response.</p>
+        </div>
+      </li>
+      <li style="display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid rgba(242,242,240,0.12)">
+        <span style="flex: 0 0 40px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: #a0a0a0">C</span>
+        <div>
+          <h3 style="margin: 0; font-size: 20px; font-weight: 500">Start clean instead of growing a fork</h3>
+          <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">The first version was a hardened open-source fork for a single client. Going multi-tenant, its token and tenant model no longer fit, so I restarted and ported the proven parts one module at a time. Every migration since has a rollback, tested up, down and up again in CI.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="proof-title" style="margin: 112px clamp(20px, 4vw, 56px) 0; padding: 56px clamp(24px, 4vw, 56px); background: #f2f2f0; color: #171717; display: flex; flex-wrap: wrap; gap: 48px">
+    <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 12px">
+      <h2 id="proof-title" style="margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #5f5f5f">05 — Proof, not promises</h2>
+      <p style="margin: 0; font-weight: 500; font-size: clamp(56px, 6vw, 88px); line-height: 1; letter-spacing: -0.04em">~2,300</p>
+      <p style="margin: 0; font-size: 15px; color: #5f5f5f">pgTAP assertions on the database</p>
+    </div>
+    <div style="flex: 999 1 560px; min-width: 0; max-width: 68ch">
+      <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.25">Tenant isolation is tested, not assumed.</p>
+      <p style="margin: 20px 0 0; font-size: 17px; line-height: 1.6; color: #5f5f5f">A cross-tenant matrix fails the build when a new table with an organisation id is not registered. A catalog check blocks tables without row-level security and policies that always pass. Around 945 Deno tests cover the edge functions, and a concurrency job runs two workers against the sending-limit ledger on every pull request.</p>
+    </div>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">06 — How AI built it</h2>
+    <div style="flex: 999 1 560px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px">
+      <div>
+        <p style="margin: 0; font-weight: 500; font-size: 48px; letter-spacing: -0.03em">210 / 221</p>
+        <p style="margin: 8px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">commits co-authored with Claude Code</p>
+      </div>
+      <div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6">AGENTS.md with 13 security rules, 21 decision records and a plan per phase, approved by me before any code.</p>
+      </div>
+      <div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6">Every pull request touching auth, tokens, RLS or webhooks gets a dedicated security review by subagents; findings become fixes and tests.</p>
+      </div>
+      <div>
+        <p style="margin: 0; font-weight: 500; font-size: 48px; letter-spacing: -0.03em">30 / 30</p>
+        <p style="margin: 8px 0 0; font-size: 16px; line-height: 1.6; color: #a0a0a0">on the assistant’s eval, including both prompt-injection cases</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 112px clamp(20px, 4vw, 56px) 0; display: flex; flex-wrap: wrap; gap: 48px">
+    <h2 style="flex: 1 1 240px; margin: 0; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #a0a0a0">07 — Next</h2>
+    <p style="flex: 999 1 560px; min-width: 0; max-width: 68ch; margin: 0; font-size: 17px; line-height: 1.6; color: #a0a0a0">Turn the Content Security Policy from report-only to enforced once the Meta signup flow runs clean, add alerting for dead webhook events, and split staging from production.</p>
+  </section>
+
+  <nav aria-label="Case studies" style="margin-top: 112px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; padding: 40px clamp(20px, 4vw, 56px); border-top: 1px solid rgba(242,242,240,0.12)">
+    <a href="Case-EngPocket.dc.html" style="display: inline-flex; flex-direction: column; gap: 6px; min-height: 48px">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Previous case</span>
+      <span style="font-size: 28px; font-weight: 500; letter-spacing: -0.015em">← EngPocket</span>
+    </a>
+    <a href="Case-Lumuviz.dc.html" style="display: inline-flex; flex-direction: column; align-items: flex-end; gap: 6px; min-height: 48px">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a0a0a0">Next case</span>
+      <span style="font-size: 28px; font-weight: 500; letter-spacing: -0.015em">Lumuviz →</span>
+    </a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4500}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
