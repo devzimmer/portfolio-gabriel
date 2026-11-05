@@ -1,29 +1,15 @@
-import { ArrowUp } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+import { LocaleSwitcher } from "./locale-switcher";
 
 export async function SiteFooter() {
   const t = await getTranslations("Footer");
 
   return (
     <footer className="mt-auto border-t border-line bg-void px-gutter">
-      <div className="mx-auto flex w-full max-w-[90rem] flex-col gap-3 py-7 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-eyebrow uppercase text-mute">{t("rights")}</p>
-
-        <p className="font-mono text-[0.625rem] uppercase tracking-[0.18em] text-mute">
-          {t("location")}
-        </p>
-
-        <a
-          href="#top"
-          className="group inline-flex items-center gap-2 text-eyebrow uppercase text-mute transition-colors hover:text-fog"
-        >
-          {t("backToTop")}
-          <ArrowUp
-            aria-hidden="true"
-            strokeWidth={1.5}
-            className="size-3.5 transition-transform duration-300 ease-editorial group-hover:-translate-y-0.5"
-          />
-        </a>
+      <div className="mx-auto flex w-full max-w-[90rem] flex-col gap-4 py-7 font-mono text-eyebrow uppercase tracking-[0.18em] text-mute sm:flex-row sm:items-center sm:justify-between">
+        <p>{t("rights")}</p>
+        <p>{t("location")}</p>
+        <LocaleSwitcher />
       </div>
     </footer>
   );
