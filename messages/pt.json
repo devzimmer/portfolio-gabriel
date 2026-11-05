@@ -110,5 +110,35 @@
       "title": "Idiomas",
       "body": "Português (nativo) · Inglês [B2] · Espanhol [B1]"
     }
+  },
+  "Process": {
+    "label": "02 — Processo",
+    "meta": "Como trabalho com IA",
+    "title": "Intenção humana, execução da máquina —",
+    "titleEmphasis": "e julgamento em cada etapa.",
+    "lede": "A IA escreve o código e revisa. Eu decido o que é construído, como toma forma e o que pode ir para produção.",
+    "stepsLabel": "Etapas do processo",
+    "steps": {
+      "spec": {
+        "title": "Spec",
+        "body": "Planos e registros de decisão são escritos e aprovados antes de qualquer código."
+      },
+      "harness": {
+        "title": "Harness",
+        "body": "AGENTS.md, skills, MCP e um runbook curado dão aos agentes contexto, regras e ferramentas."
+      },
+      "build": {
+        "title": "Build",
+        "body": "Mudanças pequenas e revisáveis contra a spec, com testes junto."
+      },
+      "review": {
+        "title": "Review",
+        "body": "Revisores de IA e subagentes de segurança conferem cada mudança. As decisões de arquitetura e o go/no-go são meus."
+      },
+      "ship": {
+        "title": "Ship",
+        "body": "CI, deploy e observabilidade — software que se sustenta em produção."
+      }
+    }
   }
 }
