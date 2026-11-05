@@ -8,6 +8,8 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_SITE_URL ??
     "https://portfolio-gabriel.devzimmer.workers.dev",
   email: "dev.gabrielzimmer@gmail.com",
+  // CV is published together with the site; the file lands in public/ before launch.
+  cvPath: "/cv.pdf",
   countryCode: "BR",
   links: {
     github: "https://github.com/devzimmer",
