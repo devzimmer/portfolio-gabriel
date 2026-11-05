@@ -82,3 +82,19 @@ test("each case has a visible, distinctly named read button", async ({ page }) =
     await expect(button).toHaveCSS("border-top-style", "solid");
   }
 });
+
+for (const locale of ["en", "es"]) {
+  test(`no WhatsApp contact on /${locale}`, async ({ page }) => {
+    await page.goto(`/${locale}`);
+    await expect(page.locator('a[href^="https://wa.me/"]')).toHaveCount(0);
+  });
+}
+
+test("WhatsApp contact on /pt opens wa.me with a prefilled message", async ({ page }) => {
+  const { siteConfig } = await import("../src/lib/site");
+  test.skip(!siteConfig.whatsapp.number, "WhatsApp number not configured yet");
+  await page.goto("/pt");
+  const link = page.locator("#contact").getByRole("link", { name: /Chamar no WhatsApp/ });
+  await expect(link).toHaveAttribute("href", /^https:\/\/wa\.me\/\d+\?text=/);
+  await expect(link).toHaveAttribute("target", "_blank");
+});

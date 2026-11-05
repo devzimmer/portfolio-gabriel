@@ -10,6 +10,12 @@ export const siteConfig = {
   email: "dev.gabrielzimmer@gmail.com",
   // CV is published together with the site; the file lands in public/ before launch.
   cvPath: "/cv.pdf",
+  // WhatsApp is offered to Brazilian recruiters only. Set the number (any
+  // format, country code included) to show the button on the pt pages.
+  whatsapp: {
+    number: null as string | null,
+    locales: ["pt"] as const,
+  },
   countryCode: "BR",
   links: {
     github: "https://github.com/devzimmer",

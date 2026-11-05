@@ -42,7 +42,10 @@
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "cv": "CV (PDF)",
-    "newTab": "abre em nova aba"
+    "newTab": "abre em nova aba",
+    "whatsapp": "Chamar no WhatsApp",
+    "whatsappMessage": "Olá, Gabriel! Vi seu portfólio e gostaria de conversar.",
+    "ledeWhatsapp": "O jeito mais rápido de falar comigo é pelo WhatsApp."
   },
   "Footer": {
     "rights": "© 2026 Gabriel Zimmer",

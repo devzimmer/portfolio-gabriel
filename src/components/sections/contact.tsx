@@ -1,8 +1,11 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
+import { ButtonLink } from "@/components/ui/button-link";
 import { siteConfig } from "@/lib/site";
+import { whatsappHref } from "@/lib/whatsapp";
 
 export async function Contact() {
-  const t = await getTranslations("Contact");
+  const [t, locale] = await Promise.all([getTranslations("Contact"), getLocale()]);
+  const whatsapp = whatsappHref(locale, siteConfig.whatsapp, t("whatsappMessage"));
   const links = [
     { label: t("linkedin"), href: siteConfig.links.linkedin, mark: "↗", external: true },
     { label: t("github"), href: siteConfig.links.github, mark: "↗", external: true },
@@ -36,7 +39,15 @@ export async function Contact() {
           >
             {siteConfig.email}
           </a>
-          <p className="mt-5 text-base leading-relaxed text-mute">{t("lede")}</p>
+          <p className="mt-5 text-base leading-relaxed text-mute">
+            {whatsapp ? t("ledeWhatsapp") : t("lede")}
+          </p>
+          {whatsapp ? (
+            <ButtonLink href={whatsapp} variant="solid" external className="mt-6">
+              {t("whatsapp")} <span aria-hidden="true">↗</span>
+              <span className="sr-only"> ({t("newTab")})</span>
+            </ButtonLink>
+          ) : null}
         </div>
         <ul className="flex-[1_1_17.5rem] border-t border-line">
           {links.map((link) => (
