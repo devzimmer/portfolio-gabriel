@@ -43,3 +43,30 @@ test("home sections follow the approved order", async ({ page }) => {
   const ids = await page.locator("main > section[id]").evaluateAll((els) => els.map((el) => el.id));
   expect(ids.slice(0, 2)).toEqual(["work", "process"]);
 });
+
+test("experience shows the two roles and the placeholder row", async ({ page }) => {
+  await page.goto("/pt");
+  const experience = page.locator("#experience");
+  await expect(experience.getByRole("heading", { level: 3 })).toHaveText([
+    "Fundador e engenheiro · Duzi Tecnologia",
+    "Cofundador e único engenheiro · EngPocket",
+    "[Cargo anterior] · [Empresa]",
+  ]);
+  await expect(experience.getByRole("link", { name: "Baixar CV completo (PDF)" })).toHaveAttribute("href", "/cv.pdf");
+});
+
+test("contact gives a recruiter a way in, without a phone number", async ({ page }) => {
+  await page.goto("/pt");
+  const contact = page.locator("#contact");
+  await expect(contact.getByRole("link", { name: "dev.gabrielzimmer@gmail.com" })).toHaveAttribute(
+    "href",
+    "mailto:dev.gabrielzimmer@gmail.com",
+  );
+  await expect(contact.getByRole("link", { name: /LinkedIn/ })).toHaveAttribute(
+    "href",
+    "https://www.linkedin.com/in/gabrielzimmerdev/",
+  );
+  await expect(contact.getByRole("link", { name: /GitHub/ })).toHaveAttribute("target", "_blank");
+  await expect(contact.getByRole("link", { name: /CV/ })).toHaveAttribute("href", "/cv.pdf");
+  await expect(page.locator("body")).not.toContainText(/\+55|telefone/i);
+});

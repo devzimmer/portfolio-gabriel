@@ -1,90 +1,56 @@
-import { getTranslations } from "next-intl/server";
-import { experience } from "@/lib/experience";
+import { getLocale, getTranslations } from "next-intl/server";
+import { ButtonLink } from "@/components/ui/button-link";
+import { experience } from "@/content/experience";
 import { siteConfig } from "@/lib/site";
 
 export async function Experience() {
-  const t = await getTranslations("Experience");
+  const [t, locale] = await Promise.all([
+    getTranslations("Experience"),
+    getLocale(),
+  ]);
 
   return (
     <section
       id="experience"
-      data-surface="paper"
       aria-labelledby="experience-title"
-      className="scroll-mt-24 border-t border-line-ink bg-paper px-gutter py-section text-ink"
+      className="scroll-mt-18 px-gutter pt-28 pb-24"
     >
-      <div className="mx-auto w-full max-w-[90rem]">
-        <div className="flex items-baseline justify-between gap-4 border-b border-line-ink pb-5">
-          <h2
-            id="experience-title"
-            className="text-eyebrow uppercase text-ash"
-          >
-            {t("label")}
-          </h2>
-          <p className="font-mono text-[0.625rem] uppercase tracking-[0.18em] text-ash">
-            {t("meta")}
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-12 lg:mt-20 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
-            <p className="text-balance text-title">
-              {t.rich("intro", {
-                em: (chunks) => (
-                  <em className="font-serif font-normal italic">{chunks}</em>
-                ),
-              })}
-            </p>
-
-            <a
-              href={`mailto:${siteConfig.email}`}
-              className="group mt-8 inline-flex items-center gap-3 text-eyebrow uppercase text-ink"
-            >
-              {t("cta")}
-              <span
-                aria-hidden="true"
-                className="h-px w-8 bg-ash transition-[width,background-color] duration-300 ease-editorial group-hover:w-12 group-hover:bg-ink"
-              />
-            </a>
-          </div>
-
-          <ol className="lg:col-span-8">
-            {experience.map((entry) => (
-              <li
-                key={entry.slug}
-                className="relative border-l border-line-ink pb-10 pl-6 last:pb-0 lg:pl-8"
-              >
-                <span
-                  aria-hidden="true"
-                  className="absolute top-[0.55rem] -left-[3.5px] size-1.5 bg-ink"
-                />
-
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <p className="font-mono text-[0.625rem] uppercase tracking-[0.18em] text-ash">
-                    {t(`items.${entry.slug}.period`)}
-                  </p>
-
-                  {entry.placeholder ? (
-                    <span className="border border-line-ink px-2 py-1 font-mono text-[0.5625rem] uppercase tracking-[0.18em] text-ash">
-                      {t("placeholder")}
-                    </span>
-                  ) : null}
-                </div>
-
-                <h3 className="mt-3 text-title">
-                  {t(`items.${entry.slug}.role`)}
-                </h3>
-                <p className="mt-1 text-small text-ash">
-                  {t(`items.${entry.slug}.company`)} ·{" "}
-                  {t(`items.${entry.slug}.location`)}
-                </p>
-                <p className="mt-4 max-w-[52ch] text-body text-ash">
-                  {t(`items.${entry.slug}.description`)}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
+      <div className="flex justify-between gap-4 border-b border-line pb-5 text-eyebrow uppercase text-mute">
+        <span>{t("label")}</span>
+        <span className="font-mono">{t("meta")}</span>
       </div>
+      <h2
+        id="experience-title"
+        className="mt-14 max-w-[20ch] text-[clamp(2.25rem,4.5vw,4rem)] leading-[1.02] font-medium tracking-[-0.03em]"
+      >
+        {t("title")} <em className="font-serif font-normal">{t("titleEmphasis")}</em>
+      </h2>
+      <ol className="mt-14 border-t border-line">
+        {experience[locale].map((entry) => (
+          <li
+            key={entry.title}
+            className="flex flex-wrap gap-8 border-b border-line py-10"
+          >
+            <span className="flex-[0_0_12.5rem] font-mono text-xs uppercase tracking-[0.16em] text-mute">
+              {entry.period}
+            </span>
+            <div className="min-w-0 flex-[999_1_26rem]">
+              <h3 className="text-[1.625rem] font-medium tracking-[-0.015em]">
+                {entry.title}
+              </h3>
+              <p className="mt-3 max-w-[64ch] text-[1.0625rem] leading-relaxed text-mute">
+                {entry.description}
+              </p>
+            </div>
+            <span className="flex-[1_1_10rem] font-mono text-eyebrow uppercase tracking-[0.16em] text-mute">
+              {entry.location}
+            </span>
+          </li>
+        ))}
+      </ol>
+      <ButtonLink href={siteConfig.cvPath} variant="outline" className="mt-10">
+        {t("cv")}
+      </ButtonLink>
     </section>
   );
 }

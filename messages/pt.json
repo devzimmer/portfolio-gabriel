@@ -29,40 +29,19 @@
   "Experience": {
     "label": "03 — Experiência",
     "meta": "Trajetória",
-    "intro": "Papéis, escopo e o que cada um <em>mudou</em>.",
-    "cta": "Solicitar CV completo",
-    "placeholder": "A preencher",
-    "items": {
-      "one": {
-        "period": "20XX — 20XX",
-        "role": "Cargo Um",
-        "company": "Empresa Um",
-        "location": "Remoto",
-        "description": "Placeholder — substitua pelo cargo, o escopo e o resultado."
-      },
-      "two": {
-        "period": "20XX — 20XX",
-        "role": "Cargo Dois",
-        "company": "Empresa Dois",
-        "location": "Remoto",
-        "description": "Placeholder — substitua pelo time, as responsabilidades e o que foi entregue."
-      },
-      "three": {
-        "period": "20XX — 20XX",
-        "role": "Cargo Três",
-        "company": "Empresa Três",
-        "location": "Remoto",
-        "description": "Placeholder — substitua pelo contexto, a stack e o resultado."
-      }
-    }
+    "title": "Cargos, escopo e o que cada um",
+    "titleEmphasis": "mudou.",
+    "cv": "Baixar CV completo (PDF)"
   },
   "Contact": {
     "label": "04 — Contato",
-    "meta": "Fale comigo",
-    "headline": "Tem um projeto em mente? Vamos construir algo <em>que dure</em>.",
-    "description": "Estou aberto a posições remotas e projetos selecionados. E-mail é a forma mais rápida de falar comigo.",
-    "availability": "Aberto a oportunidades remotas",
-    "location": "Brasil · Remoto",
+    "status": "Aberto a vagas remotas",
+    "title": "Procurando quem entregue software",
+    "titleEmphasis": "de ponta a ponta?",
+    "lede": "E-mail é o jeito mais rápido de falar comigo.",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "cv": "CV (PDF)",
     "newTab": "abre em nova aba"
   },
   "Footer": {

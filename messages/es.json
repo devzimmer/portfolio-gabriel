@@ -27,43 +27,22 @@
     "portraitAlt": "Retrato em preto e branco de Gabriel Zimmer"
   },
   "Experience": {
-    "label": "03 — Experiencia",
-    "meta": "Trayectoria",
-    "intro": "Roles, alcance y lo que cada uno <em>cambió</em>.",
-    "cta": "Solicitar CV completo",
-    "placeholder": "Por completar",
-    "items": {
-      "one": {
-        "period": "20XX — 20XX",
-        "role": "Cargo Uno",
-        "company": "Empresa Uno",
-        "location": "Remoto",
-        "description": "Placeholder — reemplaza por el cargo, el alcance y el resultado."
-      },
-      "two": {
-        "period": "20XX — 20XX",
-        "role": "Cargo Dos",
-        "company": "Empresa Dos",
-        "location": "Remoto",
-        "description": "Placeholder — reemplaza por el equipo, las responsabilidades y lo que se entregó."
-      },
-      "three": {
-        "period": "20XX — 20XX",
-        "role": "Cargo Tres",
-        "company": "Empresa Tres",
-        "location": "Remoto",
-        "description": "Placeholder — reemplaza por el contexto, el stack y el resultado."
-      }
-    }
+    "label": "03 — Experiência",
+    "meta": "Trajetória",
+    "title": "Cargos, escopo e o que cada um",
+    "titleEmphasis": "mudou.",
+    "cv": "Baixar CV completo (PDF)"
   },
   "Contact": {
-    "label": "04 — Contacto",
-    "meta": "Hablemos",
-    "headline": "¿Tienes un proyecto en mente? Construyamos algo <em>que dure</em>.",
-    "description": "Estoy abierto a puestos remotos y proyectos seleccionados. El correo es la forma más rápida de contactarme.",
-    "availability": "Abierto a oportunidades remotas",
-    "location": "Brasil · Remoto",
-    "newTab": "abre en una nueva pestaña"
+    "label": "04 — Contato",
+    "status": "Aberto a vagas remotas",
+    "title": "Procurando quem entregue software",
+    "titleEmphasis": "de ponta a ponta?",
+    "lede": "E-mail é o jeito mais rápido de falar comigo.",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "cv": "CV (PDF)",
+    "newTab": "abre em nova aba"
   },
   "Footer": {
     "rights": "© 2026 Gabriel Zimmer",

@@ -1,94 +1,58 @@
-import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { siteConfig } from "@/lib/site";
 
-const links = [
-  {
-    key: "linkedin",
-    label: "LinkedIn",
-    href: siteConfig.links.linkedin,
-  },
-  {
-    key: "github",
-    label: "GitHub",
-    href: siteConfig.links.github,
-  },
-] as const;
-
 export async function Contact() {
   const t = await getTranslations("Contact");
+  const links = [
+    { label: t("linkedin"), href: siteConfig.links.linkedin, mark: "↗", external: true },
+    { label: t("github"), href: siteConfig.links.github, mark: "↗", external: true },
+    { label: t("cv"), href: siteConfig.cvPath, mark: "↓", external: false },
+  ];
 
   return (
     <section
       id="contact"
       aria-labelledby="contact-title"
-      className="scroll-mt-24 border-t border-line bg-ink px-gutter py-section text-fog"
+      className="scroll-mt-18 border-t border-line px-gutter pt-28"
     >
-      <div className="mx-auto w-full max-w-[90rem]">
-        <div className="flex items-baseline justify-between gap-4 border-b border-line pb-5">
-          <h2 id="contact-title" className="text-eyebrow uppercase text-mute">
-            {t("label")}
+      <div className="flex justify-between gap-4 border-b border-line pb-5 text-eyebrow uppercase text-mute">
+        <span>{t("label")}</span>
+        <span className="flex items-center gap-2.5 font-mono">
+          <span aria-hidden="true" className="size-1.5 rounded-full bg-fog" />
+          {t("status")}
+        </span>
+      </div>
+      <div className="flex flex-wrap items-end justify-between gap-12 pt-14 pb-24">
+        <div className="min-w-0 flex-[999_1_40rem]">
+          <h2
+            id="contact-title"
+            className="max-w-[18ch] text-[clamp(2.5rem,5.6vw,5.5rem)] leading-[0.98] font-medium tracking-[-0.04em]"
+          >
+            {t("title")} <em className="font-serif font-normal">{t("titleEmphasis")}</em>
           </h2>
-          <p className="font-mono text-[0.625rem] uppercase tracking-[0.18em] text-mute">
-            {t("meta")}
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-10 lg:mt-20 lg:grid-cols-12 lg:gap-16">
-          <p className="text-balance text-headline lg:col-span-7">
-            {t.rich("headline", {
-              em: (chunks) => (
-                <em className="font-serif font-normal italic">{chunks}</em>
-              ),
-            })}
-          </p>
-
-          <div className="lg:col-span-5 lg:border-l lg:border-line lg:pl-10 xl:pl-14">
-            <p className="text-body-lg text-fog/80">{t("description")}</p>
-
-            <p className="mt-6 flex items-center gap-2.5 text-small text-fog">
-              <span
-                aria-hidden="true"
-                className="size-1.5 rounded-full bg-paper"
-              />
-              {t("availability")}
-            </p>
-            <p className="mt-2 text-eyebrow uppercase text-mute">
-              {t("location")}
-            </p>
-          </div>
-        </div>
-
-        <a
-          href={`mailto:${siteConfig.email}`}
-          className="group mt-16 flex items-center justify-between gap-4 border-y border-line py-8 lg:mt-24 lg:py-10"
-        >
-          <span className="text-email break-words text-fog transition-colors duration-300 group-hover:text-paper">
+          <a
+            href={`mailto:${siteConfig.email}`}
+            className="mt-10 inline-flex min-h-12 items-center border-b border-fog/40 text-[clamp(1.375rem,2.6vw,2.25rem)] tracking-[-0.01em] transition-colors hover:border-fog"
+          >
             {siteConfig.email}
-          </span>
-          <ArrowUpRight
-            aria-hidden="true"
-            strokeWidth={1.5}
-            className="hidden size-6 shrink-0 text-mute transition-[color,transform] duration-300 ease-editorial group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-fog sm:block"
-          />
-        </a>
-
-        <ul className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+          </a>
+          <p className="mt-5 text-[1.0625rem] leading-relaxed text-mute">{t("lede")}</p>
+        </div>
+        <ul className="flex-[1_1_17.5rem] border-t border-line">
           {links.map((link) => (
-            <li key={link.key}>
+            <li key={link.href} className="border-b border-line">
               <a
                 href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 text-eyebrow uppercase text-fog transition-colors hover:text-paper"
+                className="flex min-h-14 items-center justify-between text-[0.8125rem] uppercase tracking-[0.2em] hover:text-white"
+                {...(link.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
               >
-                {link.label}
-                <ArrowUpRight
-                  aria-hidden="true"
-                  strokeWidth={1.5}
-                  className="size-3.5 text-mute transition-[color,transform] duration-300 ease-editorial group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-fog"
-                />
-                <span className="sr-only">({t("newTab")})</span>
+                <span>
+                  {link.label}
+                  {link.external ? <span className="sr-only"> ({t("newTab")})</span> : null}
+                </span>
+                <span aria-hidden="true">{link.mark}</span>
               </a>
             </li>
           ))}
