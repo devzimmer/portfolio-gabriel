@@ -26,26 +26,6 @@
     "ctaContact": "Fale comigo",
     "portraitAlt": "Retrato em preto e branco de Gabriel Zimmer"
   },
-  "Projects": {
-    "label": "02 — Proyectos",
-    "meta": "Trabajos seleccionados",
-    "intro": "Una selección enfocada de trabajos — el problema, las decisiones y lo que se entregó.",
-    "placeholder": "Por completar",
-    "items": {
-      "one": {
-        "title": "Proyecto Uno",
-        "summary": "Placeholder — reemplaza por un caso real: el contexto, las restricciones y las decisiones que dieron forma al trabajo."
-      },
-      "two": {
-        "title": "Proyecto Dos",
-        "summary": "Placeholder — reemplaza por un caso real: la arquitectura, los trade-offs y lo que se entregó."
-      },
-      "three": {
-        "title": "Proyecto Tres",
-        "summary": "Placeholder — reemplaza por un caso real: la escala, el trabajo de confiabilidad y el resultado."
-      }
-    }
-  },
   "Experience": {
     "label": "03 — Experiencia",
     "meta": "Trayectoria",
@@ -140,5 +120,11 @@
         "body": "CI, deploy e observabilidade — software que se sustenta em produção."
       }
     }
+  },
+  "Work": {
+    "index": "01",
+    "label": "Trabalhos selecionados",
+    "meta": "{count} cases",
+    "read": "Ler o case →"
   }
 }
