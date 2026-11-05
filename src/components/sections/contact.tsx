@@ -69,7 +69,7 @@ export async function Contact() {
           <ArrowUpRight
             aria-hidden="true"
             strokeWidth={1.5}
-            className="hidden size-6 shrink-0 text-mute transition-[color,transform] duration-300 ease-[var(--ease-editorial)] group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-fog sm:block"
+            className="hidden size-6 shrink-0 text-mute transition-[color,transform] duration-300 ease-editorial group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-fog sm:block"
           />
         </a>
 
@@ -86,7 +86,7 @@ export async function Contact() {
                 <ArrowUpRight
                   aria-hidden="true"
                   strokeWidth={1.5}
-                  className="size-3.5 text-mute transition-[color,transform] duration-300 ease-[var(--ease-editorial)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-fog"
+                  className="size-3.5 text-mute transition-[color,transform] duration-300 ease-editorial group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-fog"
                 />
                 <span className="sr-only">({t("newTab")})</span>
               </a>

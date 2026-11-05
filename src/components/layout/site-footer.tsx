@@ -5,7 +5,7 @@ export async function SiteFooter() {
   const t = await getTranslations("Footer");
 
   return (
-    <footer className="mt-auto border-t border-line bg-ink px-gutter">
+    <footer className="mt-auto border-t border-line bg-void px-gutter">
       <div className="mx-auto flex w-full max-w-[90rem] flex-col gap-3 py-7 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-eyebrow uppercase text-mute">{t("rights")}</p>
 
@@ -21,7 +21,7 @@ export async function SiteFooter() {
           <ArrowUp
             aria-hidden="true"
             strokeWidth={1.5}
-            className="size-3.5 transition-transform duration-300 ease-[var(--ease-editorial)] group-hover:-translate-y-0.5"
+            className="size-3.5 transition-transform duration-300 ease-editorial group-hover:-translate-y-0.5"
           />
         </a>
       </div>

@@ -2,13 +2,17 @@
 
 @theme {
   /* Color system */
-  --color-ink: #171717;
-  --color-graphite: #242424;
-  --color-paper: #f2f2f0;
-  --color-fog: #f5f5f5;
+  --color-void: #0a0a0a;
+  --color-fog: #f2f2f0;
   --color-mute: #a0a0a0;
+  --color-dim: #8c8c8c;
+  --color-ink: #171717;
   --color-ash: #5f5f5f;
-  --color-line: rgb(245 245 245 / 0.12);
+  --color-paper: #f2f2f0;
+  --color-panel: #111111;
+  --color-well: #141414;
+  --color-line: rgb(242 242 240 / 0.12);
+  --color-edge: rgb(242 242 240 / 0.3);
   --color-line-ink: rgb(23 23 23 / 0.14);
 
   /* Fluid type scale */
@@ -56,8 +60,8 @@
   --text-eyebrow--font-weight: 500;
 
   /* Editorial rhythm */
-  --spacing-gutter: clamp(1.25rem, 4vw, 4rem);
-  --spacing-section: clamp(5rem, 12vw, 10rem);
+  --spacing-gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --spacing-section: 7rem;
 
   /* Motion */
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
@@ -76,7 +80,7 @@
   }
 
   body {
-    background-color: var(--color-ink);
+    background-color: var(--color-void);
     color: var(--color-fog);
     font-family: var(--font-sans);
     font-synthesis-weight: none;
@@ -85,7 +89,7 @@
 
   ::selection {
     background-color: var(--color-paper);
-    color: var(--color-ink);
+    color: var(--color-void);
   }
 
   :focus-visible {

@@ -99,7 +99,7 @@ export function MobileMenu({ items, siteName }: MobileMenuProps) {
         aria-expanded={open}
         aria-controls="mobile-menu"
         aria-label={t("open")}
-        className="inline-flex size-9 items-center justify-center border border-line text-fog transition-colors hover:bg-graphite md:hidden"
+        className="inline-flex size-9 items-center justify-center border border-line text-fog transition-colors hover:bg-well md:hidden"
       >
         <Menu className="size-4" aria-hidden="true" />
       </button>
@@ -114,7 +114,7 @@ export function MobileMenu({ items, siteName }: MobileMenuProps) {
                   role="dialog"
                   aria-modal="true"
                   aria-label={t("label")}
-                  className="fixed inset-0 z-50 flex flex-col overflow-y-auto overscroll-contain bg-ink px-gutter py-5 md:hidden"
+                  className="fixed inset-0 z-50 flex flex-col overflow-y-auto overscroll-contain bg-void px-gutter py-5 md:hidden"
                   initial={shouldReduceMotion ? false : { opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={shouldReduceMotion ? undefined : { opacity: 0 }}
@@ -127,7 +127,7 @@ export function MobileMenu({ items, siteName }: MobileMenuProps) {
                       type="button"
                       onClick={() => setOpen(false)}
                       aria-label={t("close")}
-                      className="inline-flex size-9 items-center justify-center border border-line text-fog transition-colors hover:bg-graphite"
+                      className="inline-flex size-9 items-center justify-center border border-line text-fog transition-colors hover:bg-well"
                     >
                       <X className="size-4" aria-hidden="true" />
                     </button>

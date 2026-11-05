@@ -19,7 +19,7 @@ export async function SiteHeader() {
   }));
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-ink/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-line bg-void/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-[90rem] items-center justify-between gap-6 px-gutter md:h-18">
         <Link
           href="/"
@@ -31,7 +31,7 @@ export async function SiteHeader() {
           </span>
           <span
             aria-hidden="true"
-            className="size-1.5 bg-paper transition-transform duration-300 ease-[var(--ease-editorial)] group-hover:rotate-45"
+            className="size-1.5 bg-paper transition-transform duration-300 ease-editorial group-hover:rotate-45"
           />
         </Link>
 
@@ -48,7 +48,7 @@ export async function SiteHeader() {
               {item.label}
               <span
                 aria-hidden="true"
-                className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-fog transition-transform duration-300 ease-[var(--ease-editorial)] group-hover:scale-x-100"
+                className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-fog transition-transform duration-300 ease-editorial group-hover:scale-x-100"
               />
             </a>
           ))}

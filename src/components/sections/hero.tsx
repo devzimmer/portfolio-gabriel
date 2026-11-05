@@ -40,7 +40,7 @@ export async function Hero() {
             {t("cta")}
             <span
               aria-hidden="true"
-              className="h-px w-8 bg-mute transition-[width,background-color] duration-300 ease-[var(--ease-editorial)] group-hover:w-12 group-hover:bg-fog"
+              className="h-px w-8 bg-mute transition-[width,background-color] duration-300 ease-editorial group-hover:w-12 group-hover:bg-fog"
             />
           </a>
         </div>

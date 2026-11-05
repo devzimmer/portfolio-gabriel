@@ -42,7 +42,7 @@ export async function Experience() {
               {t("cta")}
               <span
                 aria-hidden="true"
-                className="h-px w-8 bg-ash transition-[width,background-color] duration-300 ease-[var(--ease-editorial)] group-hover:w-12 group-hover:bg-ink"
+                className="h-px w-8 bg-ash transition-[width,background-color] duration-300 ease-editorial group-hover:w-12 group-hover:bg-ink"
               />
             </a>
           </div>
