@@ -51,3 +51,11 @@ it("cancels its loop on unmount", () => {
   unmount();
   expect(cancel).toHaveBeenCalled();
 });
+
+it("reserves its final aspect ratio before JavaScript sizes it", () => {
+  mockMotion(true);
+  const { container } = render(<AsciiHands />);
+  const canvas = container.querySelector("canvas");
+  expect(canvas?.className).toContain("aspect-[108/34]");
+  expect(canvas?.className).not.toMatch(/\bh-\[/);
+});

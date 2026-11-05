@@ -48,14 +48,14 @@ const pt: CaseCopy = {
     },
   ],
   diagram: {
-    ascii: `  WhatsApp ──▶ Meta Cloud API ──▶ webhook ──▶ [ fila de entrada ]
-                                 HMAC ✓ · 200          │
+    ascii: `  WhatsApp ──> Meta Cloud API ──> webhook ──> [ fila de entrada ]
+                                 HMAC ok · 200         │
                                        pg_cron 5s · 7s de silêncio
-                                                       ▼
-  resposta ◀── WhatsApp ◀──── bot-agente ──▶ 11 tools ──▶ OpenAI
+                                                       v
+  resposta <── WhatsApp <──── bot-agente ──> 11 tools ──> OpenAI
                                  │
-                                 ▼
-                         Postgres + RLS ◀──── app Next.js`,
+                                 v
+                         Postgres + RLS <──── app Next.js`,
     label:
       "As mensagens saem do WhatsApp, passam por um webhook verificado e entram numa fila no Postgres. Um cron de 5 segundos agrupa a rajada de cada remetente depois de 7 segundos de silêncio e entrega ao agente, que chama suas ferramentas e a OpenAI e responde no WhatsApp. O app web lê o mesmo Postgres com row-level security.",
     caption:

@@ -43,14 +43,14 @@ const pt: CaseCopy = {
     },
   ],
   diagram: {
-    ascii: `  navegador ──▶ Cloudflare Worker ──▶ app React
+    ascii: `  navegador ──> Cloudflare Worker ──> app React
                                         │  JWT do usuário
                   ┌─────────────────────┴──────────────┐
-                  ▼                                    ▼
+                  v                                    v
        Postgres + RLS (org_id)              Edge Functions (Deno)
-                                                       │  membership ✓
-                                                       ▼
-                                  duzi_server ──▶ private.* ──▶ Vault
+                                                       │  membership ok
+                                                       v
+                                  duzi_server ──> private.* ──> Vault
                                                        um token por cliente`,
     label:
       "O navegador carrega um app React por um Cloudflare Worker. Com o JWT do usuário, ele lê o Postgres sob row-level security por organização ou chama Edge Functions em Deno. Elas conferem a membership no banco e agem por um papel Postgres dedicado, que só executa funções privadas de servidor; só essas funções leem o token Meta de cada cliente no Vault.",

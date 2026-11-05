@@ -106,7 +106,7 @@ export function AsciiHands({ className }: AsciiHandsProps) {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className={`block h-[27.5rem] w-full font-mono${className ? ` ${className}` : ""}`}
+      className={`block aspect-[108/34] w-full font-mono${className ? ` ${className}` : ""}`}
     />
   );
 }

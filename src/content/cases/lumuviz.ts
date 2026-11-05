@@ -53,14 +53,14 @@ const pt: CaseCopy = {
     },
   ],
   diagram: {
-    ascii: `  [ chave de licença ] ──▶ dígitos ✓ ──▶ POST /v1/activate ──▶ proxy Cloudflare
-                                                                       │
-                                                                Edge Function
-                                                                máquinas ≤ 2 ?
-                                                                       │
-  license.json ◀──────────── assinatura Ed25519 ◀───────────────────────┘
+    ascii: `  [ chave de licença ] ──> dígitos ok ──> POST /v1/activate ──> proxy Cloudflare
+                                                                        │
+                                                                 Edge Function
+                                                                 máquinas <= 2 ?
+                                                                        │
+  license.json <──────────── assinatura Ed25519 <────────────────────────┘
        │
-       └──▶ toda abertura: verificada offline ✓      com internet: renova em silêncio`,
+       └──> toda abertura: verificada offline: ok      com internet: renova em silêncio`,
     label:
       "Ativação offline-first: os dígitos de conferência da chave são verificados, e o app faz um POST para o endpoint de ativação atrás de um proxy Cloudflare. Uma Edge Function confere se há no máximo duas máquinas ativas e devolve uma licença assinada com Ed25519. Toda abertura verifica essa assinatura offline; com internet, ela renova em silêncio.",
     caption:

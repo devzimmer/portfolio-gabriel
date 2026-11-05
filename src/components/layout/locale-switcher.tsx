@@ -16,7 +16,7 @@ export function LocaleSwitcher() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label={t("label")} className="flex items-center gap-2.5">
+    <nav aria-label={t("label")} className="flex items-center gap-1">
       {routing.locales.map((item) => {
         const isActive = item === locale;
 
@@ -30,8 +30,8 @@ export function LocaleSwitcher() {
             aria-current={isActive ? "true" : undefined}
             className={
               isActive
-                ? "border-b border-fog pb-0.5 text-eyebrow uppercase text-fog"
-                : "border-b border-transparent pb-0.5 text-eyebrow uppercase text-mute transition-colors hover:text-fog"
+                ? "inline-flex min-h-11 min-w-11 items-center justify-center text-eyebrow uppercase text-fog underline underline-offset-4"
+                : "inline-flex min-h-11 min-w-11 items-center justify-center text-eyebrow uppercase text-mute transition-colors hover:text-fog"
             }
           >
             {item.toUpperCase()}

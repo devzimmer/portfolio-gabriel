@@ -29,7 +29,7 @@ export async function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              className="py-2 text-eyebrow uppercase text-mute transition-colors hover:text-fog"
+              className="inline-flex min-h-11 items-center text-eyebrow uppercase text-mute transition-colors hover:text-fog"
             >
               {item.label}
             </a>

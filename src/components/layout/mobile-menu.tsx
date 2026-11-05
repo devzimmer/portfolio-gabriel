@@ -99,7 +99,7 @@ export function MobileMenu({ items, siteName }: MobileMenuProps) {
         aria-expanded={open}
         aria-controls="mobile-menu"
         aria-label={t("open")}
-        className="inline-flex size-9 items-center justify-center border border-line text-fog transition-colors hover:bg-well md:hidden"
+        className="inline-flex size-11 items-center justify-center border border-line text-fog transition-colors hover:bg-well md:hidden"
       >
         <Menu className="size-4" aria-hidden="true" />
       </button>
@@ -127,7 +127,7 @@ export function MobileMenu({ items, siteName }: MobileMenuProps) {
                       type="button"
                       onClick={() => setOpen(false)}
                       aria-label={t("close")}
-                      className="inline-flex size-9 items-center justify-center border border-line text-fog transition-colors hover:bg-well"
+                      className="inline-flex size-11 items-center justify-center border border-line text-fog transition-colors hover:bg-well"
                     >
                       <X className="size-4" aria-hidden="true" />
                     </button>

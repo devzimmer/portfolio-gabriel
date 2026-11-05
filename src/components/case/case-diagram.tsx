@@ -7,7 +7,7 @@ export function CaseDiagram({ ascii, label, caption }: CaseDiagramProps) {
         <pre
           role="img"
           aria-label={label}
-          className="m-0 w-max font-mono text-sm leading-[1.6] text-fog"
+          className="m-0 w-max font-[ui-monospace,'Cascadia_Mono',Consolas,'SF_Mono',Menlo,monospace] text-sm leading-[1.6] text-fog"
         >
           {ascii}
         </pre>

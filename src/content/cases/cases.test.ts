@@ -49,3 +49,9 @@ it("only cites the allowed EngPocket traction number", () => {
   expect(text).toContain("150");
   expect(text).not.toMatch(/\bR\$/);
 });
+
+it("diagrams use only glyphs that monospace system fonts align", () => {
+  for (const study of cases) {
+    expect(study.copy.pt.diagram.ascii).not.toMatch(/[✓≤▶◀▼]/);
+  }
+});
