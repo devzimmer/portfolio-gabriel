@@ -25,7 +25,9 @@ it.each(cases)("$slug has complete copy in every locale", (study) => {
     expect(copy.facts).toHaveLength(4);
     expect(copy.built).toHaveLength(3);
     expect(copy.decisions).toHaveLength(3);
-    expect(copy.media.length).toBeGreaterThan(0);
+    // TV Celular intentionally has no images (campaign material stays private).
+    if (study.slug !== "tv-celular") expect(copy.media.length).toBeGreaterThan(0);
+    else expect(copy.media).toHaveLength(0);
     expect(copy.ai.stats.length).toBeGreaterThan(0);
     expect(copy.diagram.label.length).toBeGreaterThan(40);
   }

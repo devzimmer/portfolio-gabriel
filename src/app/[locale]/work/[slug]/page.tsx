@@ -92,11 +92,13 @@ export default async function CasePage({ params }: CasePageProps) {
         </dl>
       </section>
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(20rem,100%),1fr))] gap-6 px-gutter">
-        {copy.media.map((media) => (
-          <CaseMedia key={media.label} {...media} tall={copy.media.length === 1} />
-        ))}
-      </div>
+      {copy.media.length > 0 && (
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(20rem,100%),1fr))] gap-6 px-gutter">
+          {copy.media.map((media) => (
+            <CaseMedia key={media.label} {...media} tall={copy.media.length === 1} />
+          ))}
+        </div>
+      )}
 
       <CaseSection number={1} id="problem" title={t("sections.problem")}>
         <div className="max-w-[68ch]">

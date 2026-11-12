@@ -23,13 +23,8 @@ const pt: CaseCopy = {
       value: "Python · FastAPI · faster-whisper · MediaPipe · FFmpeg · Next.js · Cloudflare",
     },
   ],
-  media: [
-    {
-      label: "[Recriação com dados fictícios: o editor de corte, com a linha do tempo e os trechos removidos]",
-      caption:
-        "A IA propõe o corte; a equipe ajusta início e fim, tira trechos internos e aprova. Só o que é aprovado vai para o render.",
-    },
-  ],
+  // No images on purpose: Gabriel decided not to show any campaign material.
+  media: [],
   problem: {
     lead: "A TV Celular, canal da campanha, fazia lives diárias de várias horas. A militância queria cortes curtos, prontos para postar, no mesmo dia, e a equipe não tinha acesso direto ao material gravado no estúdio.",
     body: "Construí a esteira da live ao corte publicado: captação, transcrição, escolha dos melhores momentos por LLM, aprovação humana e render. Também fiz o agente de WhatsApp que respondia candidatos e jornalistas com RAG. Tudo num time de cinco pessoas, com prazos de dias e rodando ao vivo.",
