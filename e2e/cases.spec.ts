@@ -4,6 +4,7 @@ const cases = [
   ["engpocket", "EngPocket"],
   ["duzi-crm", "Duzi CRM"],
   ["lumuviz", "Lumuviz"],
+  ["tv-celular", "TV Celular"],
 ] as const;
 
 for (const [slug, title] of cases) {
@@ -29,7 +30,7 @@ test("locale switch keeps the case", async ({ page }) => {
   await expect(page).toHaveURL(/\/en\/work\/duzi-crm$/);
 });
 
-test("case nav chains the three cases", async ({ page }) => {
+test("case nav chains the cases", async ({ page }) => {
   await page.goto("/pt/work/engpocket");
   await page.getByRole("link", { name: /Próximo case/ }).click();
   await expect(page).toHaveURL(/\/pt\/work\/duzi-crm$/);

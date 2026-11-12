@@ -1,8 +1,8 @@
 import { routing } from "@/i18n/routing";
 import { cases, getCase, getCaseNeighbours, isCaseSlug } from ".";
 
-it("lists the three cases in the approved order", () => {
-  expect(cases.map((c) => c.slug)).toEqual(["engpocket", "duzi-crm", "lumuviz"]);
+it("lists the cases in the approved order", () => {
+  expect(cases.map((c) => c.slug)).toEqual(["engpocket", "duzi-crm", "lumuviz", "tv-celular"]);
 });
 
 it("rejects unknown slugs", () => {
@@ -15,7 +15,8 @@ it("rejects unknown slugs", () => {
 it("links neighbours without wrapping", () => {
   expect(getCaseNeighbours("engpocket")).toEqual({ previous: undefined, next: cases[1] });
   expect(getCaseNeighbours("duzi-crm")).toEqual({ previous: cases[0], next: cases[2] });
-  expect(getCaseNeighbours("lumuviz")).toEqual({ previous: cases[1], next: undefined });
+  expect(getCaseNeighbours("lumuviz")).toEqual({ previous: cases[1], next: cases[3] });
+  expect(getCaseNeighbours("tv-celular")).toEqual({ previous: cases[2], next: undefined });
 });
 
 it.each(cases)("$slug has complete copy in every locale", (study) => {
@@ -35,6 +36,14 @@ it("never claims manual line-by-line review or reverse engineering", () => {
   for (const banned of ["linha a linha", "engenharia reversa", "line by line", "reverse engineer"]) {
     expect(text).not.toContain(banned);
   }
+});
+
+it("names no people in the campaign case and frames site totals as the platform's", () => {
+  const text = JSON.stringify(getCase("tv-celular"));
+  for (const banned of ["Duda", "Bolsonaro", "Rodrigo"]) {
+    expect(text).not.toContain(banned);
+  }
+  expect(text).toContain("no site da TV Celular");
 });
 
 it("never talks about Lumuviz customers or users", () => {

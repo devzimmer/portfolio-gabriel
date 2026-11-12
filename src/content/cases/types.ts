@@ -1,6 +1,6 @@
 import type { Locale } from "next-intl";
 
-export type CaseSlug = "engpocket" | "duzi-crm" | "lumuviz";
+export type CaseSlug = "engpocket" | "duzi-crm" | "lumuviz" | "tv-celular";
 
 export type CaseCopy = {
   title: string;

@@ -27,13 +27,13 @@ test("reduced motion still shows the hands", async ({ browser }) => {
   await page.close();
 });
 
-test("selected work lists the three cases in order with working links", async ({ page }) => {
+test("selected work lists the four cases in order with working links", async ({ page }) => {
   await page.goto("/pt");
   const work = page.locator("#work");
   await expect(work.getByRole("heading", { level: 2 })).toHaveText("01 — Trabalhos selecionados");
-  await expect(work.getByRole("heading", { level: 3 })).toHaveText(["EngPocket", "Duzi CRM", "Lumuviz"]);
+  await expect(work.getByRole("heading", { level: 3 })).toHaveText(["EngPocket", "Duzi CRM", "Lumuviz", "TV Celular"]);
   const links = work.getByRole("link", { name: /^Ler o case/ });
-  await expect(links).toHaveCount(3);
+  await expect(links).toHaveCount(4);
   await expect(links.first()).toHaveAttribute("href", "/pt/work/engpocket");
   await expect(work).toContainText("150 assinaturas vendidas");
 });
