@@ -1,3 +1,5 @@
+import conversas from "@/assets/cases/duzi-conversas.webp";
+import gab from "@/assets/cases/duzi-gab.webp";
 import type { CaseCopy, CaseStudy } from "./types";
 
 // Copy is authored in Portuguese; en/es reuse it until the translation pass.
@@ -19,9 +21,15 @@ const pt: CaseCopy = {
   ],
   media: [
     {
-      label: "[Screenshot: a caixa de entrada compartilhada no layout Foco, na conta demo]",
+      image: conversas,
+      label: "Caixa de entrada do Duzi CRM no layout Foco, numa conta demo, com conversa aberta e nota interna da equipe",
       caption:
         "Vários atendentes no mesmo número, em tempo real, com a janela de 24 horas garantida no servidor.",
+    },
+    {
+      image: gab,
+      label: "O Gab, assistente de IA do Duzi CRM, listando leads sem resposta com as fontes citadas, numa conta demo",
+      caption: "O Gab só lê, responde com as permissões de quem pergunta e cita as fontes.",
     },
   ],
   problem: {
