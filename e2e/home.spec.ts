@@ -15,7 +15,7 @@ test("process section opens with the hands canvas and lists five steps", async (
   const process = page.locator("#process");
   await expect(process.locator("canvas[aria-hidden='true']")).toHaveCount(1);
   await expect(
-    page.getByRole("list").filter({ hasText: "Spec" }).getByRole("listitem"),
+    page.getByRole("list").filter({ hasText: "Harness" }).getByRole("listitem"),
   ).toHaveCount(5);
 });
 
@@ -44,14 +44,16 @@ test("home sections follow the approved order", async ({ page }) => {
   expect(ids.slice(0, 2)).toEqual(["work", "process"]);
 });
 
-test("experience shows the two roles and the placeholder row", async ({ page }) => {
+test("experience lists every role, newest first, with no placeholder", async ({ page }) => {
   await page.goto("/pt");
   const experience = page.locator("#experience");
   await expect(experience.getByRole("heading", { level: 3 })).toHaveText([
-    "Fundador e engenheiro · Duzi Tecnologia",
-    "Cofundador e único engenheiro · EngPocket",
-    "[Cargo anterior] · [Empresa]",
+    "Duzi Tecnologia",
+    "Aceleraí",
+    "Partido Liberal · Eleições 2026",
+    "Aurea Tech",
   ]);
+  await expect(experience).not.toContainText("[");
   await expect(experience.getByRole("link", { name: "Baixar CV completo (PDF)" })).toHaveAttribute("href", "/cv.pdf");
   await expect(experience.getByRole("link", { name: /Baixar CV completo/ })).toHaveAttribute("target", "_blank");
 });

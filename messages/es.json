@@ -31,7 +31,8 @@
     "meta": "Trajetória",
     "title": "Cargos, escopo e o que cada um",
     "titleEmphasis": "mudou.",
-    "cv": "Baixar CV completo (PDF)"
+    "cv": "Baixar CV completo (PDF)",
+    "stack": "Stack"
   },
   "Contact": {
     "label": "04 — Contato",
@@ -66,7 +67,7 @@
     },
     "stack": {
       "title": "Stack",
-      "body": "TypeScript · Next.js · React · Supabase · Postgres · Deno"
+      "body": "TypeScript · Next.js · React · Supabase · Postgres · Python"
     },
     "languages": {
       "title": "Idiomas",
