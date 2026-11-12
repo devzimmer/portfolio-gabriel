@@ -14,6 +14,17 @@ export function PersonJsonLd({ locale }: PersonJsonLdProps) {
     "@type": "Person",
     name: siteConfig.name,
     jobTitle: siteConfig.role,
+    description: siteConfig.summary,
+    knowsAbout: siteConfig.knowsAbout,
+    knowsLanguage: ["pt-BR", "en", "es"],
+    worksFor: {
+      "@type": "Organization",
+      name: "Duzi Tecnologia",
+    },
+    seeks: {
+      "@type": "Demand",
+      description: siteConfig.seeking,
+    },
     url: `${siteConfig.url}/${locale}`,
     image: `${siteConfig.url}${portraitImage.src}`,
     email: `mailto:${siteConfig.email}`,

@@ -26,6 +26,27 @@
     "ctaContact": "Fale comigo",
     "portraitAlt": "Retrato em preto e branco de Gabriel Zimmer"
   },
+  "Proof": {
+    "label": "Resultados",
+    "items": {
+      "subscriptions": {
+        "figure": "150+",
+        "caption": "assinaturas vendidas do EngPocket, agente de IA no WhatsApp"
+      },
+      "meta": {
+        "figure": "Tech Provider",
+        "caption": "aprovado pela Meta com o Duzi CRM"
+      },
+      "products": {
+        "figure": "4 produtos",
+        "caption": "liderados para uma operação com mais de 40 vendedores"
+      },
+      "clips": {
+        "figure": "12.844",
+        "caption": "cortes no ar na TV Celular, alimentada pela esteira com LLM que construí"
+      }
+    }
+  },
   "Experience": {
     "label": "03 — Experiência",
     "meta": "Trajetória",
@@ -36,7 +57,7 @@
   },
   "Contact": {
     "label": "04 — Contato",
-    "status": "Aberto a vagas remotas",
+    "status": "Aberto a vagas remotas · UTC−3",
     "title": "Procurando quem entregue software",
     "titleEmphasis": "de ponta a ponta?",
     "lede": "E-mail é o jeito mais rápido de falar comigo.",
@@ -59,7 +80,7 @@
     "label": "Em resumo",
     "focus": {
       "title": "Foco",
-      "body": "Visão de produto, arquitetura, segurança"
+      "body": "Agentes de IA · APIs do WhatsApp e da Meta · SaaS multi-inquilino"
     },
     "ai": {
       "title": "Fluxo com IA",

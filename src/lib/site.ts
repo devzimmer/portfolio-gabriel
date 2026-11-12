@@ -3,6 +3,29 @@ export const siteConfig = {
   firstName: "Gabriel",
   lastName: "Zimmer",
   role: "AI-Native Full Stack Developer",
+  // English on purpose: read by search engines and AI assistants (JSON-LD, /llms.txt).
+  summary:
+    "AI-native full stack developer and product engineer based in Brazil (UTC−3). Builds and runs production software end to end with AI coding agents: TypeScript, Next.js, React, Node.js, Python, Supabase and PostgreSQL.",
+  seeking: "Remote roles as Full Stack Developer, AI Engineer or Product Engineer.",
+  knowsAbout: [
+    "Full-stack development",
+    "AI agents",
+    "LLM applications",
+    "Retrieval-augmented generation (RAG)",
+    "Claude Code",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Python",
+    "FastAPI",
+    "PostgreSQL",
+    "Supabase",
+    "Row-level security",
+    "Cloudflare Workers",
+    "WhatsApp Business API",
+    "Multi-tenant SaaS",
+  ],
   // TODO: substituir pelo domínio final assim que estiver configurado na Cloudflare.
   url:
     process.env.NEXT_PUBLIC_SITE_URL ??
