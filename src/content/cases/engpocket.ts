@@ -1,4 +1,5 @@
 import whatsappDespesa from "@/assets/cases/engpocket-whatsapp-despesa.webp";
+import whatsappRdo from "@/assets/cases/engpocket-whatsapp-rdo.webp";
 import painel from "@/assets/cases/engpocket-painel.webp";
 import type { CaseCopy, CaseStudy } from "./types";
 
@@ -25,12 +26,20 @@ const pt: CaseCopy = {
   ],
   media: [
     {
+      image: whatsappRdo,
+      displayWidth: 390,
+      label: "Conversa no WhatsApp com o EngPocket: uma mensagem de voz vira o relatório diário de uma obra de exemplo",
+      caption: "Um áudio de 22 segundos e o diário de obra está salvo.",
+    },
+    {
       image: whatsappDespesa,
+      displayWidth: 390,
       label: "Conversa no WhatsApp com o EngPocket: a foto de um comprovante fictício vira uma despesa lançada na obra",
       caption: "Uma foto do comprovante no WhatsApp e a despesa já está lançada na obra.",
     },
     {
       image: painel,
+      wide: true,
       label: "Painel do EngPocket com obras de exemplo: obras por fase, financeiro e o que precisa de atenção",
       caption: "O app web organiza o que o agente registra pelo WhatsApp.",
     },

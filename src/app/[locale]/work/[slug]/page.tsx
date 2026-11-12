@@ -93,7 +93,7 @@ export default async function CasePage({ params }: CasePageProps) {
       </section>
 
       {copy.media.length > 0 && (
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(20rem,100%),1fr))] gap-6 px-gutter">
+        <div className={`grid gap-6 px-gutter ${copy.media.length > 1 ? "md:grid-cols-2" : ""}`}>
           {copy.media.map((media) => (
             <CaseMedia key={media.label} {...media} tall={copy.media.length === 1} />
           ))}
