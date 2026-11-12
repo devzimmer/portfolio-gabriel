@@ -1,4 +1,4 @@
-import escritorio from "@/assets/cases/engpocket-escritorio.webp";
+import whatsappDespesa from "@/assets/cases/engpocket-whatsapp-despesa.webp";
 import painel from "@/assets/cases/engpocket-painel.webp";
 import type { CaseCopy, CaseStudy } from "./types";
 
@@ -25,14 +25,14 @@ const pt: CaseCopy = {
   ],
   media: [
     {
+      image: whatsappDespesa,
+      label: "Conversa no WhatsApp com o EngPocket: a foto de um comprovante fictício vira uma despesa lançada na obra",
+      caption: "Uma foto do comprovante no WhatsApp e a despesa já está lançada na obra.",
+    },
+    {
       image: painel,
       label: "Painel do EngPocket com obras de exemplo: obras por fase, financeiro e o que precisa de atenção",
       caption: "O app web organiza o que o agente registra pelo WhatsApp.",
-    },
-    {
-      image: escritorio,
-      label: "O escritório de agentes do EngPocket, com seis agentes em suas mesas",
-      caption: "O escritório de agentes, em desenvolvimento.",
     },
   ],
   problem: {

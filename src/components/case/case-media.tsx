@@ -19,6 +19,8 @@ export function CaseMedia({ label, caption, image, tall }: CaseMediaProps) {
         alt={label}
         placeholder="blur"
         sizes="(min-width: 90rem) 42rem, (min-width: 48rem) 46vw, 100vw"
+        // Never upscale: narrow phone-sized captures keep their natural width.
+        style={{ maxWidth: image.width }}
         className="h-auto w-full border border-edge"
       />
       <figcaption className="font-mono text-eyebrow uppercase tracking-[0.16em] text-mute">
