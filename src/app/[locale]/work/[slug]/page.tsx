@@ -6,7 +6,7 @@ import { CaseDiagram } from "@/components/case/case-diagram";
 import { CaseHighlight } from "@/components/case/case-highlight";
 import { CaseNav } from "@/components/case/case-nav";
 import { CaseSection } from "@/components/case/case-section";
-import { MediaPlaceholder } from "@/components/case/media-placeholder";
+import { CaseMedia } from "@/components/case/case-media";
 import { cases, getCase, getCaseNeighbours, isCaseSlug } from "@/content/cases";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
@@ -94,7 +94,7 @@ export default async function CasePage({ params }: CasePageProps) {
 
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(20rem,100%),1fr))] gap-6 px-gutter">
         {copy.media.map((media) => (
-          <MediaPlaceholder key={media.label} {...media} tall={copy.media.length === 1} />
+          <CaseMedia key={media.label} {...media} tall={copy.media.length === 1} />
         ))}
       </div>
 

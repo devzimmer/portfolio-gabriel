@@ -1,3 +1,5 @@
+import escritorio from "@/assets/cases/engpocket-escritorio.webp";
+import painel from "@/assets/cases/engpocket-painel.webp";
 import type { CaseCopy, CaseStudy } from "./types";
 
 // Copy is authored in Portuguese; en/es reuse it until the translation pass.
@@ -23,9 +25,14 @@ const pt: CaseCopy = {
   ],
   media: [
     {
-      label: "[Gravação de tela: um áudio no WhatsApp vira o diário de obra]",
-      caption:
-        "O produto vive no WhatsApp; o app web organiza o que o agente registra.",
+      image: painel,
+      label: "Painel do EngPocket com obras de exemplo: obras por fase, financeiro e o que precisa de atenção",
+      caption: "O app web organiza o que o agente registra pelo WhatsApp.",
+    },
+    {
+      image: escritorio,
+      label: "O escritório de agentes do EngPocket, com seis agentes em suas mesas",
+      caption: "O escritório de agentes, em desenvolvimento.",
     },
   ],
   problem: {
