@@ -73,6 +73,10 @@
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
+/* Large screens with motion allowed: the selected-work gallery pins and
+   scrolls sideways. Keep in sync with PIN_QUERY in cases-rail.tsx. */
+@custom-variant pin (@media (min-width: 64rem) and (min-height: 36rem) and (prefers-reduced-motion: no-preference));
+
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
@@ -121,4 +125,30 @@
     transition-duration: 0.01ms !important;
   }
 
+}
+
+/* Ink: words gain contrast as the statement scrolls through the viewport.
+   Scroll-driven CSS only; browsers without it, and reduced motion, show the
+   text at full contrast. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ink {
+      view-timeline: --ink block;
+    }
+
+    .ink-word {
+      animation: ink linear both;
+      animation-timeline: --ink;
+      animation-range: cover calc(18% + var(--ink-start) * 32%) cover calc(24% + var(--ink-start) * 32%);
+    }
+
+    @keyframes ink {
+      from {
+        opacity: 0.16;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
 }

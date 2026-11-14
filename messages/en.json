@@ -67,7 +67,8 @@
   },
   "Footer": {
     "rights": "© 2026 Gabriel Zimmer",
-    "location": "Brasil · Remoto"
+    "location": "Brasil · Remoto",
+    "localTime": "Hora local"
   },
   "LocaleSwitcher": {
     "label": "Change language"
@@ -125,7 +126,8 @@
     "index": "01",
     "label": "Trabalhos selecionados",
     "meta": "{count} cases",
-    "read": "Ler o case"
+    "read": "Ler o case",
+    "goTo": "Ir para"
   },
   "Case": {
     "allWork": "← Todos os trabalhos",

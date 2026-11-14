@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { AsciiHands } from "@/components/ascii/ascii-hands";
+import { InkText } from "@/components/motion/ink-text";
 
 const steps = ["spec", "harness", "build", "review", "ship"] as const;
 
@@ -21,10 +22,17 @@ export async function Process() {
         <div className="flex flex-wrap items-end justify-between gap-8 px-gutter pt-2 pb-24">
           <h2
             id="process-title"
-            className="min-w-0 flex-[999_1_35rem] text-[clamp(1.875rem,3.4vw,3rem)] leading-[1.02] font-medium tracking-[-0.03em]"
+            className="ink min-w-0 flex-[999_1_35rem] text-[clamp(1.875rem,3.4vw,3rem)] leading-[1.02] font-medium tracking-[-0.03em]"
           >
-            {t("title")}{" "}
-            <em className="font-serif font-normal">{t("titleEmphasis")}</em>
+            <InkText
+              parts={[
+                { text: t("title") },
+                {
+                  text: t("titleEmphasis"),
+                  wrap: (words) => <em className="font-serif font-normal">{words}</em>,
+                },
+              ]}
+            />
           </h2>
           <p className="flex-[1_1_20rem] text-base leading-relaxed text-mute">
             {t("lede")}

@@ -2,6 +2,7 @@
 
 import Lenis from "lenis";
 import { useEffect } from "react";
+import { setLenis } from "./scroll-to";
 
 // Sticky header height (h-18): anchor targets land just below it.
 const HEADER_OFFSET = -72;
@@ -21,7 +22,12 @@ export function SmoothScroll() {
       allowNestedScroll: true,
     });
 
-    return () => lenis.destroy();
+    setLenis(lenis);
+
+    return () => {
+      setLenis(null);
+      lenis.destroy();
+    };
   }, []);
 
   return null;
