@@ -30,7 +30,8 @@ export async function SelectedWork() {
           return (
             <li
               key={study.slug}
-              className="pin:w-[min(46rem,68vw)] pin:shrink-0 pin:px-12 pin:first:pl-0 pin:border-r pin:border-line pin:transition-opacity pin:duration-500 pin:ease-editorial pin:data-[active=false]:opacity-35"
+              data-cursor={t("cursor")}
+              className="relative pin:w-[min(46rem,68vw)] pin:shrink-0 pin:px-12 pin:first:pl-0 pin:border-r pin:border-line pin:transition-opacity pin:duration-500 pin:ease-editorial pin:data-[active=false]:opacity-35"
             >
               <article className="flex flex-wrap gap-8 border-b border-line py-10 pin:h-full pin:flex-col pin:flex-nowrap pin:justify-between pin:gap-10 pin:border-b-0 pin:py-12">
                 <span className="flex-[0_0_3.5rem] font-mono text-eyebrow tracking-[0.18em] text-mute pin:flex-none">
@@ -49,7 +50,7 @@ export async function SelectedWork() {
                   <span>{copy.card.meta}</span>
                   <Link
                     href={`/work/${study.slug}`}
-                    className="group mt-4 inline-flex min-h-12 items-center justify-between gap-6 self-start border border-edge px-5 text-xs font-medium tracking-[0.2em] text-fog transition-colors duration-300 ease-editorial hover:border-fog hover:bg-fog hover:text-void"
+                    className="group mt-4 inline-flex after:absolute after:inset-0 after:content-[''] min-h-12 items-center justify-between gap-6 self-start border border-edge px-5 text-xs font-medium tracking-[0.2em] text-fog transition-colors duration-300 ease-editorial hover:border-fog hover:bg-fog hover:text-void"
                   >
                     <span>
                       {t("read")}

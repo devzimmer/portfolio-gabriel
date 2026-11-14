@@ -163,6 +163,7 @@ export function CasesRail({ label, titles, goToLabel, children }: CasesRailProps
                 type="button"
                 tabIndex={-1}
                 aria-label={`${goToLabel} ${title}`}
+                data-cursor={title}
                 onClick={() => goTo.current(index)}
                 className="group flex h-8 w-10 items-center"
               >

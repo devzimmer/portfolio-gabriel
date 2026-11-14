@@ -36,6 +36,19 @@ test.describe("desktop", () => {
       .toBe(true);
   });
 
+  test("hovering a case shows the cursor label and the whole card links to it", async ({ page }) => {
+    await page.goto("/pt");
+    await expect(page.locator("#work > div")).toHaveAttribute("style", /height: \d+px/);
+    const label = page.locator("[data-cursor-label] > div");
+    await expect(label).toHaveCSS("opacity", "0");
+    const card = page.locator("#work li").first();
+    await card.hover({ position: { x: 200, y: 200 } });
+    await expect(label).toHaveText("Ver case →");
+    await expect(label).toHaveCSS("opacity", "1");
+    await card.click({ position: { x: 200, y: 200 } });
+    await expect(page).toHaveURL(/\/pt\/work\/engpocket$/);
+  });
+
   test("footer shows the local time in UTC−3", async ({ page }) => {
     await page.goto("/pt");
     await expect(page.locator("footer time")).toHaveText(/^\d{2}:\d{2}$/);

@@ -127,7 +127,8 @@
     "label": "Trabalhos selecionados",
     "meta": "{count} cases",
     "read": "Ler o case",
-    "goTo": "Ir para"
+    "goTo": "Ir para",
+    "cursor": "Ver case →"
   },
   "Case": {
     "allWork": "← Todos os trabalhos",

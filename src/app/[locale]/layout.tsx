@@ -6,6 +6,7 @@ import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { CursorLabel } from "@/components/motion/cursor-label";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { PersonJsonLd } from "@/components/seo/person-json-ld";
 import { getLanguageAlternates, openGraphLocale } from "@/lib/seo";
@@ -98,6 +99,7 @@ export default async function LocaleLayout({
       <body id="top" className="flex min-h-full flex-col">
         <PersonJsonLd locale={locale} />
         <SmoothScroll />
+        <CursorLabel />
         <NextIntlClientProvider>
           <SiteHeader />
           {children}
