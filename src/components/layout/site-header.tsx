@@ -41,7 +41,7 @@ export async function SiteHeader() {
             href={siteConfig.cv[locale]}
             external
             variant="outline"
-            className="hidden min-h-11 text-[0.6875rem] tracking-[0.22em] md:inline-flex"
+            className="hidden min-h-11 whitespace-nowrap text-[0.6875rem] tracking-[0.22em] md:inline-flex"
           >
             {t("cv")}
           </ButtonLink>

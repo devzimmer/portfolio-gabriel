@@ -18,13 +18,13 @@ test("header links point at home sections from any page", async ({ page }) => {
 test("header offers the CV download", async ({ page }) => {
   await page.goto("/pt");
   await expect(
-    page.getByRole("banner").getByRole("link", { name: "Baixar CV (PDF)" }),
+    page.getByRole("banner").getByRole("link", { name: "Currículo (PDF)" }),
   ).toHaveAttribute("href", "/cv-gabriel-zimmer-pt.pdf");
 });
 
 test("English pages offer the English CV", async ({ page }) => {
   await page.goto("/en");
-  await expect(page.getByRole("banner").getByRole("link", { name: /CV/ })).toHaveAttribute(
+  await expect(page.getByRole("banner").getByRole("link", { name: /Currículo/ })).toHaveAttribute(
     "href",
     "/cv-gabriel-zimmer-en.pdf",
   );

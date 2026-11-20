@@ -10,7 +10,7 @@
     "process": "Processo",
     "experience": "Experiência",
     "contact": "Contato",
-    "cv": "Baixar CV (PDF)"
+    "cv": "Currículo (PDF)"
   },
   "MobileMenu": {
     "open": "Abrir menu",
@@ -52,7 +52,7 @@
     "meta": "Trajetória",
     "title": "Cargos, escopo e o que cada um",
     "titleEmphasis": "mudou.",
-    "cv": "Baixar CV completo (PDF)",
+    "cv": "Baixar currículo completo (PDF)",
     "stack": "Stack"
   },
   "Contact": {
@@ -63,7 +63,7 @@
     "lede": "E-mail é o jeito mais rápido de falar comigo.",
     "linkedin": "LinkedIn",
     "github": "GitHub",
-    "cv": "CV (PDF)",
+    "cv": "Currículo (PDF)",
     "newTab": "abre em nova aba",
     "whatsapp": "Chamar no WhatsApp",
     "whatsappMessage": "Olá, Gabriel! Estava analisando o seu portfólio, vamos conversar?",
