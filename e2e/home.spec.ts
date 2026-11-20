@@ -54,7 +54,7 @@ test("experience lists every role, newest first, with no placeholder", async ({ 
     "Aurea Tech",
   ]);
   await expect(experience).not.toContainText("[");
-  await expect(experience.getByRole("link", { name: "Baixar CV completo (PDF)" })).toHaveAttribute("href", "/cv.pdf");
+  await expect(experience.getByRole("link", { name: "Baixar CV completo (PDF)" })).toHaveAttribute("href", "/cv-gabriel-zimmer-pt.pdf");
   await expect(experience.getByRole("link", { name: /Baixar CV completo/ })).toHaveAttribute("target", "_blank");
 });
 
@@ -70,7 +70,7 @@ test("contact gives a recruiter a way in, without a phone number", async ({ page
     "https://www.linkedin.com/in/gabrielzimmerdev/",
   );
   await expect(contact.getByRole("link", { name: /GitHub/ })).toHaveAttribute("target", "_blank");
-  await expect(contact.getByRole("link", { name: /CV/ })).toHaveAttribute("href", "/cv.pdf");
+  await expect(contact.getByRole("link", { name: /CV/ })).toHaveAttribute("href", "/cv-gabriel-zimmer-pt.pdf");
   await expect(contact.getByRole("link", { name: /CV/ })).toHaveAttribute("target", "_blank");
   await expect(page.locator("body")).not.toContainText(/\+55|telefone/i);
 });

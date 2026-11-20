@@ -19,7 +19,18 @@ test("header offers the CV download", async ({ page }) => {
   await page.goto("/pt");
   await expect(
     page.getByRole("banner").getByRole("link", { name: "Baixar CV (PDF)" }),
-  ).toHaveAttribute("href", "/cv.pdf");
+  ).toHaveAttribute("href", "/cv-gabriel-zimmer-pt.pdf");
+});
+
+test("English pages offer the English CV", async ({ page }) => {
+  await page.goto("/en");
+  await expect(page.getByRole("banner").getByRole("link", { name: /CV/ })).toHaveAttribute(
+    "href",
+    "/cv-gabriel-zimmer-en.pdf",
+  );
+  const res = await page.request.get("/cv-gabriel-zimmer-en.pdf");
+  expect(res.status()).toBe(200);
+  expect(res.headers()["content-type"]).toContain("application/pdf");
 });
 
 test("footer shows rights and a locale switcher", async ({ page }) => {

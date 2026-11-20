@@ -14,6 +14,7 @@ export function buildLlmsTxt(): string {
     "",
     `Looking for: ${siteConfig.seeking}`,
     `Contact: ${siteConfig.email} · LinkedIn: ${siteConfig.links.linkedin} · GitHub: ${siteConfig.links.github}`,
+    `CV (PDF): ${url}${siteConfig.cv.en} · Portuguese: ${url}${siteConfig.cv.pt}`,
     "",
     "## Case studies",
     "",

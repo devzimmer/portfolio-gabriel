@@ -31,8 +31,12 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_SITE_URL ??
     "https://portfolio-gabriel.devzimmer.workers.dev",
   email: "dev.gabrielzimmer@gmail.com",
-  // CV is published together with the site; the file lands in public/ before launch.
-  cvPath: "/cv.pdf",
+  // One-page CVs in public/: Portuguese on /pt, English everywhere else.
+  cv: {
+    pt: "/cv-gabriel-zimmer-pt.pdf",
+    en: "/cv-gabriel-zimmer-en.pdf",
+    es: "/cv-gabriel-zimmer-en.pdf",
+  },
   // WhatsApp is offered to Brazilian recruiters only. Set the number (any
   // format, country code included) to show the button on the pt pages.
   whatsapp: {

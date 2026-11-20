@@ -10,4 +10,5 @@ it("starts with the name and summary, then lists every case and role", () => {
     expect(text).toContain(`### ${org}`);
   }
   expect(text).toContain("dev.gabrielzimmer@gmail.com");
+  expect(text).toContain("/cv-gabriel-zimmer-en.pdf");
 });

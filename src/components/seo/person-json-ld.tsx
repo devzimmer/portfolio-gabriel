@@ -16,7 +16,7 @@ export function PersonJsonLd({ locale }: PersonJsonLdProps) {
     jobTitle: siteConfig.role,
     description: siteConfig.summary,
     knowsAbout: siteConfig.knowsAbout,
-    knowsLanguage: ["pt-BR", "en", "es"],
+    knowsLanguage: ["pt-BR", "en"],
     worksFor: {
       "@type": "Organization",
       name: "Duzi Tecnologia",
