@@ -6,7 +6,7 @@ export const siteConfig = {
   // English on purpose: read by search engines and AI assistants (JSON-LD, /llms.txt).
   summary:
     "AI-native full stack developer and product engineer based in Brazil (UTC−3). Builds and runs production software end to end with AI coding agents: TypeScript, Next.js, React, Node.js, Python, Supabase and PostgreSQL.",
-  seeking: "Remote roles as Full Stack Developer, AI Engineer or Product Engineer.",
+  seeking: "Remote or hybrid roles as Full Stack Developer, AI Engineer or Product Engineer.",
   knowsAbout: [
     "Full-stack development",
     "AI agents",

@@ -83,7 +83,7 @@ const pt: ExperienceEntry[] = [
     engagement: "Terceirizado pela Aurea Tech",
     location: "Remoto",
     summary:
-      "No primeiro turno, construí sistemas com IA para a comunicação da campanha do PL, incluindo a presidencial, num time de cinco pessoas e com prazos de dias.",
+      "No primeiro turno, construí sistemas com IA para a comunicação da campanha do PL, incluindo a presidencial, num time de cinco devs, com prazos de horas e tudo rodando ao vivo.",
     highlights: [
       {
         name: "Esteira de cortes",

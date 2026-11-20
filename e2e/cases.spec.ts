@@ -4,7 +4,6 @@ const cases = [
   ["engpocket", "EngPocket"],
   ["duzi-crm", "Duzi CRM"],
   ["lumuviz", "Lumuviz"],
-  ["tv-celular", "TV Celular"],
 ] as const;
 
 for (const [slug, title] of cases) {

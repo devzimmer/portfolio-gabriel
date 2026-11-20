@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-const items = ["subscriptions", "meta", "products", "clips"] as const;
+const items = ["subscriptions", "meta", "products"] as const;
 
 // The four results a recruiter should see before scrolling.
 export async function ProofStrip() {

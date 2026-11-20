@@ -1,7 +1,7 @@
 import type { StaticImageData } from "next/image";
 import type { Locale } from "next-intl";
 
-export type CaseSlug = "engpocket" | "duzi-crm" | "lumuviz" | "tv-celular";
+export type CaseSlug = "engpocket" | "duzi-crm" | "lumuviz";
 
 export type CaseMediaItem = {
   label: string;
