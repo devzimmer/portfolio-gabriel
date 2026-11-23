@@ -26,23 +26,16 @@ export const siteConfig = {
     "WhatsApp Business API",
     "Multi-tenant SaaS",
   ],
-  // TODO: substituir pelo domínio final assim que estiver configurado na Cloudflare.
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    "https://portfolio-gabriel.devzimmer.workers.dev",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://dev.gabrielzimmer.com.br",
+  // Email and phone are never written to the HTML as plain text: see
+  // components/ui/protected-contact.tsx.
   email: "dev.gabrielzimmer@gmail.com",
-  // One-page CVs in public/: Portuguese on /pt, English everywhere else.
+  whatsapp: "+55 51 99773-0087" as string | null,
+  // One-page CVs in public/. The English one is offered next to the Portuguese.
   cv: {
     pt: "/cv-gabriel-zimmer-pt.pdf",
-    en: "/cv-gabriel-zimmer-en.pdf",
-    es: "/cv-gabriel-zimmer-en.pdf",
   },
-  // WhatsApp is offered to Brazilian recruiters only. Set the number (any
-  // format, country code included) to show the button on the pt pages.
-  whatsapp: {
-    number: "+55 51 99773-0087" as string | null,
-    locales: ["pt"] as const,
-  },
+  cvEnglish: "/cv-gabriel-zimmer-en.pdf",
   countryCode: "BR",
   links: {
     github: "https://github.com/devzimmer",

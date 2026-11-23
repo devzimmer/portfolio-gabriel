@@ -22,20 +22,10 @@ test("header offers the CV download", async ({ page }) => {
   ).toHaveAttribute("href", "/cv-gabriel-zimmer-pt.pdf");
 });
 
-test("English pages offer the English CV", async ({ page }) => {
-  await page.goto("/en");
-  await expect(page.getByRole("banner").getByRole("link", { name: /Currículo/ })).toHaveAttribute(
-    "href",
-    "/cv-gabriel-zimmer-en.pdf",
-  );
-  const res = await page.request.get("/cv-gabriel-zimmer-en.pdf");
-  expect(res.status()).toBe(200);
-  expect(res.headers()["content-type"]).toContain("application/pdf");
-});
-
-test("footer shows rights and a locale switcher", async ({ page }) => {
+test("footer shows rights and local time, with no language switch", async ({ page }) => {
   await page.goto("/pt");
   const footer = page.getByRole("contentinfo");
   await expect(footer).toContainText("© 2026 Gabriel Zimmer");
-  await expect(footer.getByRole("link", { name: /^EN/ })).toHaveAttribute("href", "/en");
+  await expect(footer).toContainText("UTC−3");
+  await expect(footer.getByRole("link")).toHaveCount(0);
 });

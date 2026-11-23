@@ -34,6 +34,14 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  // Portuguese only for now: English and Spanish URLs land on the same page in
+  // Portuguese. Temporary (307) so the paths can come back with a translation.
+  async redirects() {
+    return [
+      { source: "/:lang(en|es)", destination: "/pt", permanent: false },
+      { source: "/:lang(en|es)/:path*", destination: "/pt/:path*", permanent: false },
+    ];
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

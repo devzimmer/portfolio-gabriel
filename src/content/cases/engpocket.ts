@@ -3,7 +3,6 @@ import whatsappRdo from "@/assets/cases/engpocket-whatsapp-rdo.webp";
 import painel from "@/assets/cases/engpocket-painel.webp";
 import type { CaseCopy, CaseStudy } from "./types";
 
-// Copy is authored in Portuguese; en/es reuse it until the translation pass.
 // Content rules: only traction number is "150+ assinaturas"; never name the
 // co-founder; office and budgeting modules are "em desenvolvimento".
 const pt: CaseCopy = {
@@ -112,5 +111,5 @@ const pt: CaseCopy = {
 
 export const engpocket: CaseStudy = {
   slug: "engpocket",
-  copy: { pt, en: pt, es: pt },
+  copy: { pt },
 };

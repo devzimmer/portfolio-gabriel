@@ -27,7 +27,6 @@ export function PersonJsonLd({ locale }: PersonJsonLdProps) {
     },
     url: `${siteConfig.url}/${locale}`,
     image: `${siteConfig.url}${portraitImage.src}`,
-    email: `mailto:${siteConfig.email}`,
     address: {
       "@type": "PostalAddress",
       addressCountry: siteConfig.countryCode,

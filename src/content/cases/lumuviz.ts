@@ -1,6 +1,5 @@
 import type { CaseCopy, CaseStudy } from "./types";
 
-// Copy is authored in Portuguese; en/es reuse it until the translation pass.
 // Content rules: pre-launch; numbers are benchmarks only; no test count until
 // the suite is confirmed green; never mention how the .skp format was studied.
 const pt: CaseCopy = {
@@ -105,5 +104,5 @@ const pt: CaseCopy = {
 
 export const lumuviz: CaseStudy = {
   slug: "lumuviz",
-  copy: { pt, en: pt, es: pt },
+  copy: { pt },
 };

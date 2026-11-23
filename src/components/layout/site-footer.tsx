@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import { LocalClock } from "./local-clock";
-import { LocaleSwitcher } from "./locale-switcher";
 
 export async function SiteFooter() {
   const t = await getTranslations("Footer");
@@ -12,7 +11,6 @@ export async function SiteFooter() {
         <p>
           {t("location")} · <LocalClock label={t("localTime")} />
         </p>
-        <LocaleSwitcher />
       </div>
     </footer>
   );

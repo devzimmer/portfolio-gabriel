@@ -63,15 +63,13 @@
     "newTab": "abre em nova aba",
     "whatsapp": "Chamar no WhatsApp",
     "whatsappMessage": "Olá, Gabriel! Estava analisando o seu portfólio, vamos conversar?",
-    "ledeWhatsapp": "O jeito mais rápido de falar comigo é pelo WhatsApp."
+    "ledeWhatsapp": "O jeito mais rápido de falar comigo é pelo WhatsApp.",
+    "cvEnglish": "Currículo em inglês (PDF)"
   },
   "Footer": {
     "rights": "© 2026 Gabriel Zimmer",
     "location": "Brasil · Remoto",
     "localTime": "Hora local"
-  },
-  "LocaleSwitcher": {
-    "label": "Alterar idioma"
   },
   "Glance": {
     "label": "Em resumo",

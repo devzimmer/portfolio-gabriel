@@ -2,7 +2,6 @@ import conversas from "@/assets/cases/duzi-conversas.webp";
 import gab from "@/assets/cases/duzi-gab.webp";
 import type { CaseCopy, CaseStudy } from "./types";
 
-// Copy is authored in Portuguese; en/es reuse it until the translation pass.
 // Content rules: no usage numbers; the Meta Tech Provider approval may be cited.
 const pt: CaseCopy = {
   title: "Duzi CRM",
@@ -104,5 +103,5 @@ const pt: CaseCopy = {
 
 export const duziCrm: CaseStudy = {
   slug: "duzi-crm",
-  copy: { pt, en: pt, es: pt },
+  copy: { pt },
 };

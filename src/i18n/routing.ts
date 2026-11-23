@@ -1,13 +1,12 @@
 import { defineRouting } from "next-intl/routing";
 
+// Portuguese only for now. /en and /es redirect to /pt (next.config.ts) until
+// the English version is written; adding a locale back is a one-line change
+// here plus its messages file.
 export const routing = defineRouting({
-  locales: ["en", "pt", "es"],
-  defaultLocale: "en",
+  locales: ["pt"],
+  defaultLocale: "pt",
   localePrefix: "always",
-  localeCookie: {
-    name: "NEXT_LOCALE",
-    maxAge: 60 * 60 * 24 * 365,
-    sameSite: "lax",
-  },
-  localeDetection: true,
+  localeCookie: false,
+  localeDetection: false,
 });

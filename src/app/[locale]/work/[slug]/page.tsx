@@ -39,13 +39,7 @@ export async function generateMetadata({ params }: CasePageProps): Promise<Metad
   return {
     title: copy.title,
     description: copy.card.summary,
-    alternates: {
-      canonical: `/${locale}${path}`,
-      languages: {
-        ...Object.fromEntries(routing.locales.map((l) => [l, `/${l}${path}`])),
-        "x-default": `/${routing.defaultLocale}${path}`,
-      },
-    },
+    alternates: { canonical: `/${locale}${path}` },
     openGraph: { title: copy.title, description: copy.card.summary, url: `/${locale}${path}` },
   };
 }

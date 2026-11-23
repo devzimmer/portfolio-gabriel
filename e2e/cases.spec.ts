@@ -23,10 +23,9 @@ test("unknown slug shows the not-found page and is not indexed", async ({ page }
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
 });
 
-test("locale switch keeps the case", async ({ page }) => {
-  await page.goto("/pt/work/duzi-crm");
-  await page.getByRole("contentinfo").getByRole("link", { name: /^EN/ }).click();
-  await expect(page).toHaveURL(/\/en\/work\/duzi-crm$/);
+test("an English case URL lands on the Portuguese case", async ({ page }) => {
+  await page.goto("/en/work/duzi-crm");
+  await expect(page).toHaveURL(/\/pt\/work\/duzi-crm$/);
 });
 
 test("case nav chains the cases", async ({ page }) => {

@@ -1,15 +1,17 @@
 import { getLocale, getTranslations } from "next-intl/server";
-import { ButtonLink } from "@/components/ui/button-link";
+import { buttonClasses } from "@/components/ui/button-link";
+import { EmailLink, WhatsAppLink } from "@/components/ui/protected-contact";
+import { obscureDigits, splitEmail } from "@/lib/contact";
 import { siteConfig } from "@/lib/site";
-import { whatsappHref } from "@/lib/whatsapp";
 
 export async function Contact() {
   const [t, locale] = await Promise.all([getTranslations("Contact"), getLocale()]);
-  const whatsapp = whatsappHref(locale, siteConfig.whatsapp, t("whatsappMessage"));
+  const whatsapp = siteConfig.whatsapp ? obscureDigits(siteConfig.whatsapp) : null;
   const links = [
     { label: t("linkedin"), href: siteConfig.links.linkedin, mark: "↗", external: true },
     { label: t("github"), href: siteConfig.links.github, mark: "↗", external: true },
     { label: t("cv"), href: siteConfig.cv[locale], mark: "↓", external: true },
+    { label: t("cvEnglish"), href: siteConfig.cvEnglish, mark: "↓", external: true },
   ];
 
   return (
@@ -33,20 +35,22 @@ export async function Contact() {
           >
             {t("title")} <em className="font-serif font-normal">{t("titleEmphasis")}</em>
           </h2>
-          <a
-            href={`mailto:${siteConfig.email}`}
+          <EmailLink
+            {...splitEmail(siteConfig.email)}
             className="mt-10 inline-flex min-h-12 items-center border-b border-fog/40 text-[clamp(1.25rem,2vw,1.75rem)] tracking-[-0.01em] transition-colors hover:border-fog"
-          >
-            {siteConfig.email}
-          </a>
+          />
           <p className="mt-5 text-base leading-relaxed text-mute">
             {whatsapp ? t("ledeWhatsapp") : t("lede")}
           </p>
           {whatsapp ? (
-            <ButtonLink href={whatsapp} variant="solid" external className="mt-6">
+            <WhatsAppLink
+              obscured={whatsapp}
+              message={t("whatsappMessage")}
+              className={`mt-6 ${buttonClasses("solid")}`}
+            >
               {t("whatsapp")} <span aria-hidden="true">↗</span>
               <span className="sr-only"> ({t("newTab")})</span>
-            </ButtonLink>
+            </WhatsAppLink>
           ) : null}
         </div>
         <ul className="flex-[1_1_17.5rem] border-t border-line">

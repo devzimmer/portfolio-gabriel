@@ -3,8 +3,8 @@ import { experience } from "@/content/experience";
 import { siteConfig } from "@/lib/site";
 
 // Plain-text profile for AI assistants and crawlers (https://llmstxt.org).
-// Built from the same content as the site, so it never drifts. Uses the "en"
-// copy, which falls back to Portuguese until the translation pass.
+// Built from the same content as the site, so it never drifts. The site is in
+// Portuguese for now; the summary above it is in English for global search.
 export function buildLlmsTxt(): string {
   const url = siteConfig.url;
   const lines: string[] = [
@@ -13,19 +13,19 @@ export function buildLlmsTxt(): string {
     `> ${siteConfig.summary}`,
     "",
     `Looking for: ${siteConfig.seeking}`,
-    `Contact: ${siteConfig.email} · LinkedIn: ${siteConfig.links.linkedin} · GitHub: ${siteConfig.links.github}`,
-    `CV (PDF): ${url}${siteConfig.cv.en} · Portuguese: ${url}${siteConfig.cv.pt}`,
+    `Contact: ${siteConfig.email.replace("@", " at ")} · LinkedIn: ${siteConfig.links.linkedin} · GitHub: ${siteConfig.links.github}`,
+    `CV (PDF): ${url}${siteConfig.cvEnglish} · Portuguese: ${url}${siteConfig.cv.pt}`,
     "",
     "## Case studies",
     "",
     ...cases.map((study) => {
-      const copy = study.copy.en;
-      return `- [${copy.title}](${url}/en/work/${study.slug}): ${copy.card.summary} Stack: ${copy.card.stack}.`;
+      const copy = study.copy.pt;
+      return `- [${copy.title}](${url}/pt/work/${study.slug}): ${copy.card.summary} Stack: ${copy.card.stack}.`;
     }),
     "",
     "## Experience",
     "",
-    ...experience.en.flatMap((entry) => [
+    ...experience.pt.flatMap((entry) => [
       `### ${entry.org} · ${entry.role} (${entry.period})`,
       "",
       entry.engagement ? `${entry.summary} (${entry.engagement}.)` : entry.summary,

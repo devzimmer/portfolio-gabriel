@@ -23,11 +23,6 @@ it("marks outsourced work and gives every role highlights and a stack", () => {
   }
 });
 
-it("reuses the Portuguese entries for every locale until translation", () => {
-  expect(experience.en).toEqual(experience.pt);
-  expect(experience.es).toEqual(experience.pt);
-});
-
 it("names no people from the campaign", () => {
   const text = JSON.stringify(experience);
   for (const banned of ["Duda", "Bolsonaro", "Rodrigo"]) {

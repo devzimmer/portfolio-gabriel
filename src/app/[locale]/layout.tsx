@@ -9,7 +9,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { CursorLabel } from "@/components/motion/cursor-label";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { PersonJsonLd } from "@/components/seo/person-json-ld";
-import { getLanguageAlternates, openGraphLocale } from "@/lib/seo";
+import { openGraphLocale } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import "lenis/dist/lenis.css";
 import "../globals.css";
@@ -63,7 +63,6 @@ export async function generateMetadata({
     creator: siteConfig.name,
     alternates: {
       canonical: `/${locale}`,
-      languages: getLanguageAlternates(),
     },
     openGraph: {
       type: "website",

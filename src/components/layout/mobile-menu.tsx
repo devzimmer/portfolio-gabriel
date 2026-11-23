@@ -6,7 +6,6 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { easeEditorial } from "@/lib/motion";
-import { LocaleSwitcher } from "./locale-switcher";
 
 type NavItem = {
   label: string;
@@ -174,9 +173,6 @@ export function MobileMenu({ items, siteName }: MobileMenuProps) {
                     ))}
                   </motion.nav>
 
-                  <div className="mt-auto border-t border-line pt-5">
-                    <LocaleSwitcher />
-                  </div>
                 </motion.div>
               )}
             </AnimatePresence>,

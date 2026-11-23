@@ -152,3 +152,9 @@
     }
   }
 }
+
+/* Email drawn from data attributes until the client renders the real link
+   (components/ui/protected-contact.tsx). */
+.email-parts::before {
+  content: attr(data-user) "\0040" attr(data-domain);
+}

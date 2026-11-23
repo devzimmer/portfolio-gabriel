@@ -16,6 +16,10 @@ const variants = {
   outline: "border border-edge text-fog hover:border-fog",
 } as const;
 
+export function buttonClasses(variant: keyof typeof variants, className?: string) {
+  return `${base} ${variants[variant]}${className ? ` ${className}` : ""}`;
+}
+
 export function ButtonLink({
   href,
   variant,
@@ -26,7 +30,7 @@ export function ButtonLink({
   return (
     <a
       href={href}
-      className={`${base} ${variants[variant]}${className ? ` ${className}` : ""}`}
+      className={buttonClasses(variant, className)}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {children}

@@ -58,6 +58,13 @@ test("experience lists every role, newest first, with no placeholder", async ({ 
   await expect(experience.getByRole("link", { name: /Baixar currículo completo/ })).toHaveAttribute("target", "_blank");
 });
 
+test("email and phone never appear verbatim in the served HTML", async ({ request }) => {
+  const html = await (await request.get("/pt")).text();
+  expect(html).not.toContain("dev.gabrielzimmer@gmail.com");
+  expect(html).not.toContain("5551997730087");
+  expect(html).not.toMatch(/mailto:|wa\.me/);
+});
+
 test("contact gives a recruiter a way in, without a phone number", async ({ page }) => {
   await page.goto("/pt");
   const contact = page.locator("#contact");
@@ -70,8 +77,9 @@ test("contact gives a recruiter a way in, without a phone number", async ({ page
     "https://www.linkedin.com/in/gabrielzimmerdev/",
   );
   await expect(contact.getByRole("link", { name: /GitHub/ })).toHaveAttribute("target", "_blank");
-  await expect(contact.getByRole("link", { name: /Currículo/ })).toHaveAttribute("href", "/cv-gabriel-zimmer-pt.pdf");
-  await expect(contact.getByRole("link", { name: /Currículo/ })).toHaveAttribute("target", "_blank");
+  await expect(contact.getByRole("link", { name: /^Currículo \(PDF\)/ })).toHaveAttribute("href", "/cv-gabriel-zimmer-pt.pdf");
+  await expect(contact.getByRole("link", { name: /^Currículo \(PDF\)/ })).toHaveAttribute("target", "_blank");
+  await expect(contact.getByRole("link", { name: /Currículo em inglês/ })).toHaveAttribute("href", "/cv-gabriel-zimmer-en.pdf");
   await expect(page.locator("body")).not.toContainText(/\+55|telefone/i);
 });
 
@@ -88,15 +96,15 @@ test("each case has a visible, distinctly named read button", async ({ page }) =
 });
 
 for (const locale of ["en", "es"]) {
-  test(`no WhatsApp contact on /${locale}`, async ({ page }) => {
+  test(`/${locale} redirects to the Portuguese site`, async ({ page }) => {
     await page.goto(`/${locale}`);
-    await expect(page.locator('a[href^="https://wa.me/"]')).toHaveCount(0);
+    await expect(page).toHaveURL(/\/pt$/);
   });
 }
 
 test("WhatsApp contact on /pt opens wa.me with a prefilled message", async ({ page }) => {
   const { siteConfig } = await import("../src/lib/site");
-  test.skip(!siteConfig.whatsapp.number, "WhatsApp number not configured yet");
+  test.skip(!siteConfig.whatsapp, "WhatsApp number not configured yet");
   await page.goto("/pt");
   const link = page.locator("#contact").getByRole("link", { name: /Chamar no WhatsApp/ });
   await expect(link).toHaveAttribute("href", /^https:\/\/wa\.me\/\d+\?text=/);

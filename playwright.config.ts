@@ -19,7 +19,7 @@ export default defineConfig({
     command: process.env.CI
       ? `npm run start -- -p ${port}`
       : `npm run dev -- -p ${port}`,
-    url: `http://localhost:${port}/en`,
+    url: `http://localhost:${port}/pt`,
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
   },

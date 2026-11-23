@@ -17,7 +17,6 @@ export type ExperienceEntry = {
   stack: string[];
 };
 
-// Copy is authored in Portuguese; en/es reuse it until the translation pass.
 // Sources: C:\dev\portfolio-extracts (git-based) and Gabriel's own corrections
 // of 2026-11-11. Aceleraí and the PL campaign were outsourced through Aurea Tech.
 const pt: ExperienceEntry[] = [
@@ -125,8 +124,4 @@ const pt: ExperienceEntry[] = [
   },
 ];
 
-export const experience: Record<Locale, ExperienceEntry[]> = {
-  pt,
-  en: pt,
-  es: pt,
-};
+export const experience: Record<Locale, ExperienceEntry[]> = { pt };
