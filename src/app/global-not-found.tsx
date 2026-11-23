@@ -9,8 +9,8 @@ import "./globals.css";
 // Any URL that matches no route. Renders outside the [locale] layout, so it
 // brings its own document, fonts and a minimal header and footer.
 export const metadata: Metadata = {
+  // Next.js adds the noindex robots tag to not-found responses itself.
   title: `${messages.NotFound.metaTitle} — ${siteConfig.name}`,
-  robots: { index: false },
 };
 
 export default function GlobalNotFound() {
