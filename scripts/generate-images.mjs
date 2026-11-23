@@ -141,14 +141,16 @@ function caseCard(study, index) {
 }
 
 // Lowercase "gz" in white on black. Rendered large and scaled down, which
-// keeps the letterforms clean at 16 px.
-function icon() {
+// keeps the letterforms clean at 16 px. The favicon gets rounded corners;
+// the Apple touch icon stays square because iOS applies its own mask.
+function icon({ rounded }) {
   return h(
     "div",
     {
       style: {
         display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "100%",
-        background: color.void, color: color.fog, fontFamily: "GeistSemi", fontSize: 300, letterSpacing: -18, paddingBottom: 40,
+        background: color.void, borderRadius: rounded ? 112 : 0,
+        color: color.fog, fontFamily: "GeistSemi", fontSize: 300, letterSpacing: -18, paddingBottom: 40,
       },
     },
     "gz",
@@ -178,10 +180,12 @@ const fonts = await loadFonts();
 const out = (path) => join(root, path);
 await mkdir(out("public/og"), { recursive: true });
 
-const master = await png(icon(), 512, 512, fonts);
-const resize = (size) => sharp(master).resize(size, size, { kernel: "lanczos3" }).png({ compressionLevel: 9 }).toBuffer();
+const rounded = await png(icon({ rounded: true }), 512, 512, fonts);
+const square = await png(icon({ rounded: false }), 512, 512, fonts);
+const resize = (size, master = rounded) =>
+  sharp(master).resize(size, size, { kernel: "lanczos3" }).png({ compressionLevel: 9 }).toBuffer();
 await writeFile(out("src/app/icon.png"), await resize(192));
-await writeFile(out("src/app/apple-icon.png"), await resize(180));
+await writeFile(out("src/app/apple-icon.png"), await resize(180, square));
 await writeFile(
   out("src/app/favicon.ico"),
   ico(await Promise.all([16, 32, 48].map(async (size) => ({ size, data: await resize(size) })))),
