@@ -1,7 +1,8 @@
 {
   "Metadata": {
     "title": "Gabriel Zimmer — AI-Native Full Stack Developer",
-    "description": "Gabriel Zimmer, desenvolvedor full stack e product engineer. Construo SaaS e agentes de IA em produção com TypeScript, React, Next.js, Node.js, Python e PostgreSQL."
+    "description": "Gabriel Zimmer, desenvolvedor full stack e product engineer. Construo SaaS e agentes de IA em produção com TypeScript, React, Next.js, Node.js, Python e PostgreSQL.",
+    "ogAlt": "Gabriel Zimmer, AI-Native Full Stack Developer, com o título do portfólio"
   },
   "Nav": {
     "label": "Principal",

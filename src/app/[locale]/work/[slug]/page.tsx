@@ -40,7 +40,13 @@ export async function generateMetadata({ params }: CasePageProps): Promise<Metad
     title: copy.title,
     description: copy.card.summary,
     alternates: { canonical: `/${locale}${path}` },
-    openGraph: { title: copy.title, description: copy.card.summary, url: `/${locale}${path}` },
+    openGraph: {
+      title: copy.title,
+      description: copy.card.summary,
+      url: `/${locale}${path}`,
+      images: [{ url: `/og/${slug}.png`, width: 1200, height: 630, alt: copy.title }],
+    },
+    twitter: { card: "summary_large_image", images: [`/og/${slug}.png`] },
   };
 }
 

@@ -28,6 +28,9 @@
     // Cloudflare Images binding used by next/image optimization.
     "binding": "IMAGES"
   },
+  // Custom domain. Deploying attaches it (and creates the DNS record) once it is
+  // no longer bound to another Worker in the account.
+  "routes": [{ "pattern": "dev.gabrielzimmer.com.br", "custom_domain": true }],
   "observability": {
     "enabled": true
   }
