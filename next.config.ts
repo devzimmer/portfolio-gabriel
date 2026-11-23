@@ -1,10 +1,34 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
-// Baseline security headers applied to every response served by the Worker.
-// A Content-Security-Policy is intentionally deferred until the design and
-// third-party integrations are final, so it can be written once and tested.
+const isDev = process.env.NODE_ENV === "development";
+
+// Content-Security-Policy: the site loads nothing from other origins, so every
+// fetch directive is 'self'. Scripts and styles keep 'unsafe-inline' because
+// the pages are prerendered (PPR): nonces would force per-request rendering,
+// and the hydration payload Next.js inlines cannot be hashed ahead of time.
+// The site takes no user input, which is what an injected inline script would
+// need. Dev adds 'unsafe-eval' and websockets for Fast Refresh.
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob:",
+  "font-src 'self'",
+  `connect-src 'self'${isDev ? " ws: wss:" : ""}`,
+  "media-src 'self'",
+  "worker-src 'self' blob:",
+  "manifest-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  ...(isDev ? [] : ["upgrade-insecure-requests"]),
+].join("; ");
+
+// Security headers applied to every response served by the Worker.
 const securityHeaders = [
+  { key: "Content-Security-Policy", value: contentSecurityPolicy },
   {
     key: "Strict-Transport-Security",
     value: "max-age=63072000; includeSubDomains",

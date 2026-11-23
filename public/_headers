@@ -1,4 +1,12 @@
 # https://developers.cloudflare.com/workers/static-assets/headers
+# Static files (PDFs, images, fonts) are served by the assets binding, not by
+# Next.js, so they get the baseline headers here. Pages get the full set,
+# Content-Security-Policy included, from next.config.ts.
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
 # https://opennext.js.org/cloudflare/caching#static-assets-caching
 /_next/static/*
   Cache-Control: public,max-age=31536000,immutable

@@ -66,3 +66,19 @@ test("skip link is the first stop and jumps to the content", async ({ page }) =>
   await page.keyboard.press("Enter");
   await expect(page.locator("#conteudo")).toBeFocused();
 });
+
+test("pages send a Content-Security-Policy and nothing on them breaks it", async ({ page }) => {
+  const violations: string[] = [];
+  page.on("console", (message) => {
+    if (/Content Security Policy/i.test(message.text())) violations.push(message.text());
+  });
+  for (const path of ["/pt", "/pt/work/duzi-crm", "/pt/nada-aqui"]) {
+    const res = await page.goto(path);
+    const csp = res?.headers()["content-security-policy"] ?? "";
+    expect(csp).toContain("default-src 'self'");
+    expect(csp).toContain("frame-ancestors 'none'");
+    expect(csp).toContain("object-src 'none'");
+    await page.waitForLoadState("networkidle");
+  }
+  expect(violations).toEqual([]);
+});
