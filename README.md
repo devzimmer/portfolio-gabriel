@@ -1,160 +1,89 @@
-# Portfólio — Gabriel Dutra Zimmer
+# Gabriel Zimmer · portfolio
 
-Site portfólio pessoal construído com Next.js, TypeScript, Tailwind CSS,
-Framer Motion e Lucide, com deploy em Cloudflare Workers.
+[![CI](https://github.com/devzimmer/portfolio-gabriel/actions/workflows/ci.yml/badge.svg)](https://github.com/devzimmer/portfolio-gabriel/actions/workflows/ci.yml)
+
+Source of [dev.gabrielzimmer.com.br](https://dev.gabrielzimmer.com.br), the portfolio of an AI-native full stack developer: three case studies (EngPocket, Duzi CRM, Lumuviz), work history and how I build with AI coding agents. The site is in Portuguese for now.
+
+![Home page](.github/assets/home.webp)
 
 ## Stack
 
-| Camada        | Tecnologia                                                       |
-| ------------- | ---------------------------------------------------------------- |
-| Linguagem     | [TypeScript](https://www.typescriptlang.org/)                    |
-| Framework     | [Next.js 16](https://nextjs.org/) (App Router)                   |
-| CSS           | [Tailwind CSS 4](https://tailwindcss.com/)                       |
-| Animações     | Canvas próprio (mãos em ASCII) e [Framer Motion](https://motion.dev/) no menu mobile |
-| Testes        | [Vitest](https://vitest.dev/) e [Playwright](https://playwright.dev/) |
-| Ícones        | [Lucide](https://lucide.dev/)                                    |
-| i18n          | [next-intl](https://next-intl.dev/)                              |
-| Deploy        | [Cloudflare Workers](https://developers.cloudflare.com/workers/) |
-| CDN / DNS     | [Cloudflare](https://www.cloudflare.com/)                        |
+- **Next.js 16** (App Router, Cache Components with Partial Prerendering), **React 19**, **TypeScript**
+- **Tailwind CSS 4**, next-intl, Lenis
+- **Cloudflare Workers** through OpenNext, with R2 as the incremental cache and Cloudflare Images
+- **Vitest** and Testing Library, **Playwright**, GitHub Actions
 
-O adapter usado para rodar Next.js na Cloudflare é o
-[`@opennextjs/cloudflare`](https://opennext.js.org/cloudflare).
+## Worth a look
 
-## Requisitos
+| Where | What |
+| --- | --- |
+| `src/components/ascii/` | The hands in the Process section: a pure, seeded engine (unit tested) and a small canvas component that draws it. A static frame replaces the animation under reduced motion. |
+| `src/components/work/cases-rail.tsx` | Selected work pins under the header on large screens and scrolls sideways with the page. Tabbing to an off-screen case scrolls to it, trackpad swipes work, and phones or reduced motion get a plain list. |
+| `src/components/motion/ink-text.tsx` | A statement that gains contrast word by word, done with CSS scroll-driven animations and no JavaScript. |
+| `src/components/ui/protected-contact.tsx` | Email and phone never appear in the served HTML or RSC payload. The address is drawn by CSS until hydration, then becomes a normal link. |
+| `next.config.ts` | Content-Security-Policy and security headers, with the reasoning for each trade-off. |
+| `scripts/generate-images.mjs` | Favicon and Open Graph cards rendered from code with `next/og` and the site's own fonts. |
+| `src/content/` | Case studies and experience as typed data. Tests enforce the content rules, such as which numbers may be cited and no placeholder text. |
+| `src/lib/llms.ts` | `/llms.txt`, a plain-text profile for AI assistants, built from the same content as the pages. |
 
-- Node.js 22+ (versão fixada em `.nvmrc`)
-- npm
-- Conta na Cloudflare (para deploy)
+Every page is prerendered. Unknown URLs get a designed 404 with the right status code. The site has a skip link, a focus-trapped mobile menu, touch targets of at least 44 px and `prefers-reduced-motion` support throughout, and the e2e suite checks these.
 
-## Desenvolvimento
+![Case study page](.github/assets/case.webp)
+
+## How it was built
+
+With Claude Code, in the same spec-first loop described on the site. A written spec and plan come first. Changes are small and come with their tests, and CI runs lint, types, unit and e2e tests and a dependency audit on every push. I make the architecture and product calls, and AI agents write and review the code.
+
+## Running it
+
+Requires Node.js 22+ (see `.nvmrc`).
 
 ```bash
-npm install
-npm run dev
+npm ci
+npm run dev          # http://localhost:3000/pt
 ```
 
-O site fica disponível em <http://localhost:3000>.
+| Script | What it does |
+| --- | --- |
+| `npm test` | Unit tests (Vitest) |
+| `npm run test:e2e` | End-to-end tests (Playwright; starts its own dev server) |
+| `npm run check` | Lint and typecheck |
+| `npm run build` | Production build |
+| `npm run images` | Regenerates the favicon and share images |
+| `npm run preview` | OpenNext build served in the Workers runtime |
+| `npm run deploy` | OpenNext build and deploy to Cloudflare |
 
-### Scripts
+### Deploying
 
-| Script             | Descrição                                              |
-| ------------------ | ------------------------------------------------------ |
-| `npm run dev`      | Servidor de desenvolvimento do Next.js                 |
-| `npm run build`    | Build de produção do Next.js                           |
-| `npm run start`    | Sobe o build do Next.js localmente                     |
-| `npm run lint`     | Roda o ESLint                                          |
-| `npm run typecheck` | Gera os tipos de rota e roda o TypeScript             |
-| `npm run check`    | Lint + typecheck                                       |
-| `npm test`         | Testes unitários (Vitest)                              |
-| `npm run test:e2e` | Testes end-to-end (Playwright)                         |
-| `npm run preview`  | Build do OpenNext + preview local no runtime do Worker |
-| `npm run deploy`   | Build do OpenNext + deploy na Cloudflare               |
-| `npm run upload`   | Build do OpenNext + upload de uma nova versão           |
-| `npm run cf-typegen` | Gera os tipos dos bindings da Cloudflare             |
+Once per account, create the R2 bucket used as the incremental cache:
 
-## Estrutura
+```bash
+npx wrangler r2 bucket create portfolio-gabriel-opennext-cache
+```
+
+Then run `npm run deploy`. `wrangler.jsonc` binds the custom domain, and Cloudflare creates the DNS record and certificate on the first deploy.
+
+## Project layout
 
 ```text
-messages/{en,pt,es}.json  # Textos curtos de UI (hoje todos em português; tradução pendente)
+messages/pt.json        UI strings
+scripts/                Image generation
 src/
-  app/
-    [locale]/
-      layout.tsx              # Layout por idioma, metadados, hreflang e JSON-LD
-      page.tsx                # Home: hero, em resumo, trabalhos, processo, experiência, contato
-      work/[slug]/page.tsx    # Página de case (gerada estaticamente por slug)
-    sitemap.ts                # Home e cases em todos os idiomas
+  app/                  Routes, metadata, sitemap, robots, llms.txt, 404
   components/
-    ascii/                    # Mãos em ASCII: engine pura + componente <canvas>
-    case/                     # Blocos das páginas de case
-    layout/                   # Header, footer, menu mobile, seletor de idioma
-    sections/                 # Seções da home
-    ui/                       # SectionLabel e ButtonLink
-  content/
-    cases/                    # Conteúdo tipado de cada case (pt; en/es reaproveitam)
-    experience.ts             # Trajetória profissional
-  lib/
-    case-routes.ts            # Detecta slugs de case inexistentes (usado no proxy)
-    site.ts                   # Dados do site, links e caminho do CV
-  proxy.ts                    # Idioma (next-intl) e 404 de cases inexistentes
-docs/
-  design/                     # Referências do canvas aprovado
-  superpowers/                # Spec e plano do redesign
-e2e/                          # Testes end-to-end (Playwright)
+    ascii/              Hands engine and canvas
+    case/               Case study blocks
+    layout/             Header, footer, mobile menu, skip link
+    motion/             Smooth scroll, cursor label, scroll-driven text
+    sections/           Home sections
+    work/               Horizontal case gallery
+    ui/                 Buttons, labels, protected contact links
+  content/              Case studies and experience (typed, tested)
+  lib/                  Site config, contact helpers, SEO, fonts
+  proxy.ts              Locale routing and 404 for unknown cases
+e2e/                    Playwright specs
 ```
 
-## Design
+---
 
-O design aprovado ("A — Editorial") está descrito em
-`docs/superpowers/specs/2026-11-05-portfolio-redesign-design.md`, com as
-referências visuais em `docs/design/`.
-
-- **Cores:** fundo `void` (#0A0A0A), texto `fog` (#F2F2F0), secundário `mute`
-  (#A0A0A0) e `dim` (#8C8C8C); superfície clara `paper` com texto `ink` e `ash`.
-- **Tipografia:** Geist, Geist Mono e Instrument Serif itálico.
-- **Mãos em ASCII:** a seção Processo abre com duas mãos desenhadas em
-  caracteres (a humana em densidade, a da máquina em símbolos de código), que se
-  revelam ao entrar na tela e trocam uma faísca `-=>`. Respeita
-  `prefers-reduced-motion` com um quadro estático.
-- **Conteúdo:** as regras do que pode ou não ser dito sobre cada projeto estão
-  na spec e são conferidas por testes em `src/content/cases/cases.test.ts`.
-
-## Pendências antes de publicar
-
-- Arte das mãos: a grade atual vem de uma imagem de referência e é
-  placeholder; substituir por fonte própria (afresco de domínio público ou foto).
-- Tradução de `en` e `es` (hoje reaproveitam o texto em português).
-- Experiência anterior a 2026 (linha placeholder) e CV em `public/cv.pdf`.
-- Screenshots dos projetos no lugar dos placeholders das páginas de case.
-- Imagem Open Graph, favicon e Content Security Policy.
-
-## Deploy na Cloudflare
-
-1. Autentique o Wrangler:
-
-   ```bash
-   npx wrangler login
-   ```
-
-2. Crie o bucket R2 usado como cache incremental (uma única vez):
-
-   ```bash
-   npx wrangler r2 bucket create portfolio-gabriel-opennext-cache
-   ```
-
-3. Faça o deploy:
-
-   ```bash
-   npm run deploy
-   ```
-
-O Worker será publicado em `https://portfolio-gabriel.<seu-subdominio>.workers.dev`.
-
-### Domínio próprio (CDN + DNS)
-
-1. Adicione o domínio na Cloudflare e aponte os nameservers no registrador.
-2. No dashboard, acesse **Workers & Pages → portfolio-gabriel → Settings →
-   Domains & Routes** e adicione o domínio (ex.: `gabrieldutrazimmer.dev`).
-3. A Cloudflare cria o registro DNS e emite o certificado automaticamente.
-4. Atualize `siteConfig.url` em `src/lib/site.ts` com o domínio final e faça um
-   novo deploy.
-
-### Variáveis de ambiente
-
-Para desenvolvimento local, copie `.dev.vars.example` para `.dev.vars`.
-Em produção, configure as variáveis em **Workers & Pages → Settings →
-Variables and Secrets** (ou via `wrangler secret put`).
-
-## Notas
-
-- `wrangler.jsonc` já configura os bindings de assets, cache R2 e otimização de
-  imagens (`IMAGES`).
-- O cache de assets estáticos é definido em `public/_headers`.
-- Headers de segurança (HSTS, nosniff, frame, referrer, permissions) ficam em
-  `next.config.ts`. A CSP será definida antes do lançamento.
-- O CI (`.github/workflows/ci.yml`) roda lint, typecheck, testes unitários, build, testes e2e e audit em cada
-  push e pull request.
-- `npm run preview` valida o build completo no runtime da Cloudflare antes do
-  deploy.
-- O Proxy do Next.js 16 roda no runtime Node.js. O OpenNext o suporta em modo
-  experimental; a negociação de idioma foi validada com `npm run preview` no
-  runtime real do Worker.
+The code is public so it can be read. The text, images and CVs are © Gabriel Zimmer.

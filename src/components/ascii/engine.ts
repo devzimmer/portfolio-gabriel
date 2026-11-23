@@ -1,5 +1,5 @@
 // Pure model of the ASCII hands animation: no DOM, deterministic per seed.
-// Behaviour approved in the design canvas (docs/design/ascii-hands-reference.js).
+// Two hands drawn in characters reach for each other and trade a spark.
 
 export const COLS = 180;
 export const ROWS = 34;
