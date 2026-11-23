@@ -21,12 +21,15 @@ const pt: CaseCopy = {
   media: [
     {
       image: conversas,
+      span: "wide",
       label: "Caixa de entrada do Duzi CRM no layout Foco, numa conta demo, com conversa aberta e nota interna da equipe",
       caption:
         "Vários atendentes no mesmo número, em tempo real, com a janela de 24 horas garantida no servidor.",
     },
     {
       image: gab,
+      span: "narrow",
+      focus: "62% top",
       label: "O Gab, assistente de IA do Duzi CRM, listando leads sem resposta com as fontes citadas, numa conta demo",
       caption: "O Gab só lê, responde com as permissões de quem pergunta e cita as fontes.",
     },

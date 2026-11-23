@@ -43,6 +43,30 @@ test("header nav from a case page reaches the home section", async ({ page }) =>
   await expect(page).toHaveURL(/\/pt#process$/);
 });
 
+test("case images open in a lightbox that steps with the arrows and closes with Escape", async ({
+  page,
+}) => {
+  await page.goto("/pt/work/engpocket");
+  const tile = page.getByRole("button", { name: /^Ampliar: .*relatório diário/ });
+  await tile.click();
+
+  const dialog = page.getByRole("dialog", { name: "Imagem ampliada" });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByText("01 / 03")).toBeVisible();
+  await expect(page.locator("html")).toHaveCSS("overflow", "hidden");
+
+  await page.keyboard.press("ArrowRight");
+  await expect(dialog.getByText("02 / 03")).toBeVisible();
+  await dialog.getByRole("button", { name: "Imagem anterior" }).click();
+  await page.keyboard.press("ArrowLeft");
+  await expect(dialog.getByText("03 / 03")).toBeVisible();
+
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+  await expect(tile).toBeFocused();
+  await expect(page.locator("html")).not.toHaveCSS("overflow", "hidden");
+});
+
 test("no horizontal overflow on a phone", async ({ browser }) => {
   const page = await browser.newPage({ viewport: { width: 375, height: 812 } });
   for (const path of ["/pt", "/pt/work/engpocket", "/pt/work/duzi-crm", "/pt/work/lumuviz"]) {

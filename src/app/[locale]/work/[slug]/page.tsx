@@ -6,7 +6,7 @@ import { CaseDiagram } from "@/components/case/case-diagram";
 import { CaseHighlight } from "@/components/case/case-highlight";
 import { CaseNav } from "@/components/case/case-nav";
 import { CaseSection } from "@/components/case/case-section";
-import { CaseMedia } from "@/components/case/case-media";
+import { CaseGallery } from "@/components/case/case-gallery";
 import { cases, getCase, getCaseNeighbours, isCaseSlug } from "@/content/cases";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
@@ -92,13 +92,7 @@ export default async function CasePage({ params }: CasePageProps) {
         </dl>
       </section>
 
-      {copy.media.length > 0 && (
-        <div className={`grid gap-6 px-gutter ${copy.media.length > 1 ? "md:grid-cols-2" : ""}`}>
-          {copy.media.map((media) => (
-            <CaseMedia key={media.label} {...media} tall={copy.media.length === 1} />
-          ))}
-        </div>
-      )}
+      {copy.media.length > 0 && <CaseGallery items={copy.media} />}
 
       <CaseSection number={1} id="problem" title={t("sections.problem")}>
         <div className="max-w-[68ch]">

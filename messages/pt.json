@@ -150,7 +150,15 @@
     "nextCase": "Próximo case",
     "backTo": "Voltar para",
     "allWorkShort": "Todos os trabalhos",
-    "navLabel": "Cases"
+    "navLabel": "Cases",
+    "gallery": {
+      "label": "Imagens do case",
+      "expand": "Ampliar",
+      "dialog": "Imagem ampliada",
+      "close": "Fechar",
+      "previous": "Imagem anterior",
+      "next": "Próxima imagem"
+    }
   },
   "NotFound": {
     "eyebrow": "Erro 404",

@@ -15,3 +15,15 @@ export function scrollToY(y: number, { immediate = false } = {}) {
   }
   window.scrollTo({ top: y, behavior: immediate ? "instant" : "smooth" });
 }
+
+/** Freezes page scrolling (smooth or native) while an overlay is open. */
+export function pauseScroll(): () => void {
+  const root = document.documentElement;
+  const previous = root.style.overflow;
+  root.style.overflow = "hidden";
+  current?.stop();
+  return () => {
+    root.style.overflow = previous;
+    current?.start();
+  };
+}
