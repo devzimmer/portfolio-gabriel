@@ -1,38 +1,19 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { SkipLink } from "@/components/layout/skip-link";
 import { CursorLabel } from "@/components/motion/cursor-label";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { PersonJsonLd } from "@/components/seo/person-json-ld";
+import { fontVariables } from "@/lib/fonts";
 import { openGraphLocale } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import "lenis/dist/lenis.css";
 import "../globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  display: "swap",
-});
 
 type LocaleLayoutProps = LayoutProps<"/[locale]">;
 
@@ -95,12 +76,13 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${fontVariables} h-full antialiased`}
     >
       <body id="top" className="flex min-h-full flex-col">
         <PersonJsonLd locale={locale} />
         <SmoothScroll />
         <CursorLabel />
+        <SkipLink />
         <NextIntlClientProvider>
           <SiteHeader />
           {children}

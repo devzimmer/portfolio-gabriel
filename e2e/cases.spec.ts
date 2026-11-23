@@ -16,12 +16,15 @@ for (const [slug, title] of cases) {
   });
 }
 
-test("unknown slug shows the not-found page and is not indexed", async ({ page }) => {
-  const res = await page.goto("/pt/work/nope");
-  expect(res?.status()).not.toBe(500);
-  await expect(page.getByText("404")).toBeVisible();
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
-});
+for (const path of ["/pt/work/nope", "/pt/nada-aqui"]) {
+  test(`${path} answers 404 with the designed page, not indexed`, async ({ page }) => {
+    const res = await page.goto(path);
+    expect(res?.status()).toBe(404);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Esta página não existe.");
+    await expect(page.getByRole("link", { name: "Voltar ao início" })).toHaveAttribute("href", "/pt");
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+  });
+}
 
 test("an English case URL lands on the Portuguese case", async ({ page }) => {
   await page.goto("/en/work/duzi-crm");

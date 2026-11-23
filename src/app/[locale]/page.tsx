@@ -8,7 +8,7 @@ import { SelectedWork } from "@/components/sections/selected-work";
 
 export default function HomePage() {
   return (
-    <main className="mx-auto w-full max-w-[90rem]">
+    <main id="conteudo" tabIndex={-1} className="mx-auto w-full max-w-[90rem] focus:outline-none">
       <Hero />
       <ProofStrip />
       <AtAGlance />

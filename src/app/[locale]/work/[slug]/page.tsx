@@ -61,7 +61,7 @@ export default async function CasePage({ params }: CasePageProps) {
   const position = cases.findIndex((c) => c.slug === slug) + 1;
 
   return (
-    <main className="mx-auto w-full max-w-[90rem]">
+    <main id="conteudo" tabIndex={-1} className="mx-auto w-full max-w-[90rem] focus:outline-none">
       <section className="flex flex-col gap-10 px-gutter pt-14 pb-16">
         <div className="flex flex-wrap justify-between gap-4 font-mono text-eyebrow uppercase tracking-[0.18em] text-mute">
           <Link href={{ pathname: "/", hash: "work" }} className="inline-flex min-h-11 items-center hover:text-fog">

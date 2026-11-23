@@ -43,3 +43,26 @@ test("home and case pages share their own preview image", async ({ page, request
   const icons = await page.locator('link[rel="icon"], link[rel="apple-touch-icon"]').count();
   expect(icons).toBeGreaterThanOrEqual(2);
 });
+
+test("mobile menu opens, closes with Escape and hands focus back", async ({ browser }) => {
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  await page.goto("/pt");
+  const trigger = page.getByRole("button", { name: "Abrir menu" });
+  await trigger.click();
+  const dialog = page.getByRole("dialog", { name: "Menu" });
+  await expect(dialog.getByRole("link", { name: "Experiência" })).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(dialog).toHaveCount(0);
+  await expect(trigger).toBeFocused();
+  await page.close();
+});
+
+test("skip link is the first stop and jumps to the content", async ({ page }) => {
+  await page.goto("/pt");
+  await page.keyboard.press("Tab");
+  const skip = page.getByRole("link", { name: "Pular para o conteúdo" });
+  await expect(skip).toBeFocused();
+  await expect(skip).toBeInViewport();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#conteudo")).toBeFocused();
+});

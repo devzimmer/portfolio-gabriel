@@ -22,6 +22,11 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   cacheComponents: true,
+  // The root layout lives under [locale], so URLs that match no route use
+  // app/global-not-found.tsx for a 404 in the site's own design.
+  experimental: {
+    globalNotFound: true,
+  },
   partialPrefetching: true,
   images: {
     qualities: [75, 85],

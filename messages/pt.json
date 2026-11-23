@@ -11,7 +11,8 @@
     "process": "Processo",
     "experience": "Experiência",
     "contact": "Contato",
-    "cv": "Currículo (PDF)"
+    "cv": "Currículo (PDF)",
+    "skip": "Pular para o conteúdo"
   },
   "MobileMenu": {
     "open": "Abrir menu",
@@ -150,5 +151,13 @@
     "backTo": "Voltar para",
     "allWorkShort": "Todos os trabalhos",
     "navLabel": "Cases"
+  },
+  "NotFound": {
+    "eyebrow": "Erro 404",
+    "title": "Esta página não existe.",
+    "lede": "O link pode ter mudado ou o endereço foi digitado errado.",
+    "home": "Voltar ao início",
+    "work": "Ver os cases",
+    "metaTitle": "Página não encontrada"
   }
 }

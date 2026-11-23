@@ -158,3 +158,43 @@
 .email-parts::before {
   content: attr(data-user) "\0040" attr(data-domain);
 }
+
+/* Mobile menu (components/layout/mobile-menu.tsx). The global reduced-motion
+   rule shortens these to an instant change. */
+.menu-panel {
+  animation: menu-fade 250ms var(--ease-editorial) both;
+}
+
+.menu-panel[data-state="closing"] {
+  animation: menu-fade-out 200ms var(--ease-editorial) both;
+}
+
+.menu-item {
+  animation: menu-rise 350ms var(--ease-editorial) both;
+}
+
+@keyframes menu-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes menu-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes menu-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
