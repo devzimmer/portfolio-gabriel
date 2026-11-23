@@ -7,20 +7,20 @@ import type { CaseCopy, CaseStudy } from "./types";
 // co-founder; office and budgeting modules are "em desenvolvimento".
 const pt: CaseCopy = {
   title: "EngPocket",
-  lede: "Gestão de obras para engenheiros civis, feita de dentro de uma conversa no WhatsApp.",
+  lede: "Gestão de obras para engenheiros civis, de dentro de uma conversa no WhatsApp.",
   card: {
     summary:
-      "Um agente de IA na API oficial do WhatsApp que cuida da papelada de obra para engenheiros civis: diário de obra por áudio, despesas por foto. Em produção desde janeiro de 2026, com mais de 150 assinaturas vendidas.",
-    stack: "Next.js · Supabase · OpenAI · WhatsApp API",
-    meta: "2026 · Cofundador, único engenheiro · No ar",
+      "Agente de IA na API oficial do WhatsApp que cuida da papelada de obra de engenheiros civis: diário de obra por áudio e despesas pela foto do comprovante. No ar desde janeiro de 2026, com mais de 150 assinaturas vendidas.",
+    stack: "Next.js · React · Supabase · PostgreSQL · OpenAI · WhatsApp API",
+    meta: "2026 · Cofundador e único engenheiro · No ar",
   },
   facts: [
-    { label: "Papel", value: "Cofundador, único engenheiro" },
+    { label: "Papel", value: "Cofundador e único engenheiro" },
     { label: "Período", value: "Janeiro de 2026 — hoje" },
     { label: "Tração", value: "150+ assinaturas vendidas" },
     {
       label: "Stack",
-      value: "Next.js 16 · Supabase · Deno · OpenAI · WhatsApp Cloud API",
+      value: "TypeScript · Next.js · React · Supabase · PostgreSQL · Deno · OpenAI · WhatsApp Cloud API",
     },
   ],
   media: [
@@ -50,16 +50,16 @@ const pt: CaseCopy = {
   built: [
     {
       title: "Um agente no WhatsApp com 11 ferramentas",
-      body: "Function calling sobre a OpenAI, com transcrição de áudio e visão: escreve o diário de obra a partir de áudios, lança despesas pela foto do comprovante, consulta normas técnicas e diagnostica patologias por imagem.",
+      body: "Tool calling na OpenAI, com transcrição de áudio e leitura de imagem. O agente escreve o diário de obra a partir de um áudio, lança despesas pela foto do comprovante, consulta normas técnicas e analisa patologias por foto.",
     },
     {
       title: "Um backend serverless",
-      body: "23 Edge Functions no Supabase e jobs no pg_cron substituíram um servidor n8n próprio. A cobrança roda por webhooks de três plataformas de checkout.",
+      body: "23 Edge Functions no Supabase e jobs no pg_cron substituíram um servidor n8n próprio. A cobrança recorrente chega por webhooks de três plataformas de checkout.",
     },
     {
       title: "Um escritório de agentes",
       tag: "Em desenvolvimento",
-      body: "Seis agentes em sequência analisam os arquivos de um cliente e redigem relatórios. O modelo lê e escreve; preços e cálculos ficam no código.",
+      body: "Seis agentes em sequência analisam os arquivos de um cliente e redigem relatórios. O modelo lê e escreve, e preços e cálculos ficam no código.",
     },
   ],
   diagram: {
@@ -87,7 +87,7 @@ const pt: CaseCopy = {
     },
     {
       title: "Manter o gateway do WhatsApp atrás de um único módulo",
-      body: "Envio e recebimento nunca vazaram para o agente, as ferramentas ou a cobrança. Foi essa fronteira que transformou o incidente abaixo numa correção de cinco dias, e não numa reescrita.",
+      body: "Envio e recebimento nunca vazaram para o agente, as ferramentas ou a cobrança. Por causa dessa fronteira, o incidente abaixo virou uma correção de cinco dias em vez de uma reescrita.",
     },
   ],
   highlight: {
@@ -95,15 +95,16 @@ const pt: CaseCopy = {
     figure: "5 dias",
     figureCaption: "do banimento à API oficial em produção",
     line: "O bot rodava num gateway não oficial de WhatsApp, e o número foi banido.",
-    body: "Escrevi o plano de migração no mesmo dia e entreguei em três fases: um webhook assinado, envio pela Graph API e templates aprovados para mensagens fora da janela de 24 horas. O agente, as ferramentas, a fila e a cobrança não mudaram. A lição que levo para todo projeto: escolher a API oficial cedo e manter dependências externas atrás de uma interface.",
+    body: "Escrevi o plano de migração no mesmo dia e entreguei em três fases: webhook assinado, envio pela Graph API e templates aprovados para mensagens fora da janela de 24 horas. O agente, as ferramentas, a fila e a cobrança não mudaram. Desde então, escolho a API oficial cedo e deixo cada dependência externa atrás de uma interface.",
   },
   ai: {
     stats: [
-      { figure: "156 / 206", caption: "commits em coautoria com o Claude Code" },
+      { figure: "9", caption: "documentos de sistema que os agentes leem antes de mexer no código" },
+      { figure: "3 fases", caption: "na migração para a API oficial, cada uma com plano aprovado antes" },
     ],
     notes: [
-      "Nove documentos de sistema escritos para agentes e para pessoas, atualizados na mesma mudança que o código.",
-      "Planos em fases antes do código, trabalho no banco via MCP e uma branch de staging que só chega à produção quando eu decido.",
+      "Os documentos de sistema servem para agentes e para pessoas, e são atualizados na mesma mudança que o código.",
+      "Trabalho no banco via MCP e uma branch de staging que só chega à produção quando eu decido.",
     ],
   },
   next: "Testes automatizados na cobrança e nas ferramentas do agente, headers de segurança globais e rate limiting; depois, lançar o escritório de agentes e o módulo de orçamentos.",

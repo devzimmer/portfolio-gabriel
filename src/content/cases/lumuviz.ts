@@ -4,15 +4,15 @@ import type { CaseCopy, CaseStudy } from "./types";
 // the suite is confirmed green; never mention how the .skp format was studied.
 const pt: CaseCopy = {
   title: "Lumuviz",
-  lede: "Modelar, renderizar, apresentar: ferramentas para arquitetos que ficaram de fora das grandes suítes.",
+  lede: "Modelagem 3D e render com IA para estudantes e escritórios pequenos de arquitetura.",
   card: {
     summary:
       "Uma linha de produtos para arquitetos: um modelador 3D com motor de geometria próprio que abre arquivos .skp sem o SketchUp, e um serviço de render com IA que transforma uma vista do modelo em imagem fotorrealista.",
     stack: "TypeScript · three.js · Electron · OpenAI",
-    meta: "2026 · Solo · Pré-lançamento",
+    meta: "2026 · Projeto individual · Pré-lançamento",
   },
   facts: [
-    { label: "Papel", value: "Solo, produto e engenharia" },
+    { label: "Papel", value: "Projeto individual, produto e engenharia" },
     { label: "Período", value: "Mai — Nov 2026" },
     { label: "Status", value: "Pré-lançamento · 2026" },
     {
@@ -80,7 +80,7 @@ const pt: CaseCopy = {
     },
   ],
   highlight: {
-    title: "Medido, não chutado",
+    title: "Decisões medidas",
     figure: "−58–73%",
     figureCaption: "de custo por render, em benchmark",
     line: "Toda mudança no render vem com os próprios números.",
@@ -89,14 +89,14 @@ const pt: CaseCopy = {
   ai: {
     stats: [
       {
-        figure: "159 / 175",
-        caption: "commits em coautoria com o Claude Code, somando os dois produtos",
+        figure: "1",
+        caption: "falha de segurança achada por revisão automatizada e fechada antes do lançamento",
       },
     ],
     notes: [
       "Spec, plano e execução por subagentes. A spec marca cada decisão como minha ou do agente, e cada plano lista os casos-limite que o revisor precisa conferir.",
       "Sessões paralelas em worktrees separados, e uma execução autônoma durante a madrugada que relatou o que ficou pronto, o que foi testado, o que não foi e o que dependia de decisão minha.",
-      "Um advisor de segurança do banco achou uma função que deixava qualquer um gerar créditos sem login. Ela foi fechada numa migration antes do lançamento.",
+      "A falha era uma função do banco que deixava qualquer pessoa gerar créditos sem login. Um advisor de segurança apontou, e uma migration fechou.",
     ],
   },
   next: "Lançar os dois produtos em 2026 e depois levar o render para dentro do modelador: mandar uma cena salva direto para o render com IA, sem sair do app.",

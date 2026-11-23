@@ -15,7 +15,7 @@ test("process section opens with the hands canvas and lists five steps", async (
   const process = page.locator("#process");
   await expect(process.locator("canvas[aria-hidden='true']")).toHaveCount(1);
   await expect(
-    page.getByRole("list").filter({ hasText: "Harness" }).getByRole("listitem"),
+    page.getByRole("list").filter({ hasText: "Code review" }).getByRole("listitem"),
   ).toHaveCount(5);
 });
 

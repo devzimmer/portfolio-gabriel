@@ -8,15 +8,15 @@ const pt: CaseCopy = {
   lede: "Um CRM de WhatsApp em que cada empresa traz o próprio número e nunca enxerga os dados de outra.",
   card: {
     summary:
-      "Um CRM de WhatsApp multi-inquilino sobre a Cloud API oficial da Meta, aprovado como Tech Provider. O isolamento entre empresas é garantido no Postgres e conferido por ~2.300 asserções pgTAP; o assistente de IA somente leitura tirou 30/30 na avaliação.",
-    stack: "Supabase · Postgres RLS · Deno · React",
-    meta: "2026 · Solo · No ar",
+      "CRM de WhatsApp multi-tenant sobre a API oficial da Meta, aprovado como Tech Provider. O isolamento entre empresas fica no PostgreSQL (RLS) e é coberto por cerca de 2.300 testes no banco. O assistente de IA, só de leitura, acertou 30 de 30 casos na avaliação.",
+    stack: "React · Supabase · PostgreSQL · Deno · Cloudflare",
+    meta: "2026 · Projeto individual · No ar",
   },
   facts: [
-    { label: "Papel", value: "Solo, do produto à produção" },
+    { label: "Papel", value: "Projeto individual, do produto à produção" },
     { label: "Período", value: "Set — Nov 2026 · 119 PRs" },
     { label: "Status", value: "No ar · Tech Provider aprovado pela Meta" },
-    { label: "Stack", value: "Supabase · Postgres · Deno · React 19 · Cloudflare" },
+    { label: "Stack", value: "TypeScript · React 19 · Supabase · PostgreSQL · Deno · Cloudflare" },
   ],
   media: [
     {
@@ -75,27 +75,30 @@ const pt: CaseCopy = {
     },
     {
       title: "Recomeçar limpo em vez de crescer um fork",
-      body: "A primeira versão era um fork open source endurecido, para um único cliente. Ao virar multi-inquilino, o modelo de token e de inquilino dele não servia mais; recomecei e portei as partes provadas, módulo a módulo. Desde então, toda migration tem rollback, testado up, down e up de novo no CI.",
+      body: "A primeira versão era um fork open source endurecido, para um único cliente. Quando o produto passou a atender várias empresas (multi-tenant), o modelo de token e de tenant dele não servia mais. Recomecei e portei as partes provadas, módulo a módulo. Desde então, toda migration tem rollback, testado up, down e up de novo no CI.",
     },
   ],
   highlight: {
-    title: "Prova, não promessa",
+    title: "Isolamento testado",
     figure: "~2.300",
-    figureCaption: "asserções pgTAP no banco",
-    line: "O isolamento entre empresas é testado, não presumido.",
+    figureCaption: "testes no banco (pgTAP) que provam o isolamento entre empresas",
+    line: "Cada tabela nova precisa provar que não vaza dados entre empresas.",
     body: "Uma matriz entre inquilinos quebra o build quando uma tabela nova com id de organização não é registrada. Uma checagem do catálogo barra tabelas sem row-level security e policies que sempre passam. Cerca de 945 testes em Deno cobrem as Edge Functions, e um job de concorrência roda dois workers contra o ledger de limite de envio em todo pull request.",
   },
   ai: {
     stats: [
-      { figure: "210 / 221", caption: "commits em coautoria com o Claude Code" },
-      {
+            {
         figure: "30 / 30",
-        caption: "na avaliação do assistente, incluindo os dois casos de prompt injection",
+        caption: "na avaliação do assistente de IA, incluindo dois casos de prompt injection",
+      },
+      {
+        figure: "21",
+        caption: "registros de decisão (ADRs) escritos antes do código",
       },
     ],
     notes: [
-      "AGENTS.md com 13 regras de segurança, 21 registros de decisão e um plano por fase, aprovado por mim antes de qualquer código.",
-      "Todo pull request que toca autenticação, tokens, RLS ou webhooks passa por uma revisão de segurança dedicada, feita por subagentes; os achados viram correções e testes.",
+      "AGENTS.md com 13 regras de segurança e um plano por fase, aprovado por mim antes de qualquer código.",
+      "Todo pull request que toca autenticação, tokens, RLS ou webhooks passa por uma revisão de segurança feita por subagentes. Os achados viram correções e testes.",
     ],
   },
   next: "Passar a Content Security Policy de report-only para bloqueio assim que o fluxo de signup da Meta rodar limpo, criar alertas para eventos mortos do webhook e separar staging de produção.",

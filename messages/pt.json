@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "Gabriel Zimmer — AI-Native Full Stack Developer",
-    "description": "Portfólio de Gabriel Zimmer, AI-Native Full Stack Developer. Software de ponta a ponta, da arquitetura e produto à infraestrutura, com IA como parte do processo."
+    "description": "Gabriel Zimmer, desenvolvedor full stack e product engineer. Construo SaaS e agentes de IA em produção com TypeScript, React, Next.js, Node.js, Python e PostgreSQL."
   },
   "Nav": {
     "label": "Principal",
@@ -18,10 +18,10 @@
     "label": "Menu"
   },
   "Hero": {
-    "eyebrow": "Product Engineer · Full Stack",
+    "eyebrow": "Full Stack · Product Engineer",
     "location": "Brasil · Remoto",
-    "secondary": "AI-Native Developer",
-    "tagline": "Software, de ponta a ponta.",
+    "secondary": "AI-Native Full Stack Developer",
+    "tagline": "Construo produtos com IA, do banco de dados ao deploy.",
     "ctaWork": "Ver cases",
     "ctaContact": "Fale comigo",
     "portraitAlt": "Retrato em preto e branco de Gabriel Zimmer"
@@ -31,31 +31,35 @@
     "items": {
       "subscriptions": {
         "figure": "150+",
-        "caption": "assinaturas vendidas do EngPocket, agente de IA no WhatsApp"
+        "caption": "assinaturas vendidas do EngPocket, agente de IA no WhatsApp para engenheiros civis"
       },
       "meta": {
         "figure": "Tech Provider",
-        "caption": "aprovado pela Meta com o Duzi CRM"
+        "caption": "aprovado pela Meta com o Duzi CRM, um CRM de WhatsApp multi-tenant"
+      },
+      "migration": {
+        "figure": "5 dias",
+        "caption": "para levar o EngPocket à API oficial do WhatsApp sem mudar o agente nem a cobrança"
       },
       "products": {
         "figure": "4 produtos",
-        "caption": "liderados para uma operação com mais de 40 vendedores"
+        "caption": "como Project Lead no Aceleraí, pela Aurea Tech, numa operação com mais de 40 vendedores"
       }
     }
   },
   "Experience": {
     "label": "03 — Experiência",
     "meta": "Trajetória",
-    "title": "Cargos, escopo e o que cada um",
-    "titleEmphasis": "mudou.",
+    "title": "Onde trabalhei e",
+    "titleEmphasis": "o que entreguei.",
     "cv": "Baixar currículo completo (PDF)",
     "stack": "Stack"
   },
   "Contact": {
     "label": "04 — Contato",
     "status": "Aberto a vagas remotas ou híbridas · UTC−3",
-    "title": "Procurando quem entregue software",
-    "titleEmphasis": "de ponta a ponta?",
+    "title": "Procurando um desenvolvedor full stack",
+    "titleEmphasis": "que entrega de ponta a ponta?",
     "lede": "E-mail é o jeito mais rápido de falar comigo.",
     "linkedin": "LinkedIn",
     "github": "GitHub",
@@ -75,15 +79,15 @@
     "label": "Em resumo",
     "focus": {
       "title": "Foco",
-      "body": "Agentes de IA · APIs do WhatsApp e da Meta · SaaS multi-inquilino"
+      "body": "Agentes de IA e LLMs (RAG, tool calling) · SaaS multi-tenant · WhatsApp Business API"
     },
     "ai": {
-      "title": "Fluxo com IA",
-      "body": "Claude Code, specs e ADRs, harness de agentes, evals"
+      "title": "Como trabalho",
+      "body": "Claude Code e Codex, specs e ADRs, testes automatizados, CI/CD"
     },
     "stack": {
       "title": "Stack",
-      "body": "TypeScript · Next.js · React · Supabase · Postgres · Python"
+      "body": "TypeScript · React · Next.js · Node.js · Python · PostgreSQL · Supabase"
     },
     "languages": {
       "title": "Idiomas",
@@ -93,30 +97,30 @@
   "Process": {
     "label": "02 — Processo",
     "meta": "Como trabalho com IA",
-    "title": "Intenção humana, execução da máquina —",
-    "titleEmphasis": "e julgamento em cada etapa.",
-    "lede": "A IA escreve o código e revisa. Eu decido o que é construído, como toma forma e o que pode ir para produção.",
+    "title": "Os agentes de IA escrevem o código.",
+    "titleEmphasis": "Eu decido o que vai para produção.",
+    "lede": "Defino a arquitetura, a spec e os testes. Os agentes implementam em mudanças pequenas, que passam por revisão de código por IA e pelo CI antes do deploy.",
     "stepsLabel": "Etapas do processo",
     "steps": {
       "spec": {
         "title": "Spec",
-        "body": "Planos e registros de decisão são escritos e aprovados antes de qualquer código."
+        "body": "Plano e registros de decisão (ADRs) escritos e aprovados antes de qualquer código."
       },
       "harness": {
-        "title": "Harness",
-        "body": "AGENTS.md, skills, MCP e um runbook curado dão aos agentes contexto, regras e ferramentas."
+        "title": "Contexto",
+        "body": "Cada repositório tem AGENTS.md, skills, MCP e um runbook para os agentes seguirem as regras do projeto."
       },
       "build": {
-        "title": "Build",
-        "body": "Mudanças pequenas e revisáveis contra a spec, com testes junto."
+        "title": "Implementação",
+        "body": "Mudanças pequenas, feitas contra a spec, com os testes automatizados na mesma entrega."
       },
       "review": {
-        "title": "Review",
-        "body": "Revisores de IA e subagentes de segurança conferem cada mudança. As decisões de arquitetura e o go/no-go são meus."
+        "title": "Code review",
+        "body": "Revisores de IA e subagentes de segurança conferem cada mudança. Arquitetura e go/no-go ficam comigo."
       },
       "ship": {
-        "title": "Ship",
-        "body": "CI, deploy e observabilidade — software que se sustenta em produção."
+        "title": "Deploy",
+        "body": "CI/CD, deploy e monitoramento para o software continuar de pé em produção."
       }
     }
   },
@@ -137,7 +141,7 @@
       "built": "O que construí",
       "architecture": "Arquitetura",
       "decisions": "Decisões-chave",
-      "ai": "Como a IA construiu",
+      "ai": "Como construí com IA",
       "next": "Próximos passos"
     },
     "previous": "Case anterior",
