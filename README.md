@@ -10,7 +10,7 @@ Source of [dev.gabrielzimmer.com.br](https://dev.gabrielzimmer.com.br), the port
 
 - **Next.js 16** (App Router, Cache Components with Partial Prerendering), **React 19**, **TypeScript**
 - **Tailwind CSS 4**, next-intl, Lenis
-- **Cloudflare Workers** through OpenNext, with R2 as the incremental cache and Cloudflare Images
+- **Cloudflare Workers** through OpenNext, serving the prerendered pages from static assets, with Cloudflare Images
 - **Vitest** and Testing Library, **Playwright**, GitHub Actions
 
 ## Worth a look
@@ -55,13 +55,7 @@ npm run dev          # http://localhost:3000/pt
 
 ### Deploying
 
-Once per account, create the R2 bucket used as the incremental cache:
-
-```bash
-npx wrangler r2 bucket create portfolio-gabriel-opennext-cache
-```
-
-Then run `npm run deploy`. `wrangler.jsonc` binds the custom domain, and Cloudflare creates the DNS record and certificate on the first deploy.
+`npm run deploy` builds and ships the Worker. `wrangler.jsonc` binds the custom domain, and Cloudflare creates the DNS record and certificate on the first deploy. Nothing else needs provisioning: the prerendered pages ship with the static assets.
 
 ## Project layout
 

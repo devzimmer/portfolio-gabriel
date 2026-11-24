@@ -16,14 +16,6 @@
       "service": "portfolio-gabriel"
     }
   ],
-  "r2_buckets": [
-    {
-      // Incremental cache for ISR / revalidation.
-      // Create it with: npx wrangler r2 bucket create portfolio-gabriel-opennext-cache
-      "binding": "NEXT_INC_CACHE_R2_BUCKET",
-      "bucket_name": "portfolio-gabriel-opennext-cache"
-    }
-  ],
   "images": {
     // Cloudflare Images binding used by next/image optimization.
     "binding": "IMAGES"
