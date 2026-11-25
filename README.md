@@ -26,7 +26,7 @@ Source of [dev.gabrielzimmer.com.br](https://dev.gabrielzimmer.com.br), the port
 | `src/content/` | Case studies and experience as typed data. Tests enforce the content rules, such as which numbers may be cited and no placeholder text. |
 | `src/lib/llms.ts` | `/llms.txt`, a plain-text profile for AI assistants, built from the same content as the pages. |
 
-Every page is prerendered. Unknown URLs get a designed 404 with the right status code. The site has a skip link, a focus-trapped mobile menu, touch targets of at least 44 px and `prefers-reduced-motion` support throughout, and the e2e suite checks these.
+Every page is prerendered. Unknown URLs get a designed 404 page that is never indexed. The site has a skip link, a focus-trapped mobile menu, touch targets of at least 44 px and `prefers-reduced-motion` support throughout, and the e2e suite checks these.
 
 ![Case study page](.github/assets/case.webp)
 

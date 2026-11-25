@@ -16,13 +16,24 @@ for (const [slug, title] of cases) {
   });
 }
 
-for (const path of ["/pt/work/nope", "/pt/nada-aqui"]) {
-  test(`${path} answers 404 with the designed page, not indexed`, async ({ page }) => {
+// An unknown case is rewritten by the proxy to the not-found page. A rewrite's
+// status is not reliable across runtimes (OpenNext on Workers keeps 200), so
+// that path is held to "designed page, never indexed"; other unknown URLs
+// must answer a real 404.
+for (const [path, status] of [
+  ["/pt/work/nope", null],
+  ["/pt/nada-aqui", 404],
+] as const) {
+  test(`${path} shows the designed 404 page, not indexed`, async ({ page }) => {
     const res = await page.goto(path);
-    expect(res?.status()).toBe(404);
+    if (status) expect(res?.status()).toBe(status);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Esta página não existe.");
     await expect(page.getByRole("link", { name: "Voltar ao início" })).toHaveAttribute("href", "/pt");
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    const robots = await page.locator('meta[name="robots"]').evaluateAll((tags) =>
+      tags.map((tag) => tag.getAttribute("content")),
+    );
+    expect(robots.length).toBeGreaterThan(0);
+    for (const content of robots) expect(content).toMatch(/noindex/);
   });
 }
 

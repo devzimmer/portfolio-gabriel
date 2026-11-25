@@ -9,9 +9,9 @@ export default function proxy(request: NextRequest) {
   const locale = unknownCaseLocale(request.nextUrl.pathname);
   if (locale) {
     // No route matches the rewritten path, so Next renders its not-found page
-    // (noindex) without ever running the case page for an unknown slug. Next
-    // answers 404; OpenNext on Workers keeps a rewrite at 200, but the page
-    // still carries noindex, so it never gets indexed.
+    // (noindex) without ever running the case page for an unknown slug. The
+    // status of a rewrite is not guaranteed (OpenNext on Workers keeps 200),
+    // but the page always carries noindex, so it never gets indexed.
     return NextResponse.rewrite(new URL(`/${locale}/work`, request.url));
   }
   return intlMiddleware(request);
