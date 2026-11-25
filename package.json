@@ -46,5 +46,10 @@
   },
   "engines": {
     "node": ">=22"
+  },
+  "overrides": {
+    "@opennextjs/aws": {
+      "cookie": "0.7.2"
+    }
   }
 }
