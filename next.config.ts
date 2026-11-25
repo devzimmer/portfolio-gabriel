@@ -3,19 +3,27 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const isDev = process.env.NODE_ENV === "development";
 
-// Content-Security-Policy: the site loads nothing from other origins, so every
-// fetch directive is 'self'. Scripts and styles keep 'unsafe-inline' because
-// the pages are prerendered (PPR): nonces would force per-request rendering,
-// and the hydration payload Next.js inlines cannot be hashed ahead of time.
-// The site takes no user input, which is what an injected inline script would
-// need. Dev adds 'unsafe-eval' and websockets for Fast Refresh.
+// Cloudflare Web Analytics: the edge injects its cookieless beacon into every
+// page, which loads from one origin and reports to another.
+const analytics = {
+  script: "https://static.cloudflareinsights.com",
+  connect: "https://cloudflareinsights.com",
+};
+
+// Content-Security-Policy: apart from the analytics beacon the site loads
+// nothing from other origins, so every other fetch directive is 'self'.
+// Scripts and styles keep 'unsafe-inline' because the pages are prerendered
+// (PPR): nonces would force per-request rendering, and the hydration payload
+// Next.js inlines cannot be hashed ahead of time. The site takes no user
+// input, which is what an injected inline script would need. Dev adds
+// 'unsafe-eval' and websockets for Fast Refresh.
 const contentSecurityPolicy = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline' ${analytics.script}${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
-  `connect-src 'self'${isDev ? " ws: wss:" : ""}`,
+  `connect-src 'self' ${analytics.connect}${isDev ? " ws: wss:" : ""}`,
   "media-src 'self'",
   "worker-src 'self' blob:",
   "manifest-src 'self'",
