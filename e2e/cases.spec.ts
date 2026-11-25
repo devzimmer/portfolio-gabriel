@@ -37,6 +37,25 @@ for (const [path, status] of [
   });
 }
 
+// Bots probe paths like these. They must get locale routing like any other
+// URL instead of reaching the [locale] route with the file name as a locale.
+for (const [path, landing] of [
+  ["/x.php", "/pt/x.php"],
+  ["/.env", "/pt/.env"],
+] as const) {
+  test(`${path} lands on the designed 404 at ${landing}`, async ({ page }) => {
+    const res = await page.goto(path);
+    expect(res?.status()).toBe(404);
+    expect(new URL(page.url()).pathname).toBe(landing);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Esta página não existe.");
+  });
+}
+
+test("a case URL with a file extension shows the designed 404", async ({ page }) => {
+  await page.goto("/pt/work/x.png");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Esta página não existe.");
+});
+
 test("an English case URL lands on the Portuguese case", async ({ page }) => {
   await page.goto("/en/work/duzi-crm");
   await expect(page).toHaveURL(/\/pt\/work\/duzi-crm$/);
